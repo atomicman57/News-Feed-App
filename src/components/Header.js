@@ -31,6 +31,7 @@ class Header extends React.Component
     auth2.signOut().then(function ()
     {
       console.log('User signed out.');
+     sessionStorage.clear();
 
     });
   }
@@ -39,8 +40,6 @@ class Header extends React.Component
   {
     gapi.load('auth2', function ()
     {
-
-      console.log("Loaded")
       gapi.auth2.init(
       {
         client_id: '811047390409-jvv9pei1sjf8f0d5ojfmig2ovgnrsvgt.apps.googleusercontent.com'
@@ -51,8 +50,9 @@ class Header extends React.Component
        
         if (GoogleAuth.isSignedIn.get())
         {
-
+          
           window.location.href = "#/dashboard"
+        
         }
       });
 
@@ -61,14 +61,15 @@ class Header extends React.Component
   render()
   {
 
-
-    if (this.checkLogin())
+    var Logged = sessionStorage.getItem('Logged');
+    console.log(Logged)
+    if (Logged == "true")
     {
      
       var navbar = <div>
           <li><Link to ="/dashboard">News</Link></li> 
           <li><Link to ="/favourites">Favourites</Link></li> 
-          <li><Link to = "/" onClick={this.SignOutHandler}>Log out</Link></li>
+          <li><a href="/" onClick={this.SignOutHandler}>Log out</a></li>
            </div>
     }
     else

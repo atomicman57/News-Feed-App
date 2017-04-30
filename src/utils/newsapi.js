@@ -4,7 +4,7 @@ import axios from "axios";
 export function getSources (){
 axios.get('https://newsapi.org/v1/sources')
   .then(function (response) {
-    return TheJson = response.data
+    
     console.log(response.data);
   })
   .catch(function (error) {

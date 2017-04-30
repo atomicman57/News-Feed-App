@@ -32,7 +32,8 @@ class Login extends React.Component {
   onSignIn(googleUser) {
     console.log(googleUser.getBasicProfile());
    window.location.href = "#/dashboard"
-  
+   sessionStorage.setItem('Logged', 'true');
+   location.reload()
   }
 
   render() {

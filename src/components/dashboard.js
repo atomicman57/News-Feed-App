@@ -1,21 +1,11 @@
 import React from "react";
 import axios from "axios";
+global.LoggedIn = true;
+import { getSources, getHeadline } from '../utils/newsapi.js';
 
 
 
 
-axios.get('https://newsapi.org/v1/sources')
-  .then(function (response) {
-    let TheJson = response.data
-    console.log(response.data);
-  })
-  .catch(function (error) {
-    console.log(error);
-  });
-(() => {
-
-  console.log(window.LoggedIn)
-})
 
 class Dashboard extends React.Component {
 
@@ -41,6 +31,8 @@ if(!GoogleAuth.isSignedIn.get()){
  
 componentDidMount() {
        window.addEventListener('google-loaded', this.checkLogin);
+
+       getSources()
 
   }
   
