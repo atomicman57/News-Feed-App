@@ -93,7 +93,7 @@ class Header extends React.Component
           
         </div>
         <div className="row-2">
-          <div id = "mylogo"> E - News Online </div>
+          <div id = "mylogo"> Fast E - News Online </div>
         </div>
     
       <div className="row-3">
@@ -107,6 +107,7 @@ class Header extends React.Component
         </div>
           
         </div>
+        <br />
         <h2>Welcome to Fast News Headline!</h2>
             
             
@@ -120,7 +121,7 @@ class Header extends React.Component
   </div>
 
   </HashRouter>
-        <a href="/" onClick={this.SignOutHandler}>Log out</a>
+       
       </div>
     );
   }

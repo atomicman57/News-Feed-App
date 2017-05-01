@@ -21,7 +21,7 @@ class Footer extends React.Component {
     	<div id="footer">
         <div className="indent">
           <div className="fleft">Designed by: Philips Blessing &nbsp;<a href="#"></a> </div>
-          <div className="fright">Copyright - Fast News Online</div>
+          <div className="fright">Copyright - Fast E - News Online</div>
         </div>
       </div>
         
