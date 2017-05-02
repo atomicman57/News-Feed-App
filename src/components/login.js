@@ -25,9 +25,7 @@ class Login extends React.Component {
       });
     }
 
-  componentDidMount() {
-      window.addEventListener('google-loaded', this.renderGoogleLoginButton);
-  }
+
 
   onSignIn(googleUser) {
     console.log(googleUser.getBasicProfile());
@@ -37,6 +35,8 @@ class Login extends React.Component {
   }
 
   render() {
+    this.renderGoogleLoginButton()
+
     return (
       <div className="container">
         <h2 className="form-signin-heading">

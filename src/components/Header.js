@@ -13,6 +13,7 @@ from 'react-router-dom'
 import Login from "./login";
 import Dashboard from "./dashboard";
 import Body from "./body";
+import Newsheadline from "./newsheadline";
 
 
 
@@ -23,6 +24,7 @@ class Header extends React.Component
     super(props);
     this.state = {};
     this.SignOutHandler = this.SignOutHandler.bind(this);
+    this.checkLogin = this.checkLogin.bind(this);
   }
 
   SignOutHandler()
@@ -62,7 +64,7 @@ class Header extends React.Component
   {
 
     var Logged = sessionStorage.getItem('Logged');
-    console.log(Logged)
+   
     if (Logged == "true")
     {
      
@@ -116,6 +118,7 @@ class Header extends React.Component
 
     <Route exact = {true} path = "/" component = {Login} />
   <Route name = "dashboard" path = "/dashboard" component = {Dashboard} />
+  <Route name = "headline" path = "/headline" component = {Newsheadline} />
   
   </div>
   </div>
@@ -130,4 +133,3 @@ class Header extends React.Component
 
 export default Header;
 
-console.log(global.LoggedIn)

@@ -13,9 +13,12 @@ class Newssources extends React.Component {
       sources: [],
       searchString: ''
     }
-this.handleChange = this.handleChange.bind(this)
+this.handleChange = this.handleChange.bind(this);
+
+
   }
   
+
 
 handleChange(e){
 
@@ -42,9 +45,7 @@ componentDidMount() {
      
 
   }
-  componentWillUnmount() {
-    this.serverRequest.abort();
-  }
+  
 
 
 
@@ -74,7 +75,7 @@ componentDidMount() {
                   <ul> 
 
                         { libraries.map(function(info){
-                            return (<div> <li>{info.name} <a href={info.url}>{info.url}</a> </li> </div>)
+                            return (<div> <li>{info.name} <a href={"#/headline?source="+ info.id }>View Headlines</a> </li> </div>)
                         }) }
 
                     </ul>
