@@ -58,12 +58,12 @@ componentDidMount() {
     return (
     	<div>
       <h1> Headlines </h1>
-        
+        <br />
         <div id = "headlines">
                   <ul> 
 
                         { libraries1.map(function(info){
-                            return (<div><li>{info.title} <a href={info.url} target="_blank">{info.url}</a> </li> </div>)
+                            return (<div><li><h3>{info.title}</h3></li> <li>{info.description}</li>  <li>Author: {info.author} </li> <li>View More: <a href={info.url} target="_blank">{info.url}</a></li> <br /> </div>)
                         }) }
 
                     </ul>

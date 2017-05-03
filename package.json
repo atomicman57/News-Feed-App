@@ -25,7 +25,8 @@
     "react-router": "^4.1.1",
     "react-router-dom": "^4.1.1",
     "sass-loader": "^6.0.3",
-    "webpack": "^2.4.1"
+    "webpack": "^2.4.1",
+    "webpack-dev-server": "^2.4.5"
   },
   "devDependencies": {
     "extract-text-webpack-plugin": "^2.1.0"

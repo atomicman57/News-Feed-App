@@ -75,7 +75,7 @@ componentDidMount() {
                   <ul> 
 
                         { libraries.map(function(info){
-                            return (<div> <li>{info.name} <a href={"#/headline?source="+ info.id }>View Headlines</a> </li> </div>)
+                            return (<div> <li> {info.name} <a href={"#/headline?source="+ info.id }>View Headlines</a> </li> </div>)
                         }) }
 
                     </ul>
