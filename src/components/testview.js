@@ -3,7 +3,7 @@ import newsstore from "../stores/newsstore"
 import * as actions from "../actions/newsactions"
 
 
-class Newssources extends React.Component {
+class Testview extends React.Component {
     constructor() {
         super();
         this.state = {
@@ -85,7 +85,7 @@ class Newssources extends React.Component {
 }
 
 
-export default Newssources;
+export default Testview;
 
 
 

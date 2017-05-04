@@ -2,7 +2,7 @@ import React from "react";
 import { Route, Redirect } from 'react-router'
 import Login from "./login";
 import Header from "./Header"
-
+import * as actions from "../actions/newsactions"
 
 class Body extends React.Component {
   constructor(props) {

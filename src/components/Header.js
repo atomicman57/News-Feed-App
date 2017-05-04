@@ -13,6 +13,7 @@ from 'react-router-dom'
 import Login from "./login";
 import Dashboard from "./dashboard";
 import Body from "./body";
+import Testview from "./testview";
 import Newsheadline from "./newsheadline";
 
 
@@ -119,6 +120,7 @@ class Header extends React.Component
     <Route exact = {true} path = "/" component = {Login} />
   <Route name = "dashboard" path = "/dashboard" component = {Dashboard} />
   <Route name = "headline" path = "/headline" component = {Newsheadline} />
+  <Route name = "testview" path = "/testview" component = {Testview} />
   
   </div>
   </div>

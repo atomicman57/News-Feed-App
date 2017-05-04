@@ -1,26 +1,42 @@
-import React from "react";
-import axios from "axios";
 
-export function getSources (){
-axios.get('https://newsapi.org/v1/sources')
-  .then(function (response) {
-    return TheJson = response.data
-    console.log(response.data);
-  })
-  .catch(function (error) {
-    console.log(error);
-  });
+import { EventEmitter } from "events";
+import dispatcher from "../dispatcher/dispatcher"
+
+class Newsstore extends EventEmitter {
+  constructor() {
+    super();
+    this.sources = [];
+    this.articles = [];
+  }
+
+
+  getSources() {
+    return this.sources;
+
+  }
+
+  getArticles() {
+    return this.articles;
+
+
+  }
+
+  resolveDispatch(message) {
+    switch (message.type) {
+      case "GET_SOURCES": {
+        this.sources = message.data;
+        this.emit("sources");
+        break;
+      }
+      case "GET_ARTICLES": {
+        this.articles = message.data;
+        this.emit("articlesLoaded");
+        break;
+      }
+    }
+  }
+
 }
-
-
-export function getHeadline (){
-axios.get(' https://newsapi.org/v1/articles?source=the-next-web&sortBy=latest&apiKey={213327409d384371851777e7c7f78dfe')
-  .then(function (response) {
-    return TheJson = response.data
-    console.log(response.data);
-  })
-  .catch(function (error) {
-    console.log(error);
-  });
-}
-
+const newsstore = new Newsstore;
+dispatcher.register(newsstore.resolveDispatch.bind(newsstore));
+export default newsstore;
