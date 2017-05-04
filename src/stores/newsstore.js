@@ -30,7 +30,7 @@ class Newsstore extends EventEmitter {
       }
       case "GET_ARTICLES": {
         this.articles = message.data;
-        this.emit("articlesLoaded");
+        this.emit("articles");
         break;
       }
     }
