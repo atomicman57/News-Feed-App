@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 class Footer extends React.Component {
   constructor(props) {
@@ -8,23 +8,22 @@ class Footer extends React.Component {
   }
 
   SignOutHandler() {
-    var auth2 = gapi.auth2.getAuthInstance();
-    auth2.signOut().then(function () {
+    const auth2 = gapi.auth2.getAuthInstance();
+    auth2.signOut().then(() => {
       console.log('User signed out.');
-      
     });
   }
 
   render() {
     return (
-    	<div>
-    	<div id="footer">
-        <div className="indent">
-          <div className="fleft">Designed by: Philips Blessing &nbsp;<a href="#"></a> </div>
-          <div className="fright">Copyright - Fast E - News Online</div>
+      <div>
+        <div id="footer">
+          <div className="indent">
+            <div className="fleft">Designed by: Philips Blessing &nbsp;<a href="#" /> </div>
+            <div className="fright">Copyright - Fast E - News Online</div>
+          </div>
         </div>
-      </div>
-        
+
       </div>
     );
   }
@@ -32,6 +31,4 @@ class Footer extends React.Component {
 
 
 export default Footer;
-
-
 

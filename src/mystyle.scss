@@ -1,45 +1,27 @@
-//colors
-$color_hunter_green_approx: #161616;
-$color_storm_dust_approx: #616161;
-$white: #fff;
-$color_thunderbird_approx: #c72d00;
-$color_milano_red_approx: #c72201;
-$red: #f00;
-$color_burnt_orange_approx: #c85504;
-$color_mountain_mist_approx: #929292;
-$color_mine_shaft_approx: #333;
+$color_1: #616161;
+$color_2: #c72d00;
+$color_3: #c72201;
+$color_4: #fff;
+$color_5: #f00;
+$color_6: white;
+$color_7: #7B8585;
+$color_8: #333;
+$font_family_1: Arial, Helvetica, sans-serif;
+$font_family_2: Tahoma, Geneva, sans-serif;
+$font_family_3: "Trebuchet MS", Arial, Helvetica, sans-serif;
+$background_color_1: #333;
+$background_color_2: #F8F8F8;
+$background_color_3: #d8f2f1;
 
-//fonts
-$font_0: Arial;
-$font_1: Helvetica;
-$font_2: sans-serif;
-$font_3: Tahoma;
-$font_4: Geneva;
-$font_5: Trebuchet MS;
-
-//urls
-$url_0: url(images/tail-top.jpg);
-$url_1: url(images/tail-bottom.gif);
-$url_2: url(images/link1-bg.gif);
-$url_3: url(images/link1-left.gif);
-$url_4: url(images/link1-right.gif);
-$url_5: url(images/divider.gif);
-$url_6: url(images/arrow1.gif);
-$url_7: url(images/input-bg.gif);
-$url_8: url(images/input-bg1.gif);
-$url_9: url(images/textarea-bg.gif);
-
-//@extend-elements
-//original selectors
-//input, select, textarea
-%extend_1 {
-	font-family: $font_0, $font_1, $font_2;
-	font-size: 1em;
-	vertical-align: middle;
-	font-weight: normal;
-}
-
-
+/* GLOBAL */
+/* tailings */
+/* forms parameters */
+/* other */
+/* txt, links, lines, titles */
+/* header */
+/* content */
+/* footer */
+/* forms */
 * {
 	margin: 0;
 	padding: 0;
@@ -49,11 +31,11 @@ html {
 }
 body {
 	height: 100%;
-	background: $color_hunter_green_approx;
-	font-family: $font_0, $font_1, $font_2;
+	background: #161616;
+	font-family: $font_family_1;
 	font-size: 100%;
 	line-height: 1.125em;
-	color: $color_storm_dust_approx;
+	color: $color_1;
 }
 img {
 	border: 0;
@@ -131,10 +113,10 @@ ol {
 }
 #footer {
 	height: 83px;
-	font-family: $font_3, $font_4, $font_2;
+	font-family: $font_family_2;
 	.indent {
 		padding: 27px 128px 0 49px;
-		color: $white;
+		color: $color_4;
 	}
 	img {
 		position: relative;
@@ -142,19 +124,28 @@ ol {
 	}
 }
 .tail-top {
-	background: $url_0 left top repeat-x $white;
+	// background: url(~/../images/tail-top.jpg) left top repeat-x #fff;
 }
 .tail-bottom {
-	background: $url_1 left bottom repeat-x;
+	// background: url(~/../images/tail-bottom.gif) left bottom repeat-x;
 }
 input {
-	@extend %extend_1;
+	font-family: $font_family_1;
+	font-size: 1em;
+	vertical-align: middle;
+	font-weight: normal;
 }
 select {
-	@extend %extend_1;
+	font-family: $font_family_1;
+	font-size: 1em;
+	vertical-align: middle;
+	font-weight: normal;
 }
 textarea {
-	@extend %extend_1;
+	font-family: $font_family_1;
+	font-size: 1em;
+	vertical-align: middle;
+	font-weight: normal;
 }
 .img-indent {
 	margin: 0 20px 0 0;
@@ -185,15 +176,15 @@ p {
 	margin-bottom: 27px;
 }
 a {
-	color: $color_thunderbird_approx;
+	color: $color_2;
 	outline: none;
 	&:hover {
 		text-decoration: none;
 	}
 }
 h2 {
-	font-family: $font_5, $font_0, $font_1, $font_2;
-	color: $color_thunderbird_approx;
+	font-family: $font_family_3;
+	color: $color_2;
 	font-size: 28px;
 	line-height: 1.2em;
 	font-weight: normal;
@@ -208,10 +199,10 @@ h4 {
 	font-size: 1em;
 	margin-bottom: 6px;
 	a {
-		color: $color_storm_dust_approx;
+		color: $color_1;
 		text-decoration: none;
 		&:hover {
-			color: $color_thunderbird_approx;
+			color: $color_2;
 			text-decoration: underline;
 		}
 	}
@@ -219,8 +210,8 @@ h4 {
 .link1 {
 	display: block;
 	float: right;
-	background: $url_2 left top repeat-x;
-	color: $color_milano_red_approx;
+	background: url(~/../images/link1-bg.gif) left top repeat-x;
+	color: $color_3;
 	text-decoration: none;
 	position: relative;
 	&:hover {
@@ -228,20 +219,20 @@ h4 {
 	}
 	em {
 		display: block;
-		background: $url_3 no-repeat left top;
+		background: url(~/../images/link1-left.gif) no-repeat left top;
 		float: left;
 	}
 	b {
 		display: block;
-		background: $url_4 no-repeat right top;
-		padding: 5px 20px;
+		background: url(~/../images/link1-right.gif) no-repeat right top;
+		padding: 5px 20px 5px 20px;
 		font-style: normal;
 		float: left;
 		span {
 			position: absolute;
 			left: 19px;
 			top: 4px;
-			color: $white;
+			color: $color_4;
 			cursor: pointer;
 		}
 	}
@@ -261,7 +252,7 @@ h4 {
 	}
 }
 .site-nav {
-	background: $url_5 no-repeat left top;
+	// background: url(~/../images/divider.gif) no-repeat left top;
 	width: 100%;
 	overflow: hidden;
 	li {
@@ -269,16 +260,16 @@ h4 {
 		a {
 			display: block;
 			float: left;
-			background: $url_5 no-repeat right top;
+			// background: url(~/../images/divider.gif) no-repeat right top;
 			height: 59px;
 			line-height: 59px;
-			color: $white;
+			color: $color_4;
 			text-decoration: none;
 			text-transform: uppercase;
 			font-weight: bold;
 			padding: 0 35px;
 			&:hover {
-				color: $color_thunderbird_approx;
+				color: $color_2;
 			}
 		}
 	}
@@ -297,14 +288,28 @@ h4 {
 	}
 	.inner_copy {
 		border: 0;
-		color: $red;
+		color: $color_5;
 		float: right;
-		width: 28%!important;
+		width: 28% !important;
 		margin: -123px auto 0;
 		overflow: hidden;
 		line-height: 0;
 		padding: 0;
 		font-size: 12px;
+	}
+}
+.img-list {
+	li {
+		width: 100%;
+		overflow: hidden;
+		padding-bottom: 2px;
+		img {
+			float: left;
+			margin-right: 20px;
+		}
+	}
+	li.last {
+		padding-bottom: 0;
 	}
 }
 .team-list {
@@ -313,13 +318,13 @@ h4 {
 		width: 100%;
 		overflow: hidden;
 		padding-bottom: 20px;
-		&.last {
-			padding-bottom: 0;
-		}
 		img {
 			float: left;
 			margin-right: 20px;
 		}
+	}
+	li.last {
+		padding-bottom: 0;
 	}
 }
 .articles-list {
@@ -328,9 +333,6 @@ h4 {
 		width: 100%;
 		overflow: hidden;
 		padding-bottom: 20px;
-		&.last {
-			padding-bottom: 0;
-		}
 		img {
 			float: left;
 			margin-right: 19px;
@@ -338,6 +340,9 @@ h4 {
 		p {
 			margin-bottom: 6px;
 		}
+	}
+	li.last {
+		padding-bottom: 0;
 	}
 }
 dl {
@@ -352,7 +357,7 @@ dl {
 .list1 {
 	padding-bottom: 18px;
 	li {
-		background: $url_6 no-repeat left 6px;
+		background: url(~/../images/arrow1.gif) no-repeat left 6px;
 		padding: 0 0 0 9px;
 		position: relative;
 	}
@@ -362,14 +367,14 @@ dl {
 	padding: 16px 0 0 50px;
 	fieldset {
 		border: none;
-		color: $white;
+		color: $color_4;
 		text-transform: uppercase;
 		font-size: .91em;
 	}
 	input.text {
 		width: 144px;
-		background: $url_7 left top repeat-x $white;
-		border: 1px solid $color_burnt_orange_approx;
+		background: url(./images/input-bg.gif) left top repeat-x #fff;
+		border: 1px solid #c85504;
 		text-transform: none;
 		padding: 1px 0 1px 3px;
 	}
@@ -413,18 +418,18 @@ dl {
 	input {
 		width: 190px;
 		padding: 1px 0 1px 3px;
-		background: $url_8 left top repeat-x $white;
-		border: 1px solid $color_mountain_mist_approx;
-		color: $color_storm_dust_approx;
+		background: url(./images/input-bg1.gif) left top repeat-x #fff;
+		border: 1px solid #929292;
+		color: $color_1;
 		float: left;
 	}
 	textarea {
 		width: 795px;
 		height: 130px;
 		padding: 1px 0 1px 3px;
-		background: $url_9 left top repeat-x $white;
-		border: 1px solid $color_mountain_mist_approx;
-		color: $color_storm_dust_approx;
+		background: url(./images/textarea-bg.gif) left top repeat-x #fff;
+		border: 1px solid #929292;
+		color: $color_1;
 		margin-bottom: 16px;
 		overflow: auto;
 		float: left;
@@ -434,22 +439,48 @@ dl {
 	font-size: 5em;
 	margin-top: 100px;
 	text-align: center;
-	color: $white;
+	color: $color_6;
 	position: absolute;
 }
 #navlayer {
-	background-color: $color_mine_shaft_approx;
+	background-color: $background_color_1;
 	width: 100%;
 }
-.img-list li {
-	width: 100%;
-	overflow: hidden;
-	padding-bottom: 2px;
-	&.last {
-		padding-bottom: 0;
+input[type=text] {
+	text-align: center;
+	font: inherit;
+	border: 6px solid #333;
+	padding: 13px 12px;
+	font-size: 15px;
+	box-shadow: 0 1px 1px #DDD;
+	width: 384px;
+	outline: none;
+	display: block;
+	color: $color_7;
+	margin: 0 auto 20px;
+}
+#sources {
+	ul {
+		list-style: none;
+		display: inline-block;
+		width: 60%;
+		text-align: left;
+		li {
+			display: block;
+			padding: 15px 20px;
+			background-color: $background_color_2;
+			color: $color_8;
+			margin-bottom: 3px;
+			position: relative;
+			transition: 0.3s;
+			a {
+				color: $color_8;
+				text-decoration: none;
+			}
+			&:hover {
+				background-color: $background_color_3;
+			}
+		}
 	}
-	img {
-		float: left;
-		margin-right: 20px;
-	}
+	text-align: center;
 }
