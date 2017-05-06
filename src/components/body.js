@@ -1,8 +1,5 @@
 import React from 'react';
-import { Route, Redirect } from 'react-router';
-import Login from './login';
-import Header from './Header';
-import * as actions from '../actions/newsactions';
+
 
 class Body extends React.Component {
   constructor(props) {
@@ -10,6 +7,11 @@ class Body extends React.Component {
     this.state = {};
     this.SignOutHandler = this.SignOutHandler.bind(this);
     this.checkLogin = this.checkLogin.bind(this);
+  }
+
+
+  componentWillMount() {
+    window.addEventListener('google-loaded', this.checkLogin);
   }
 
   SignOutHandler() {
@@ -28,35 +30,14 @@ class Body extends React.Component {
         console.log(GoogleAuth.isSignedIn.get());
         if (GoogleAuth.isSignedIn.get()) {
           window.location.href = '#/dashboard';
-        }
+        } else { window.location.href = '#/'; }
       });
     });
   }
 
-
-  componentWillMount() {
-    window.addEventListener('google-loaded', this.checkLogin);
-  }
-
-
   render() {
-    
     return (
-      <div>
-        <Header />
-        <div id="content">
-          <div className="wrapper">
-            <div className="col-1">
-              <div className="section" />
-              <div className="col-2">
-                <div className="section" />
-
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div>
+      <div />
     );
   }
 }

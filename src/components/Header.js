@@ -1,17 +1,7 @@
 import React from 'react';
 import
-{
-  BrowserRouter as Router,
-  Route,
-  Link,
-  browserHistory,
-  HashRouter,
-}
-from 'react-router-dom';
-import Login from './login';
-import Dashboard from './dashboard';
-import Testview from './testview';
-import Newsheadline from './newsheadline';
+{ Link, HashRouter }
+  from 'react-router-dom';
 
 
 class Header extends React.Component {
@@ -20,14 +10,21 @@ class Header extends React.Component {
     this.state = {};
     this.SignOutHandler = this.SignOutHandler.bind(this);
     this.checkLogin = this.checkLogin.bind(this);
+    this.navbar = (<div>
+      <li><Link to="/">Sign In</Link></li>
+
+    </div>);
   }
 
   SignOutHandler() {
     const auth2 = gapi.auth2.getAuthInstance();
+    this.navbar = (<div>
+      <li><Link to="/login">Sign In</Link></li>
+
+    </div>);
+    location.reload();
     auth2.signOut().then(() => {
-      console.log('User signed out.');
-      location.reload();
-      sessionStorage.clear();
+       sessionStorage.clear();
     });
   }
 
@@ -38,66 +35,58 @@ class Header extends React.Component {
           client_id: '811047390409-jvv9pei1sjf8f0d5ojfmig2ovgnrsvgt.apps.googleusercontent.com',
         }).then((auth2) => {
           const GoogleAuth = gapi.auth2.getAuthInstance();
-          console.log(GoogleAuth.isSignedIn.get());
-
           if (GoogleAuth.isSignedIn.get()) {
-            window.location.href = '#/dashboard';
+            this.navbar = (<div>
+             this.navbar = (<div>
+              <li><Link to="/dashboard">News</Link></li>
+              <li><Link to="/favourites">Favourites</Link></li>
+              <li><a href="/" onClick={this.SignOutHandler}>Log out</a></li>
+            </div>);
+
+            </div>);
+
+          } else {
+            
+             <li><a href="#/login" onClick={this.reloadme} >Sign In</a></li>
           }
+
         });
     });
   }
+  reloadme() {
+    location.reload();
+  }
   render() {
     const Logged = sessionStorage.getItem('Logged');
-
     if (Logged === 'true') {
-      var navbar = (<div>
-        <li><Link to="/dashboard">News</Link></li>
+      this.navbar = (<div>
+        <li><Link to="/dashboard" onClick={this.reloadme}>News</Link></li>
         <li><Link to="/favourites">Favourites</Link></li>
         <li><a href="/" onClick={this.SignOutHandler}>Log out</a></li>
       </div>);
     } else {
-      var navbar = (<div>
-        <li><Link to="/">Sign In</Link></li>
+      this.navbar = (<div>
+        <li><a href="#/login" onClick={this.reloadme} >Sign In</a></li>
 
       </div>);
     }
     return (
       <div>
         <HashRouter>
-          <div>
-            <div>
-              <div id="header">
-                <div className="row-1" />
-                <div className="row-2">
-                  <div id="mylogo"> Fast E - News Online </div>
-                </div>
-
-                <div className="row-3">
-
-                  <ul className="site-nav">
-
-                    {navbar}
-
-                  </ul>
-                </div>
+          <div className="wrapper row1">
+            <header id="header" className="clear">
+              <div id="hgroup">
+                <h1><a href="#/">Fast E-News</a></h1>
+                <h2>Your Source for all news </h2>
               </div>
+              <nav>
+                <ul>
+                  {this.navbar}
 
-            </div>
-            <br />
-            <h2>Welcome to Fast News Headline!</h2>
-
-
-            <div>
-
-
-              <Route exact path="/" component={Login} />
-              <Route name="dashboard" path="/dashboard" component={Dashboard} />
-              <Route name="headline" path="/headline" component={Newsheadline} />
-              <Route name="testview" path="/testview" component={Testview} />
-
-            </div>
+                </ul>
+              </nav>
+            </header>
           </div>
-
         </HashRouter>
 
       </div>

@@ -53,7 +53,7 @@ class Testview extends React.Component {
         <div id="headlines">
           <ul>
 
-            {libraries1.map(info => (<div><li><h3>{info.title}</h3></li> <li>{info.description}</li>                     <li>Author: {info.author} </li> <li>View More: <a href={info.url} target="_blank">{info.url}</a></li> <br /> </div>))}
+            {libraries1.map(info => (<div><li><h3>{info.title}</h3></li> <li>{info.description}</li>                               <li>Author: {info.author} </li> <li>View More: <a href={info.url} target="_blank">{info.url}</a></li> <br /> </div>))}
 
           </ul>
 

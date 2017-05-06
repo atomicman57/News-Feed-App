@@ -14,6 +14,18 @@ class Newsheadline extends React.Component {
     this.getHeadlines = this.getHeadlines.bind(this);
   }
 
+  componentWillMount() {
+    const urldata = queryString.parse(this.props.location.search);
+    const source = urldata.source;
+    const sort = urldata.sortBy;
+    this.updateHeadlines(source, sort);
+    newsstore.on('articles', this.getHeadlines);
+  }
+
+  componentWillUnmount() {
+    newsstore.removeListener('articles', this.getHeadlines);
+  }
+
   getHeadlines(source, sort) {
     this.setState({
       headlines: newsstore.getArticles(),
@@ -27,39 +39,35 @@ class Newsheadline extends React.Component {
     actions.getHeadlines(source, sort);
   }
 
-  componentWillMount() {
-    console.log(source);
-    const urldata = queryString.parse(this.props.location.search);
-    let source = urldata.source;
-    let sort = urldata.sortBy;
-    this.updateHeadlines(source, sort);
-    newsstore.on('articles', this.getHeadlines);
-  }
-
-
-  componentWillUnmount() {
-    newsstore.removeListener('articles', this.getHeadlines);
-  }
-
-
   render() {
-    const libraries1 = this.state.headlines;
-    console.log(libraries1);
-
-
+    const headlines = this.state.headlines;
+    const urldata = queryString.parse(this.props.location.search);
+    console.log(urldata)
+    const sourcename = urldata.name;
+    const sorted = urldata.sortBy;
+     console.log(sourcename)
+     
     return (
       <div>
-        <h1> Headlines </h1>
+        <h1>{sourcename} {sorted} Headlines </h1>
         <br />
-        <div id="headlines">
-          <ul>
 
-            {libraries1.map((info, index) => (<div><li key={index}><h3>{info.title}</h3></li> <li>{info.description}</li>                     <li>Author: {info.author} </li> <li><a href={info.url} target="_blank">View More...</a></li> <br /> </div>))}
-
-          </ul>
-
-        </div>
-
+            {headlines.map(info =>
+              (<div>
+                <div className="card">
+                   <img src={info.urlToImage} alt="John" style={{width:100 + '%'}} />
+                  <div className="container">
+                    <br/>
+                <h1>{info.title}</h1> 
+                <p>{info.description}</p>
+                <p>Author: {info.author} </p>
+                <a href={info.url} target="_blank" rel="noopener noreferrer" >View More...</a>
+                 <br /> 
+                </div>
+                  </div>
+                </div>))
+                }
+                <div className ="loader"></div>
       </div>
     );
   }

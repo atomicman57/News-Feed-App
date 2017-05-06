@@ -11,8 +11,20 @@ class Newssources extends React.Component {
       searchString: '',
     };
     this.getSources = this.getSources.bind(this);
+    this.updateSources = this.updateSources.bind(this);
     this.handleChange = this.handleChange.bind(this);
   }
+
+
+  componentWillMount() {
+    this.updateSources();
+    newsstore.on('sources', this.getSources);
+  }
+
+  componentWillUnmount() {
+    newsstore.removeListener('sources', this.getSources);
+  }
+
 
   getSources() {
     this.setState({
@@ -26,51 +38,53 @@ class Newssources extends React.Component {
   updateSources() {
     actions.getSources();
   }
-  componentWillMount() {
-    this.updateSources();
-    newsstore.on('sources', this.getSources);
-  }
 
-  componentWillUnmount() {
-    newsstore.removeListener('sources', this.getSources);
-  }
 
   handleChange(e) {
     this.setState({ searchString: e.target.value });
   }
 
-
   render() {
-    let sources = this.state.sources,
-      searchString = this.state.searchString.trim().toLowerCase();
+    let sources = this.state.sources;
+    const searchString = this.state.searchString.trim().toLowerCase();
     if (searchString.length > 0) {
-            // We are searching. Filter the results.
+      // We are searching. Filter the results.
 
       sources = sources.filter(l => l.name.toLowerCase().match(searchString));
     }
     return (
       <div>
-        <input type="text" value={this.state.searchString} onChange={this.handleChange} placeholder="Search Sources Here" />
-        <div id="sources">
-          <ul>
+        
+        <input
+          type="text" value={this.state.searchString}
+          onChange={this.handleChange} placeholder="Search"
+        />
+        
+        {sources.map((info) => {
+          const sortBy = info.sortBysAvailable;
+          return (
+            <div>
 
-            { sources.map((info, index) => {
-              const sortBy = info.sortBysAvailable;
-              return (<li key={index}> {info.name} &nbsp;
-                {sortBy.map((options, index) => (<span>
-                  <a href={`#/headline?source=${info.id}&sortBy=${options}`}> [{options}] </a>
+              <div className="card">
+                <br /><br /><br />
+                <div className="container">
+                  <h1> {info.name}</h1>
+                  <p className="title">{info.description}</p>
+                  {sortBy.map(options => (
+                    <p> <a href={`#/headline?source=${info.id}&name=${info.name}&sortBy=${options}`}> {options} news </a> </p>
 
-                </span>))
-                        }
-              </li>);
-            })
-                        }
-
-          </ul>
-
-        </div>
-
+                  ))
+                  }
+                </div>
+              </div>
+            </div>);
+        })
+        }
+        <br />
+       <div className ="loader"></div>
       </div>
+
+
     );
   }
 }
