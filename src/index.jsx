@@ -8,6 +8,7 @@ import Footer from './components/footer';
 import Login from './components/login';
 import Dashboard from './components/dashboard';
 import Home from './components/home';
+import Fullnews from './components/fullnews';
 
 
 const app = document.getElementById('app');
@@ -30,6 +31,7 @@ ReactDOM.render(
             <Route name="headline" path="/headline" component={Newsheadline} />
             <Route name="testview" path="/testview" component={Testview} />
             <Route name="login" path="/login" component={Login} />
+            <Route name="fullnews" path="/fullnews" component={Fullnews} />
 
           </div>
 

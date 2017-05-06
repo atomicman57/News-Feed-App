@@ -195,7 +195,7 @@ div.wrapper {
 }
 .row2 {
 	color: $color_2;
-	min-height: 450px;
+	min-height: 550px;
 	background-color: $background_color_4;
 	a {
 		color: $color_4;
@@ -590,7 +590,7 @@ $background_color_1: #000;
 	font-family: $font_family_1;
 	box-sizing: border-box;
 	float: left;
-	min-height: 500px;
+	min-height: 550px;
 	margin-right: 20px;
 	margin-bottom: 50px;
 	background-color: white;
@@ -661,7 +661,6 @@ input[type=text]:focus {
   width: 120px;
   height: 120px;
   animation: spin 2s linear infinite;
-  
 }
 
 
@@ -670,3 +669,8 @@ input[type=text]:focus {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg);}
 }
+
+// #scraped{
+// position: fixed;
+
+// }

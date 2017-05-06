@@ -29,13 +29,15 @@
     "query-string": "^4.3.4",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
+    "react-iframe": "^1.0.5",
     "react-router": "^4.1.1",
     "react-router-dom": "^4.1.1",
     "resolve-url-loader": "^2.0.2",
     "sass-loader": "^6.0.3",
     "style-loader": "^0.17.0",
     "webpack": "^2.4.1",
-    "webpack-dev-server": "^2.4.5"
+    "webpack-dev-server": "^2.4.5",
+    "website-to-json": "^1.0.9"
   },
   "devDependencies": {
     "eslint": "^3.19.0",

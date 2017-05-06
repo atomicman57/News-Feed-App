@@ -1,5 +1,6 @@
 import axios from 'axios';
 
+
 export function getSources(callback) {
   axios
         .get('https://newsapi.org/v1/sources')
@@ -13,8 +14,10 @@ export function getHeadlines(sources, sort, callback) {
         .then(result => callback(result.data.articles));
 }
 
-window.mo = function getSources(callback) {
+export function getFullnews(source,callback) {
+  let crossurl = "https://crossorigin.me/"
   axios
-        .get('http://www.abc.net.au/news/2017-05-06/french-presidential-candidate-emmanuel-macrons-emails-hacked/8502516')
-        .then(result => callback(result));
+        .get(crossurl + source)
+        .then(result => callback(result.data));
 }
+

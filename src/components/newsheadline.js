@@ -61,7 +61,10 @@ class Newsheadline extends React.Component {
                 <h1>{info.title}</h1> 
                 <p>{info.description}</p>
                 <p>Author: {info.author} </p>
-                <a href={info.url} target="_blank" rel="noopener noreferrer" >View More...</a>
+                <a href={`#/fullnews?source=${info.url}`} >View More...</a>
+                <br /><br />
+                 <a href={info.url} target="_blank" rel="noopener noreferrer" >View From Source</a>
+        
                  <br /> 
                 </div>
                   </div>

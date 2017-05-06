@@ -39,7 +39,8 @@ class Header extends React.Component {
             this.navbar = (<div>
              this.navbar = (<div>
               <li><Link to="/dashboard">News</Link></li>
-              <li><Link to="/favourites">Favourites</Link></li>
+              <li><Link to="/lists">Saved News</Link></li>
+              <li><Link to="/lists">Lists</Link></li>
               <li><a href="/" onClick={this.SignOutHandler}>Log out</a></li>
             </div>);
 
@@ -61,7 +62,8 @@ class Header extends React.Component {
     if (Logged === 'true') {
       this.navbar = (<div>
         <li><Link to="/dashboard" onClick={this.reloadme}>News</Link></li>
-        <li><Link to="/favourites">Favourites</Link></li>
+        <li><Link to="/lists">Saved News</Link></li>
+        <li><Link to="/lists">Lists</Link></li>
         <li><a href="/" onClick={this.SignOutHandler}>Log out</a></li>
       </div>);
     } else {
