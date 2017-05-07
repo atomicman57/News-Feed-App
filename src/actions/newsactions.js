@@ -20,7 +20,7 @@ export function getHeadlines(source, sort) {
 }
 
 export function getFullnews(source) {
-  api.getFullnews(source,(data) => {
+  api.getFullnews(source, (data) => {
     dispatcher.dispatch({
       type: 'GET_FULLNEWS',
       data,

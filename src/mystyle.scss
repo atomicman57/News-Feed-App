@@ -10,17 +10,6 @@ $background_color_2: #ECECEC;
 $background_color_3: #333333;
 $background_color_4: #FFFFFF;
 
-/* Forces a scrollbar when the viewport is larger than the websites content - CSS3 */
-/*----------------------------------------------HTML 5 Overrides-------------------------------------*/
-/* ----------------------------------------------Wrapper-------------------------------------*/
-/*----------------------------------------------Generalise-------------------------------------*/
-/*----------------------------------------------Header-------------------------------------*/
-/*----------------------------------------------Content Area-------------------------------------*/
-/* ------Slider-----*/
-/* ------Homepage-----*/
-/* ------Main Content-----*/
-/* ------Right Column-----*/
-/*----------------------------------------------Footer-------------------------------------*/
 html {
 	overflow-y: scroll;
 }
@@ -663,6 +652,17 @@ input[type=text]:focus {
   animation: spin 2s linear infinite;
 }
 
+.loader2 {
+  border: 16px solid $color_2;
+  border-radius: 50%;
+  border-top: 16px solid #ffa429;
+  width: 120px;
+  height: 120px;
+  animation: spin 2s linear infinite;
+  position: relative;
+  top: -1000px;
+   left: 200px;
+}
 
 
 @keyframes spin {
@@ -670,7 +670,17 @@ input[type=text]:focus {
   100% { transform: rotate(360deg);}
 }
 
-// #scraped{
-// position: fixed;
+#scraped{
+background-color: white;
 
-// }
+}
+
+#fnews {
+font-size: 40px;
+}
+#share {
+	display: inline-block;
+}
+#hometxt {
+	font-size: 25px;
+}

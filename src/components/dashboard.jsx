@@ -1,5 +1,5 @@
 import React from 'react';
-import Newssources from './newssources';
+import Newssources from './newssources.jsx';
 import { getSources, getHeadline } from '../utils/newsapi.js';
 
 
@@ -8,9 +8,9 @@ class Dashboard extends React.Component {
     super();
     this.state = {
       username: '',
-      email: ''
-    }
-    this.checkLogin = this.checkLogin.bind(this)
+      email: '',
+    };
+    this.checkLogin = this.checkLogin.bind(this);
   }
 
   componentDidMount() {
@@ -26,26 +26,22 @@ class Dashboard extends React.Component {
       }).then((auth2) => {
         const GoogleAuth = gapi.auth2.getAuthInstance();
         if (auth2.isSignedIn.get()) {
-
-          let profile = auth2.currentUser.get().getBasicProfile();
-          console.log('ID: ' + profile.getId());
-          console.log('Full Name: ' + profile.getName());
-          console.log('Given Name: ' + profile.getGivenName());
-          console.log('Family Name: ' + profile.getFamilyName());
-          console.log('Image URL: ' + profile.getImageUrl());
-          console.log('Email: ' + profile.getEmail());
-          let _this = this;
+          const profile = auth2.currentUser.get().getBasicProfile();
+          console.log(`ID: ${profile.getId()}`);
+          console.log(`Full Name: ${profile.getName()}`);
+          console.log(`Given Name: ${profile.getGivenName()}`);
+          console.log(`Family Name: ${profile.getFamilyName()}`);
+          console.log(`Image URL: ${profile.getImageUrl()}`);
+          console.log(`Email: ${profile.getEmail()}`);
+          const _this = this;
           this.setState(
             {
               username: profile.getName(),
               email: profile.getEmail(),
-            })
-
+            });
         }
 
         console.log(GoogleAuth.isSignedIn.get());
-
-
 
 
         if (!GoogleAuth.isSignedIn.get()) {
@@ -63,7 +59,7 @@ class Dashboard extends React.Component {
       <div>
         <div id="maincon">
           <div id="mainstart">
-            <h1> Welcome {username},  </h1>
+            <h1> Welcome {username},                                </h1>
             {email}
             <br />
 
