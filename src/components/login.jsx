@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Link, Redirect, withRouter, browserHistory, IndexRoute } from 'react-router-dom';
+import { reactLocalStorage } from 'reactjs-localstorage';
 
 class Login extends React.Component {
   constructor(props) {
@@ -28,7 +28,7 @@ class Login extends React.Component {
   onSignIn(googleUser) {
     console.log(googleUser.getBasicProfile());
     window.location.href = '#/dashboard';
-    localStorage.setItem('Logged', 'true');
+    reactLocalStorage.set('Logged', 'true');
     location.reload();
   }
 

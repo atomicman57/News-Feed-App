@@ -2,6 +2,7 @@ import React from 'react';
 import
 { Link, HashRouter }
   from 'react-router-dom';
+import { reactLocalStorage } from 'reactjs-localstorage';
 
 
 class Header extends React.Component {
@@ -24,7 +25,7 @@ class Header extends React.Component {
     </div>);
     location.reload();
     auth2.signOut().then(() => {
-      localStorage.clear();
+      reactLocalStorage.clear();
     });
   }
 
@@ -55,7 +56,7 @@ class Header extends React.Component {
     location.reload();
   }
   render() {
-    const Logged = localStorage.getItem('Logged');
+    const Logged = reactLocalStorage.get('Logged');
     if (Logged === 'true') {
       this.navbar = (<div>
         <li><Link to="/dashboard" onClick={this.reloadme}>News</Link></li>
