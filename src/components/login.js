@@ -29,7 +29,7 @@ class Login extends React.Component {
   onSignIn(googleUser) {
     console.log(googleUser.getBasicProfile());
     window.location.href = '#/dashboard';
-    sessionStorage.setItem('Logged', 'true');
+    localStorage.setItem('Logged', 'true');
     location.reload();
   }
 
@@ -58,12 +58,11 @@ this.renderGoogleLoginButton
   }
 
   render() {
-// sessionStorage.setItem('Logged', 'true');
     return (
       <div className="container">
         <h2 className="form-signin-heading">
-          Sign-in with Google account required
-          <br />
+          Sign-in with Google account
+          <br /> <br /><br /><br />
           {this.renderGoogleLoginButton}
           <br />
         </h2>

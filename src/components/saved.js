@@ -4,7 +4,7 @@ import newsstore from '../stores/newsstore';
 import * as actions from '../actions/newsactions';
 
 
-class Newsheadline extends React.Component {
+class Saved extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -49,7 +49,7 @@ class Newsheadline extends React.Component {
      
     return (
       <div>
-        <h1 id="fnews">{sourcename} {sorted} Headlines </h1>
+        <h1 id="fnews">Saved News </h1>
         <br />
 
             {headlines.map(info =>
@@ -77,5 +77,5 @@ class Newsheadline extends React.Component {
 }
 
 
-export default Newsheadline;
+export default Saved;
 
