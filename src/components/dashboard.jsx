@@ -1,6 +1,6 @@
 import React from 'react';
 import Newssources from './newssources.jsx';
-import { getSources, getHeadline } from '../utils/newsapi.js';
+
 
 
 class Dashboard extends React.Component {
@@ -27,23 +27,12 @@ class Dashboard extends React.Component {
         const GoogleAuth = gapi.auth2.getAuthInstance();
         if (auth2.isSignedIn.get()) {
           const profile = auth2.currentUser.get().getBasicProfile();
-          console.log(`ID: ${profile.getId()}`);
-          console.log(`Full Name: ${profile.getName()}`);
-          console.log(`Given Name: ${profile.getGivenName()}`);
-          console.log(`Family Name: ${profile.getFamilyName()}`);
-          console.log(`Image URL: ${profile.getImageUrl()}`);
-          console.log(`Email: ${profile.getEmail()}`);
-          const _this = this;
           this.setState(
             {
               username: profile.getName(),
               email: profile.getEmail(),
             });
         }
-
-        console.log(GoogleAuth.isSignedIn.get());
-
-
         if (!GoogleAuth.isSignedIn.get()) {
           window.location.href = '/';
         }
