@@ -4,7 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha --compilers js:babel-register --require ./test/test_helper.js --recursive",
+    "test:watch": "npm test -- --watch",
+    "build": "webpack",
+    "dev": "webpack-dev-server --port 8080 --devtool eval --progress --colors --hot --content-base src"
   },
   "author": "Philips Blessing",
   "license": "MIT",
@@ -26,6 +29,7 @@
     "file-loader": "^0.11.1",
     "firebase": "^3.9.0",
     "flux": "^3.1.2",
+    "jsdom": "^10.1.0",
     "node-sass": "^4.5.2",
     "query-string": "^4.3.4",
     "react": "^15.5.4",
@@ -35,6 +39,7 @@
     "react-router": "^4.1.1",
     "react-router-dom": "^4.1.1",
     "react-share": "^1.13.2",
+    "reactjs-localstorage": "0.0.5",
     "resolve-url-loader": "^2.0.2",
     "sass-loader": "^6.0.3",
     "style-loader": "^0.17.0",
@@ -44,11 +49,17 @@
     "website-to-json": "^1.0.9"
   },
   "devDependencies": {
+    "babel-register": "^6.24.1",
+    "chai": "^3.5.0",
+    "enzyme": "^1.2.0",
     "eslint": "^3.19.0",
     "eslint-config-airbnb": "^14.1.0",
     "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-jsx-a11y": "^4.0.0",
     "eslint-plugin-react": "^6.10.3",
-    "extract-text-webpack-plugin": "^2.1.0"
+    "extract-text-webpack-plugin": "^2.1.0",
+    "mocha": "^3.3.0",
+    "react-addons-test-utils": "^15.5.1",
+    "sinon": "^2.2.0"
   }
 }

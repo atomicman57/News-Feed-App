@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Link, Redirect, withRouter, browserHistory, IndexRoute } from 'react-router-dom';
+import { reactLocalStorage } from 'reactjs-localstorage';
 
 class Login extends React.Component {
   constructor(props) {
@@ -10,7 +10,6 @@ class Login extends React.Component {
     this.checkLogin = this.checkLogin.bind(this);
   }
 
- 
 
   checkLogin() {
     gapi.load('auth2', () => {
@@ -29,19 +28,19 @@ class Login extends React.Component {
   onSignIn(googleUser) {
     console.log(googleUser.getBasicProfile());
     window.location.href = '#/dashboard';
-    localStorage.setItem('Logged', 'true');
+    reactLocalStorage.set('Logged', 'true');
     location.reload();
   }
 
   componentWillMount() {
     window.addEventListener('google-loaded', this.checkLogin);
   }
-  
- componentDidMount(){
-this.renderGoogleLoginButton
- }
 
- renderGoogleLoginButton() {
+  componentDidMount() {
+    this.renderGoogleLoginButton;
+  }
+
+  renderGoogleLoginButton() {
     console.log('rendering google signin button');
     gapi.signin2.render('my-signin2', {
       scope: 'https://www.googleapis.com/auth/plus.login',

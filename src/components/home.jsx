@@ -1,13 +1,11 @@
 import React from 'react';
-import mylogo from "./mylogo.jpg"
-
+import mylogo from './mylogo.jpg';
 
 
 class Home extends React.Component {
 
 
   render() {
-
     return (
       <div>
 
