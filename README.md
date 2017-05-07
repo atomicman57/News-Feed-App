@@ -34,7 +34,7 @@ The app will start on your local server.
 Run tests with: npm test
 
 
-##Technologies
+## Technologies
 
 Node.js
 React js
