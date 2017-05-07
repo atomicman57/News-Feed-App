@@ -3,3 +3,54 @@
 [![Issue Count](https://codeclimate.com/github/codeclimate/codeclimate/badges/issue_count.svg)](https://codeclimate.com/github/atomicman57/News-Feed-App/issues)
 [![Build Status](https://travis-ci.org/atomicman57/News-Feed-App.svg?branch=master)](https://travis-ci.org/atomicman57/News-Feed-App)
 [![Coverage Status](https://coveralls.io/repos/github/atomicman57/News-Feed-App/badge.svg?branch=master)](https://coveralls.io/github/atomicman57/News-Feed-App?branch=master)
+
+
+
+## Introduction
+ This web app allow you to views headlines and full news articles from various sources(e.g BBC,CNN,ABC NEWS e.t.c). It makes it easier to check your favourite news station/channel for latest,top and popular news.
+
+## Key Features of this Application
+Google Plus Sign in
+Search News Sources
+View Headlines based on selected source
+Choose Sort By type e.g Top, Latest
+Link to View full article from source
+View full news in app
+Share News via Social Media(Facebook,Twitter,Instagram,LinkedIn e.t.c)
+
+## Usage
+
+You can access the app on heroku at fastenews.herokuapp.com
+
+Alternatively, You may clone the repository and run the app locally to use.
+
+
+## Local Installation Guide
+
+Clone the repository
+Install the dependencies using npm install
+Run webpack-dev-server to start the application.
+The app will start on your local server.
+Run tests with: npm test
+
+
+##Technologies
+
+Node.js
+React js
+EcmaScript 6 (JavaScript 2015)
+Webpack
+Babel
+Sass/Scss
+Mocha
+NewsApi
+
+
+## Contributing
+
+Fork this repositry to your account.
+Clone your repositry: git clone git@github.com:your-username/News-Feed-App.git
+Create your feature branch: git checkout -b new-feature
+Commit your changes: git commit -m "Changes Made"
+Push to the remote branch: git push origin new-feature
+Open a pull request.
