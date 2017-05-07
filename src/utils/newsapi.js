@@ -15,7 +15,7 @@ export function getHeadlines(sources, sort, callback) {
 }
 
 export function getFullnews(source,callback) {
-  let crossurl = "https://crossorigin.me/"
+  const crossurl = "https://crossorigin.me/"
   axios
         .get(crossurl + source)
         .then(result => callback(result.data));

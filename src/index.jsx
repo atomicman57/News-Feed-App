@@ -9,7 +9,7 @@ import Login from './components/login';
 import Dashboard from './components/dashboard';
 import Home from './components/home';
 import Fullnews from './components/fullnews';
-
+import Saved from './components/saved';
 
 const app = document.getElementById('app');
 
@@ -29,7 +29,7 @@ ReactDOM.render(
             <Route exact path="/" component={Home} />
             <Route name="dashboard" path="/dashboard" component={Dashboard} />
             <Route name="headline" path="/headline" component={Newsheadline} />
-            <Route name="testview" path="/testview" component={Testview} />
+            <Route name="saved" path="/saved" component={Saved} />
             <Route name="login" path="/login" component={Login} />
             <Route name="fullnews" path="/fullnews" component={Fullnews} />
 

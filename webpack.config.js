@@ -40,10 +40,8 @@ var config = {
             },
             ]
           },
-           {
-     test: /\.(jpe?g|gif|png)$/,
-     loader: 'file-loader?emitFile=false&name=[path][name].[ext]'
-    }
+           { test: /\.(woff2?|jpe?g|png|gif|ico)$/, 
+use: 'file-loader?name=./assets/images/[name].[ext]' }; 
           
         ]},
     plugins: [

@@ -17,6 +17,7 @@ class Header extends React.Component {
   }
 
   SignOutHandler() {
+
     const auth2 = gapi.auth2.getAuthInstance();
     this.navbar = (<div>
       <li><Link to="/login">Sign In</Link></li>
@@ -24,7 +25,7 @@ class Header extends React.Component {
     </div>);
     location.reload();
     auth2.signOut().then(() => {
-       sessionStorage.clear();
+       localStorage.clear(); 
     });
   }
 
@@ -39,7 +40,7 @@ class Header extends React.Component {
             this.navbar = (<div>
              this.navbar = (<div>
               <li><Link to="/dashboard">News</Link></li>
-              <li><Link to="/lists">Saved News</Link></li>
+              <li><Link to="/saved">Saved News</Link></li>
               <li><Link to="/lists">Lists</Link></li>
               <li><a href="/" onClick={this.SignOutHandler}>Log out</a></li>
             </div>);
@@ -58,11 +59,11 @@ class Header extends React.Component {
     location.reload();
   }
   render() {
-    const Logged = sessionStorage.getItem('Logged');
+    const Logged = localStorage.getItem('Logged');
     if (Logged === 'true') {
       this.navbar = (<div>
         <li><Link to="/dashboard" onClick={this.reloadme}>News</Link></li>
-        <li><Link to="/lists">Saved News</Link></li>
+        <li><Link to="/saved">Saved News</Link></li>
         <li><Link to="/lists">Lists</Link></li>
         <li><a href="/" onClick={this.SignOutHandler}>Log out</a></li>
       </div>);
