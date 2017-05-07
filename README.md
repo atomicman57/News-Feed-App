@@ -20,7 +20,7 @@
 
 ## Usage
 
-You can access the app on heroku at [Fast E-News](fastenews.herokuapp.com)
+You can access the app on heroku at [Fast E-News](http://fastenews.herokuapp.com)
 
 Alternatively, You may clone the repository and run the app locally to use.
 
