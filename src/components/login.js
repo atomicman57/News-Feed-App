@@ -61,8 +61,8 @@ this.renderGoogleLoginButton
     return (
       <div className="container">
         <h2 className="form-signin-heading">
-          Sign-in with Google account required
-          <br />
+          Sign-in with Google account
+          <br /> <br /><br /><br />
           {this.renderGoogleLoginButton}
           <br />
         </h2>

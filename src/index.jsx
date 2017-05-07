@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Route, HashRouter } from 'react-router-dom';
-import Testview from './components/testview';
 import Newsheadline from './components/newsheadline';
 import Header from './components/Header';
 import Footer from './components/footer';
