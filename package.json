@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "mocha -r mock-local-storage --compilers js:babel-register,.:mocha-image-compiler --require ./test/test_helper.js --require ./test/dom.js --recursive",
+    "test": "mocha -r mock-local-storage --compilers js:babel-register,.:mocha-image-compiler  --recursive ./test/*.spec.js",
     "test:watch": "npm test -- --watch",
     "build": "webpack",
     "dev": "webpack-dev-server --port 8080 --devtool eval --progress --colors --hot --content-base src"
