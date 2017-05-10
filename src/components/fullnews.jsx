@@ -69,19 +69,8 @@ class Fullnews extends React.Component {
   render() {
     const fullnews = this.state.fullnews;
     const urldata = queryString.parse(this.props.location.search);
-    console.log(urldata);
     const source = urldata.source;
     const sharesource = window.location.href;
-
-    const html = this.state.fullnews;
-    const parser = new DOMParser();
-    let htmlDoc = parser.parseFromString(html, 'text/html');
-
-    htmlDoc = new XMLSerializer().serializeToString(htmlDoc);
-
-    console.log(window.location.href);
-
-
     return (
       <div>
 
@@ -103,11 +92,7 @@ class Fullnews extends React.Component {
           <GooglePlusShareButton title="Shared From Fast E-News" children="Share on Google" url={source} >
             <GooglePlusIcon size={52} round /> </GooglePlusShareButton>
         </span>
-
-        <span id="share">
-          <WhatsappShareButton title="Shared From Fast E-News" children=" " url={source} >
-            <WhatsappIcon size={52} round /> </WhatsappShareButton>
-        </span>
+        
         <span id="share">
           <TelegramShareButton title="Shared From Fast E-News" children=" " url={source} >
             <TelegramIcon size={52} round /> </TelegramShareButton>

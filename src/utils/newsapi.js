@@ -14,10 +14,3 @@ export function getHeadlines(sources, sort, callback) {
         .then(result => callback(result.data.articles));
 }
 
-export function getFullnews(source, callback) {
-  const crossurl = 'https://crossorigin.me/';
-  axios
-        .get(crossurl + source)
-        .then(result => callback(result.data));
-}
-

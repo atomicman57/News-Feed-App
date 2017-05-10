@@ -37,6 +37,7 @@ class Header extends React.Component {
         }).then((auth2) => {
           const GoogleAuth = gapi.auth2.getAuthInstance();
           if (GoogleAuth.isSignedIn.get()) {
+            reactLocalStorage.set('Logged', 'true');
             this.navbar = (<div>
              this.navbar = (<div>
                <li><Link to="/dashboard">News</Link></li>

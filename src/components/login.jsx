@@ -1,6 +1,7 @@
 import React from 'react';
 import { reactLocalStorage } from 'reactjs-localstorage';
 
+
 class Login extends React.Component {
   constructor(props) {
     super(props);
@@ -17,8 +18,8 @@ class Login extends React.Component {
         client_id: '811047390409-jvv9pei1sjf8f0d5ojfmig2ovgnrsvgt.apps.googleusercontent.com',
       }).then((auth2) => {
         const GoogleAuth = gapi.auth2.getAuthInstance();
-        console.log(GoogleAuth.isSignedIn.get());
         if (GoogleAuth.isSignedIn.get()) {
+          reactLocalStorage.set('Logged', 'true');
           window.location.href = '#/dashboard';
         } else { this.renderGoogleLoginButton(); }
       });
@@ -26,7 +27,6 @@ class Login extends React.Component {
   }
 
   onSignIn(googleUser) {
-    console.log(googleUser.getBasicProfile());
     window.location.href = '#/dashboard';
     reactLocalStorage.set('Logged', 'true');
     location.reload();
@@ -41,7 +41,6 @@ class Login extends React.Component {
   }
 
   renderGoogleLoginButton() {
-    console.log('rendering google signin button');
     gapi.signin2.render('my-signin2', {
       scope: 'https://www.googleapis.com/auth/plus.login',
       width: 400,
