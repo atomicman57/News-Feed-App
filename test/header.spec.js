@@ -1,8 +1,8 @@
 import React from 'react';
 import { expect } from 'chai';
 import { shallow } from 'enzyme';
-var jsdom = require('mocha-jsdom')
 import Header from '../src/components/Header.jsx';
+import jsdom from 'mocha-jsdom';
 
 
 describe('Header ', () => {

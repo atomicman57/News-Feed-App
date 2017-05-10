@@ -1,11 +1,11 @@
-var jsdom = require('mocha-jsdom')
 import React from 'react';
 import { expect } from 'chai';
 import { shallow } from 'enzyme';
 import sinon from 'sinon';
 import { EventEmitter } from 'events';
 import Dashboard from '../src/components/dashboard.jsx';
-var root = new EventEmitter()
+const root = new EventEmitter();
+import jsdom from 'mocha-jsdom';
 
 describe('Dashboard ', () => {
     jsdom()

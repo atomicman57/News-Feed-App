@@ -5,7 +5,7 @@ import { expect } from 'chai';
 import { shallow } from 'enzyme';
 import sinon from 'sinon';
 import { EventEmitter } from 'events';
-  var root = new EventEmitter()
+  const root = new EventEmitter()
 
 describe('Home ', () => {
  jsdom()
