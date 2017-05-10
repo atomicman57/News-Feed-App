@@ -13,10 +13,6 @@ var config = {
         filename: 'client.js'
     },
     module: {
-        // loaders: [{
-        //     include: APP_DIR,
-        //     loader: "babel-loader",
-        // }]
         rules: [
             {
                 test: /\.jsx?$/,
@@ -54,30 +50,7 @@ plugins: [
     })
 ]
 
-    // rules: [
-    //         {
-    //             test: /\.jsx?$/,
-    //             exclude: /node_modules/,
-    //             use: ['babel-loader']
-    //         },
-    //         {
-    //             test: /\.scss$/,
-    //         use: [{
-    //             loader: "style-loader" // creates style nodes from JS strings
-    //        }, {
-    //            loader: "css-loader" // translates CSS into CommonJS
-    //        }, {
-    //            loader: "sass-loader" // compiles Sass to CSS
-    //         }]
-    //         }
-    //     ]
-    // },
-
-    // plugins: [
-    //     new webpack.HotModuleReplacementPlugin(),
-    //     new webpack.NoEmitOnErrorsPlugin(),
-    //     new ExtractTextPlugin("mynewstyles.css"),
-    // ]
+    
 };
 
 

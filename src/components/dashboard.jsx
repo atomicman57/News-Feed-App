@@ -1,8 +1,6 @@
 import React from 'react';
 import Newssources from './newssources.jsx';
 
-
-
 class Dashboard extends React.Component {
   constructor() {
     super();
@@ -20,7 +18,6 @@ class Dashboard extends React.Component {
 
   checkLogin() {
     gapi.load('auth2', () => {
-      console.log('Loaded');
       gapi.auth2.init({
         client_id: '811047390409-jvv9pei1sjf8f0d5ojfmig2ovgnrsvgt.apps.googleusercontent.com',
       }).then((auth2) => {
@@ -48,7 +45,7 @@ class Dashboard extends React.Component {
       <div>
         <div id="maincon">
           <div id="mainstart">
-            <h1> Welcome {username},                                </h1>
+            <h1> Welcome {username},</h1>
             {email}
             <br />
 

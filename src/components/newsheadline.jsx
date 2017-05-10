@@ -42,10 +42,8 @@ class Newsheadline extends React.Component {
   render() {
     const headlines = this.state.headlines;
     const urldata = queryString.parse(this.props.location.search);
-    console.log(urldata);
     const sourcename = urldata.name;
     const sorted = urldata.sortBy;
-    console.log(sourcename);
 
     return (
       <div>
@@ -55,7 +53,7 @@ class Newsheadline extends React.Component {
         {headlines.map(info =>
               (<div>
                 <div className="card">
-                  <img src={info.urlToImage} alt="John" style={{ width: `${100}%` }} />
+                  <img src={info.urlToImage} alt="News Image" style={{ width: `${100}%` }} />
                   <div className="container">
                     <br />
                     <h1>{info.title}</h1>
@@ -63,7 +61,8 @@ class Newsheadline extends React.Component {
                     <p>Author: {info.author} </p>
                     <a href={`#/fullnews?source=${info.url}`} >View More...</a>
                     <br /><br />
-                    <a href={info.url} target="_blank" rel="noopener noreferrer" >View From Source</a>
+                    <a href={info.url} target="_blank" rel="noopener noreferrer" >
+                      View From Source</a>
 
                     <br />
                   </div>
@@ -75,7 +74,9 @@ class Newsheadline extends React.Component {
     );
   }
 }
-
+Newsheadline.propTypes = {
+  location: React.PropTypes.string.isRequired,
+};
 
 export default Newsheadline;
 
