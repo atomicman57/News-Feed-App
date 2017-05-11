@@ -2,7 +2,7 @@ import React from 'react';
 import { expect } from 'chai';
 import Newsstore from '../src/stores/newsstore';
 import dispatcher from '../src/dispatcher/dispatcher';
-import * as NewsAction from '../src/actions/newsactions';
+
 
 
 describe('News Store', () => {
@@ -30,6 +30,8 @@ describe('News Store', () => {
     ]
   }
 
+
+
   it('should exist', () => {
     expect(Newsstore).to.exist;
   });
@@ -38,36 +40,89 @@ describe('News Store', () => {
     expect(Newsstore).to.be.an('object');
   });
 
+
+
   it('to return articles that is being dispatched', () => {
     dispatcher.dispatch({
       type: 'GET_ARTICLES',
       data: Articles
     });
     expect(Newsstore.getArticles()).to.eql(Articles);
-    
+
   });
 
- it('to emit articles', () => {
+  it('to emit articles', () => {
     dispatcher.dispatch({
       type: 'GET_ARTICLES',
       data: Articles
     });
     expect(Newsstore.emit("articles")).to.exist;
-    
+
   });
 
-it('to emit sources', () => {
+
+});
+
+
+describe('News Store', () => {
+
+  const Sources = {
+    "status": "ok",
+    "sources": [
+      {
+        "id": "abc-news-au",
+        "name": "ABC News (AU)",
+        "description": "Australia's most trusted source of local, national and world news. Comprehensive, independent, in-depth analysis, the latest business, sport, weather and more.",
+        "url": "http://www.abc.net.au/news",
+        "category": "general",
+        "language": "en",
+        "country": "au",
+        "urlsToLogos": {
+          "small": "",
+          "medium": "",
+          "large": ""
+        },
+        "sortBysAvailable": [
+          "top"
+        ]
+      },
+      {
+        "id": "al-jazeera-english",
+        "name": "Al Jazeera English",
+        "description": "News, analysis from the Middle East and worldwide, multimedia and interactives, opinions, documentaries, podcasts, long reads and broadcast schedule.",
+        "url": "http://www.aljazeera.com",
+        "category": "general",
+        "language": "en",
+        "country": "us",
+        "urlsToLogos": {
+          "small": "",
+          "medium": "",
+          "large": ""
+        },
+        "sortBysAvailable": [
+          "top",
+          "latest"
+        ]
+      }
+    ]
+  }
+  // it('to return souces that is being dispatched', () => {
+  //   dispatcher.dispatch({
+  //     type: 'GET_SOURCE',
+  //     data: Sources
+  //   });
+  //   expect(Newsstore.getSources()).to.eql(Sources);
+
+  // });
+
+  it('to emit sources', () => {
     dispatcher.dispatch({
-      type: 'SOURCES',
-      data: Articles
+      type: 'GET_SOURCE',
+      data: Sources
     });
-    expect(Newsstore.emit("sources")).to.exist;
-    
+    expect(Newsstore.emit('sources')).to.exist;
+
   });
-
-
 })
 
-
-
-
+    
