@@ -13,53 +13,17 @@ const {
   LinkedinShareButton,
   TwitterShareButton,
   TelegramShareButton,
-  WhatsappShareButton,
   PinterestShareButton,
 } = ShareButtons;
 const FacebookIcon = generateShareIcon('facebook');
 const TwitterIcon = generateShareIcon('twitter');
 const TelegramIcon = generateShareIcon('telegram');
-const WhatsappIcon = generateShareIcon('whatsapp');
 const GooglePlusIcon = generateShareIcon('google');
 const LinkedinIcon = generateShareIcon('linkedin');
 const PinterestIcon = generateShareIcon('pinterest');
 
 class Fullnews extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      fullnews: [],
-
-    };
-    this.getFullnews = this.getFullnews.bind(this);
-    this.updateFullnews = this.updateFullnews.bind(this);
-    this.iframe = this.iframe.bind(this);
-  }
-
-  componentWillMount() {
-    const urldata = queryString.parse(this.props.location.search);
-    const source = urldata.source;
-    this.updateFullnews(source);
-    newsstore.on('fullnews', this.getFullnews);
-  }
-
-  componentWillUnmount() {
-    newsstore.removeListener('fullnews', this.getFullnews);
-  }
-
-  getFullnews(source) {
-    this.setState({
-      fullnews: newsstore.getFullnews(source),
-    });
-    if (this.state.fullnews.length <= 0) {
-      this.updateFullnews(source);
-    }
-  }
-
-  updateFullnews(source) {
-    actions.getFullnews(source);
-  }
-
+  
   iframe() {
     return {
       __html: this.props.iframe,
@@ -67,10 +31,8 @@ class Fullnews extends React.Component {
   }
 
   render() {
-    const fullnews = this.state.fullnews;
     const urldata = queryString.parse(this.props.location.search);
     const source = urldata.source;
-    const sharesource = window.location.href;
     return (
       <div>
 
@@ -108,7 +70,6 @@ class Fullnews extends React.Component {
 
         <br /> <br /> <br />
         <div id="scraped">
-          {this.state.sharebtn}
           <Iframe
             url={source}
             width="99%"

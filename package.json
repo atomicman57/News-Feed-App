@@ -15,6 +15,7 @@
   "dependencies": {
     "axios": "^0.16.1",
     "babel-core": "^6.24.1",
+    "babel-eslint": "^7.2.3",
     "babel-loader": "^7.0.0",
     "babel-plugin-react-html-attrs": "^2.0.0",
     "babel-plugin-transform-react-jsx-img-import": "^0.1.4",
@@ -50,12 +51,14 @@
     "window-or-global": "^1.0.1"
   },
   "devDependencies": {
+    "babel-eslint": "^7.2.3",
     "babel-register": "^6.24.1",
     "chai": "^3.5.0",
     "coveralls": "^2.13.1",
     "enzyme": "^2.8.2",
     "eslint": "^3.19.0",
     "eslint-config-airbnb": "^14.1.0",
+    "eslint-loader": "^1.7.1",
     "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-jsx-a11y": "^4.0.0",
     "eslint-plugin-react": "^6.10.3",

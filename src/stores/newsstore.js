@@ -7,7 +7,8 @@ class Newsstore extends EventEmitter {
     super();
     this.sources = [];
     this.articles = [];
-    this.fullnews = [];
+    this.getSources = this.getSources.bind(this);
+    this.getArticles = this.getArticles.bind(this);
   }
 
 
@@ -17,10 +18,6 @@ class Newsstore extends EventEmitter {
 
   getArticles() {
     return this.articles;
-  }
-
-  getFullnews() {
-    return this.fullnews;
   }
 
   resolveDispatch(message) {
@@ -33,11 +30,6 @@ class Newsstore extends EventEmitter {
       case 'GET_ARTICLES': {
         this.articles = message.data;
         this.emit('articles');
-        break;
-      }
-      case 'GET_FULLNEWS': {
-        this.fullnews = message.data;
-        this.emit('fullnews');
         break;
       }
     }

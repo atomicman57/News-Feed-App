@@ -10,10 +10,9 @@
 
 // describe('Newssources ', () => {
 //     jsdom()
-
-//     it('should have 1 input tag', () => {
+//     it('should have 1 img tag', () => {
 //         const wrapper = shallow(<Newsheadline />);
-//         expect(wrapper.find('input')).to.have.length(1);
+//         expect(wrapper.find('img')).to.have.length(1);
 //     });
 
 

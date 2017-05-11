@@ -1,8 +1,12 @@
 engines:
   duplication:
-    enabled: true
+    enabled: false
     config:
       languages:
         javascript:
           mass_threshold: 20
+          exclude_paths:
+            - "test/"
+           
+           
         
