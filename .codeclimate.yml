@@ -5,4 +5,8 @@ engines:
       languages:
         javascript:
           mass_threshold: 20
+          exclude_paths:
+            - "test/"
+           
+           
         
