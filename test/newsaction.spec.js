@@ -34,6 +34,11 @@ describe('News Actions', () => {
     expect(NewsAction).to.exist;
   });
 
+ it('getHeadlines should exist', () => {
+    expect(NewsAction.getHeadlines).to.exist;
+  });
+
+
   it('getHeadlines should be a functon', () => {
     expect(NewsAction.getHeadlines).to.be.a('function');
   });
@@ -42,7 +47,9 @@ it('getSources should be a functon', () => {
     expect(NewsAction.getSources).to.be.a('function');
   });
 
-
+it('getSources should be a functon', () => {
+    expect(NewsAction.getSources).to.be.a('function');
+  });
 
 
 })
