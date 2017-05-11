@@ -3,10 +3,10 @@ import ReactDOM from 'react-dom';
 import { Route, HashRouter } from 'react-router-dom';
 import Newsheadline from './components/newsheadline.jsx';
 import Header from './components/Header.jsx';
-import Footer from './components/footer.jsx';
+import Footer from './components/footer.js';
 import Login from './components/login.jsx';
 import Dashboard from './components/dashboard.jsx';
-import Home from './components/home.jsx';
+import Home from './components/home.js';
 import Fullnews from './components/fullnews.jsx';
 // import Saved from './components/saved';
 

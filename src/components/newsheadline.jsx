@@ -1,7 +1,17 @@
 import React from 'react';
 import queryString from 'query-string';
 import newsstore from '../stores/newsstore';
+import * as firebase from 'firebase';
 import * as actions from '../actions/newsactions';
+
+var app = firebase.initializeApp({ 
+  apiKey: "AIzaSyDnINIDjs2Av5eABGZj7dM2X_gffkt7xQI",
+    authDomain: "newsprojectatom.firebaseapp.com",
+    databaseURL: "https://newsprojectatom.firebaseio.com",
+    projectId: "newsprojectatom",
+    storageBucket: "newsprojectatom.appspot.com",
+    messagingSenderId: "811047390409"
+   });
 
 
 class Newsheadline extends React.Component {
@@ -35,10 +45,15 @@ class Newsheadline extends React.Component {
     }
   }
 
+
+  
+
   updateHeadlines(source, sort) {
     actions.getHeadlines(source, sort);
   }
-
+addToFavourite(){
+  alert("clicked")
+}
   render() {
     const headlines = this.state.headlines;
     const urldata = queryString.parse(this.props.location.search);
@@ -63,6 +78,8 @@ class Newsheadline extends React.Component {
                     <br /><br />
                     <a href={info.url} target="_blank" rel="noopener noreferrer" >
                       View From Source</a>
+                      <br /><br />
+                    <button onClick={this.addToFavourite}>Add to Favourite </button>
 
                     <br />
                   </div>

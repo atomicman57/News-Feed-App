@@ -583,7 +583,7 @@ $background_color_1: #000;
 	margin-right: 20px;
 	margin-bottom: 50px;
 	background-color: white;
-	a {
+	a,button {
 		border: none;
 		outline: 0;
 		display: inline-block;
@@ -610,7 +610,7 @@ $background_color_1: #000;
 	color: $color_1;
 	font-size: 18px;
 }
-a {
+a,button {
 	&:hover {
 		opacity: 0.7;
 	}
