@@ -26,7 +26,7 @@ class Newsheadline extends React.Component {
 
     };
     this.getHeadlines = this.getHeadlines.bind(this);
-    this.addToFavourite = this.addToFavourite.bind(this)
+    this.addToFavourite = this.addToFavourite.bind(this);
   }
 
   componentWillMount() {
@@ -86,8 +86,8 @@ class Newsheadline extends React.Component {
         author,
         url,
         urlToImage,
-      })
-      alert("Added to Favourites")
+      });
+      alert("Added to Favourites");
     }
   }
   render() {

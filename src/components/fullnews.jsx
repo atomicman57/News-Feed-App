@@ -1,12 +1,11 @@
 import React from 'react';
 import queryString from 'query-string';
 import Iframe from 'react-iframe';
-import newsstore from '../stores/newsstore';
-import * as actions from '../actions/newsactions';
 import {
   ShareButtons,
   generateShareIcon,
 } from 'react-share';
+
 const {
   FacebookShareButton,
   GooglePlusShareButton,
@@ -15,6 +14,7 @@ const {
   TelegramShareButton,
   PinterestShareButton,
 } = ShareButtons;
+
 const FacebookIcon = generateShareIcon('facebook');
 const TwitterIcon = generateShareIcon('twitter');
 const TelegramIcon = generateShareIcon('telegram');
@@ -36,30 +36,46 @@ class Fullnews extends React.Component {
         <br />
         <span id="share">
 
-          <TwitterShareButton title="Shared From Fast E-News" children="Share on Twitter" url={source}>
+          <TwitterShareButton
+            title="Shared From Fast E-News"
+            children="Share on Twitter"
+            url={source}>
             <TwitterIcon size={52} round />
           </TwitterShareButton>
         </span>
 
         <span id="share">
-          <FacebookShareButton title="Shared From Fast E-News" children="Share on Facebook" url={source} >
+          <FacebookShareButton
+            title="Shared From Fast E-News"
+            children="Share on Facebook"
+            url={source} >
             <FacebookIcon size={52} round /> </FacebookShareButton>
         </span>
         <span id="share">
-          <GooglePlusShareButton title="Shared From Fast E-News" children="Share on Google" url={source} >
+          <GooglePlusShareButton
+            title="Shared From Fast E-News"
+            children="Share on Google"
+            url={source} >
             <GooglePlusIcon size={52} round /> </GooglePlusShareButton>
         </span>
 
         <span id="share">
-          <TelegramShareButton title="Shared From Fast E-News" children=" " url={source} >
+          <TelegramShareButton
+            title="Shared From Fast E-News"
+            children=" " url={source} >
             <TelegramIcon size={52} round /> </TelegramShareButton>
         </span>
         <span id="share">
-          <LinkedinShareButton title="Shared From Fast E-News" children=" " url={source} >
+          <LinkedinShareButton
+            title="Shared From Fast E-News"
+            children=" "
+            url={source} >
             <LinkedinIcon size={52} round /> </LinkedinShareButton>
         </span>
         <span id="share">
-          <PinterestShareButton title="Shared From Fast E-News" children=" " url={source} >
+          <PinterestShareButton
+            title="Shared From Fast E-News"
+            children=" " url={source} >
             <PinterestIcon size={52} round /> </PinterestShareButton>
         </span>
 

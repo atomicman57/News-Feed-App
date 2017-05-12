@@ -6,15 +6,19 @@ import * as actions from '../actions/newsactions';
 class Newssources extends React.Component {
   constructor() {
     super();
+    /**
+     * Setting the initial state of sources and
+     * search String is empty.
+     */
     this.state = {
-      sources: newsstore.getSources(),
+      sources: [],
       searchString: '',
     };
+
     this.getSources = this.getSources.bind(this);
     this.updateSources = this.updateSources.bind(this);
     this.handleChange = this.handleChange.bind(this);
   }
-
 
   componentWillMount() {
     this.updateSources();
@@ -24,7 +28,6 @@ class Newssources extends React.Component {
   componentWillUnmount() {
     newsstore.removeListener('sources', this.getSources);
   }
-
 
   getSources() {
     this.setState({
@@ -48,9 +51,8 @@ class Newssources extends React.Component {
     let sources = this.state.sources;
     const searchString = this.state.searchString.trim().toLowerCase();
     if (searchString.length > 0) {
-      // We are searching. Filter the results.
-
-      sources = sources.filter(l => l.name.toLowerCase().match(searchString));
+      sources = sources.filter(info =>
+        info.name.toLowerCase().match(searchString));
     }
     return (
       <div>
@@ -66,27 +68,30 @@ class Newssources extends React.Component {
           const sortBy = info.sortBysAvailable;
           return (
             <div key={index}>
-
               <div className="card" key={index}>
                 <br /><br /><br />
                 <div className="container" >
                   <h1> {info.name}</h1>
                   <p className="title" key={index}>{info.description}</p>
                   {sortBy.map((options, index) => (
-                    <p key={index}> <a href={`#/headline?source=${info.id}&name=${info.name}&sortBy=${options}`}> {options} news </a> </p>
-
+                    <p key={index}>
+                      <a
+                        href={`#/headline?source=${info.id}&name=${info.name}
+                      &sortBy=${options}`}>
+                        {options} news
+                        </a>
+                    </p>
                   ))
                   }
                 </div>
               </div>
-            </div>);
+            </div>
+          );
         })
         }
         <br />
         <div className="loader" />
       </div>
-
-
     );
   }
 }

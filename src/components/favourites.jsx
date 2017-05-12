@@ -1,5 +1,4 @@
 import React from 'react';
-import queryString from 'query-string';
 import * as firebase from 'firebase';
 
 
@@ -13,33 +12,6 @@ class Favourites extends React.Component {
     };
     this.viewFavourites = this.viewFavourites.bind(this);
   }
-
-
-  viewFavourites() {
-    let userId = this.state.UserId;
-    let list = this.state.favourites;
-    if (userId != "") {
-      const dbref = firebase.database().ref('favourites');
-      this.markup = []
-      if (list == "") {
-        dbref.child(userId).once('value', (snapshot) => {
-          const favourites = snapshot.val();
-          for (let prop in favourites) {
-            this.markup.push(favourites[prop])
-          }
-           this.setState(
-          {
-            favourites: this.markup,
-          });
-        });
-
-
-      }
-    }
-
-
-  }
-
 
   componentWillMount() {
     gapi.load('auth2', () => {
@@ -61,24 +33,39 @@ class Favourites extends React.Component {
     })
   }
 
+  viewFavourites() {
+    const userId = this.state.UserId;
+    const list = this.state.favourites;
+    if (userId != "") {
+      const dbref = firebase.database().ref('favourites');
+      this.markup = []
+      if (list == "") {
+        dbref.child(userId).once('value', (snapshot) => {
+          const favourites = snapshot.val();
+          for (let prop in favourites) {
+            this.markup.push(favourites[prop])
+          }
+          this.setState(
+            {
+              favourites: this.markup,
+            });
+        });
+      }
+    }
+  }
 
   componentWillUnmount() {
     firebase.database().ref('favourites').off();
   }
 
-
-
-
-
   render() {
     this.viewFavourites();
-    let favourites = this.state.favourites;
+    const favourites = this.state.favourites;
 
     return (
       <div>
         <h1 id="fnews">Favourites </h1>
         <br />
-
         {favourites.map(info =>
           (<div>
             <div className="card">
