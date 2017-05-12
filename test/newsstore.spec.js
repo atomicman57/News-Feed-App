@@ -1,16 +1,14 @@
-var jsdom = require('mocha-jsdom')
 import React from 'react';
 import { expect } from 'chai';
-import Newsstore from '../src/stores/newsstore';
-import dispatcher from '../src/dispatcher/dispatcher';
+import jsdom from 'mocha-jsdom'
 import sinon from 'sinon';
 import { shallow } from 'enzyme';
 import { EventEmitter } from 'events';
-var sinonStubPromise = require('sinon-stub-promise');
-sinonStubPromise(sinon);
-var root = new EventEmitter()
 
+import Newsstore from '../src/stores/newsstore';
+import dispatcher from '../src/dispatcher/dispatcher';
 
+const root = new EventEmitter()
 
 describe('News Store', () => {
   jsdom()

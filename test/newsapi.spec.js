@@ -8,7 +8,7 @@ import * as NewsApi from '../src/utils/newsapi';
 
 describe('News Api', () => {
 
-    const Articles = {
+  const Articles = {
     "status": "ok",
     "source": "techcrunch",
     "sortBy": "top",
@@ -33,7 +33,7 @@ describe('News Api', () => {
   }
 
 
-    const Sources = {
+  const Sources = {
     "status": "ok",
     "sources": [
       {
@@ -76,23 +76,23 @@ describe('News Api', () => {
 
 
 
-    it('should exist', () => {
-        expect(NewsApi).to.exist;
-    });
+  it('should exist', () => {
+    expect(NewsApi).to.exist;
+  });
 
-    it('getSources should exist', () => {
-        expect(NewsApi.getSources).to.exist;
-    });
+  it('getSources should exist', () => {
+    expect(NewsApi.getSources).to.exist;
+  });
 
-    it('getHeadlines should be a functon', () => {
-        expect(NewsApi.getHeadlines).to.be.a('function');
-    });
+  it('getHeadlines should be a functon', () => {
+    expect(NewsApi.getHeadlines).to.be.a('function');
+  });
 
-    it('getSources should be a functon', () => {
-        expect(NewsApi.getSources).to.be.a('function');
-    });
+  it('getSources should be a functon', () => {
+    expect(NewsApi.getSources).to.be.a('function');
+  });
 
-it('getHeadlines should return data from API', () => {
+  it('getHeadlines should return data from API', () => {
     sinon.stub(NewsApi, "getHeadlines").yieldsTo("success", Articles)
     NewsApi.getHeadlines({
       success: (data) => {
@@ -102,7 +102,7 @@ it('getHeadlines should return data from API', () => {
     sinon.stub.reset();
   })
 
-it('getSources should return data from API', () => {
+  it('getSources should return data from API', () => {
     sinon.stub(NewsApi, "getSources").yieldsTo("success", Sources)
     NewsApi.getSources({
       success: (data) => {
@@ -111,7 +111,6 @@ it('getSources should return data from API', () => {
     })
     sinon.stub.reset();
   })
-
 
 })
 
