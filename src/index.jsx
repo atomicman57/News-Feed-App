@@ -9,7 +9,7 @@ import Dashboard from './components/dashboard.jsx';
 import Home from './components/home.js';
 import Fullnews from './components/fullnews.jsx';
 import Favourites from './components/favourites.jsx';
-// import Saved from './components/saved';
+
 
 const app = document.getElementById('app');
 
