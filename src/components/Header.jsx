@@ -18,8 +18,8 @@ class Header extends React.Component {
     const auth2 = gapi.auth2.getAuthInstance();
     this.navbar = (<div>
       <li><Link to="/login">Sign In</Link></li>
-
     </div>);
+
     location.reload();
     auth2.signOut().then(() => {
       reactLocalStorage.clear();
