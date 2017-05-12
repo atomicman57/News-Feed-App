@@ -27,10 +27,10 @@ class Favourites extends React.Component {
           for (let prop in favourites) {
             this.markup.push(favourites[prop])
           }
-           this.setState(
-          {
-            favourites: this.markup,
-          });
+          this.setState(
+            {
+              favourites: this.markup,
+            });
         });
 
 

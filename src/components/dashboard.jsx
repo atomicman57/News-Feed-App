@@ -48,7 +48,7 @@ class Dashboard extends React.Component {
           <div id="mainstart">
             Logged in as {email}
             <h1> Welcome {username},</h1>
-            
+
             <br />
 
             <br />
