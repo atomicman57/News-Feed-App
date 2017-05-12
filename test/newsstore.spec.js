@@ -1,11 +1,19 @@
+var jsdom = require('mocha-jsdom')
 import React from 'react';
 import { expect } from 'chai';
 import Newsstore from '../src/stores/newsstore';
 import dispatcher from '../src/dispatcher/dispatcher';
-import * as NewsAction from '../src/actions/newsactions';
+import sinon from 'sinon';
+import { shallow } from 'enzyme';
+import { EventEmitter } from 'events';
+var sinonStubPromise = require('sinon-stub-promise');
+sinonStubPromise(sinon);
+var root = new EventEmitter()
+
 
 
 describe('News Store', () => {
+  jsdom()
   const Articles = {
     "status": "ok",
     "source": "techcrunch",
@@ -30,6 +38,8 @@ describe('News Store', () => {
     ]
   }
 
+
+
   it('should exist', () => {
     expect(Newsstore).to.exist;
   });
@@ -38,36 +48,26 @@ describe('News Store', () => {
     expect(Newsstore).to.be.an('object');
   });
 
+
+
   it('to return articles that is being dispatched', () => {
     dispatcher.dispatch({
       type: 'GET_ARTICLES',
       data: Articles
     });
     expect(Newsstore.getArticles()).to.eql(Articles);
-    
+
   });
 
- it('to emit articles', () => {
+  it('to emit articles', () => {
     dispatcher.dispatch({
       type: 'GET_ARTICLES',
       data: Articles
     });
     expect(Newsstore.emit("articles")).to.exist;
-    
-  });
 
-it('to emit sources', () => {
-    dispatcher.dispatch({
-      type: 'SOURCES',
-      data: Articles
-    });
-    expect(Newsstore.emit("sources")).to.exist;
-    
   });
 
 
-})
-
-
-
+});
 

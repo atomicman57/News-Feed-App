@@ -7,7 +7,7 @@
     "test": "nyc --reporter=html --reporter=text mocha -r mock-local-storage --compilers js:babel-register,.:mocha-image-compiler  --recursive ./test/*.spec.js",
     "test:watch": "npm test -- --watch",
     "build": "webpack -p",
-    "dev": "webpack-dev-server --port 8080 --devtool eval --progress --colors --hot --content-base src",
+    "dev": "webpack-dev-server --content-base src",
     "coverage": "nyc report --reporter=text-lcov | coveralls"
   },
   "author": "Philips Blessing",
@@ -32,6 +32,7 @@
     "flux": "^3.1.2",
     "mock-local-storage": "^1.0.2",
     "node-sass": "^4.5.2",
+    "prop-types": "^15.5.9",
     "query-string": "^4.3.4",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
@@ -51,6 +52,7 @@
     "window-or-global": "^1.0.1"
   },
   "devDependencies": {
+    "babel-cli": "^6.24.1",
     "babel-eslint": "^7.2.3",
     "babel-register": "^6.24.1",
     "chai": "^3.5.0",
@@ -73,6 +75,7 @@
     "mock-local-storage": "^1.0.2",
     "nyc": "^10.3.2",
     "react-addons-test-utils": "^15.5.1",
-    "sinon": "^2.2.0"
+    "sinon": "^2.2.0",
+    "sinon-stub-promise": "^4.0.0"
   }
 }

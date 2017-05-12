@@ -25,4 +25,12 @@ describe('Login ', () => {
         expect(wrapper.find('div')).to.have.length(2);
     });
 
+it('should have props for checkLogin and onSignIn', function () {
+    const wrapper = shallow(<Login />);
+    expect(wrapper.props().checkLogin).to.be.defined;
+    expect(wrapper.props().onSignIn).to.be.defined;
+    expect(wrapper.props().renderGoogleLoginButton).to.be.defined;
+    
+  });
+
 });

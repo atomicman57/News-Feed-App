@@ -1,7 +1,8 @@
 import React from 'react';
-import
-{ Link, HashRouter }
-  from 'react-router-dom';
+import {
+  Link,
+  HashRouter,
+} from 'react-router-dom';
 import { reactLocalStorage } from 'reactjs-localstorage';
 
 
@@ -11,10 +12,6 @@ class Header extends React.Component {
     this.state = {};
     this.SignOutHandler = this.SignOutHandler.bind(this);
     this.checkLogin = this.checkLogin.bind(this);
-    this.navbar = (<div>
-      <li><Link to="/">Sign In</Link></li>
-
-    </div>);
   }
 
   SignOutHandler() {
@@ -39,12 +36,11 @@ class Header extends React.Component {
           if (GoogleAuth.isSignedIn.get()) {
             reactLocalStorage.set('Logged', 'true');
             this.navbar = (<div>
-             this.navbar = (<div>
-               <li><Link to="/dashboard">News</Link></li>
-               <li><Link to="/saved">Saved News</Link></li>
-               <li><Link to="/lists">Lists</Link></li>
-               <li><a href="/" onClick={this.SignOutHandler}>Log out</a></li>
-             </div>);
+              this.navbar = (<div>
+                <li><Link onClick={this.reloadme} to="/dashboard">News</Link></li>
+                <li><Link to="/favourites">Favourites</Link></li>
+                <li><a href="/" onClick={this.SignOutHandler}>Log out</a></li>
+              </div>);
 
             </div>);
           } else {
@@ -61,9 +57,9 @@ class Header extends React.Component {
     if (Logged === 'true') {
       this.navbar = (<div>
         <li><Link to="/dashboard" onClick={this.reloadme}>News</Link></li>
-        <li><Link to="/saved">Saved News</Link></li>
-        <li><Link to="/lists">Lists</Link></li>
+        <li><Link to="/favourites">Favourites</Link></li>
         <li><a href="/" onClick={this.SignOutHandler}>Log out</a></li>
+
       </div>);
     } else {
       this.navbar = (<div>

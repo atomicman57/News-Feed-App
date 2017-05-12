@@ -24,12 +24,6 @@ const PinterestIcon = generateShareIcon('pinterest');
 
 class Fullnews extends React.Component {
   
-  iframe() {
-    return {
-      __html: this.props.iframe,
-    };
-  }
-
   render() {
     const urldata = queryString.parse(this.props.location.search);
     const source = urldata.source;
@@ -39,6 +33,7 @@ class Fullnews extends React.Component {
         <h1 id="fnews">Full News </h1>
         <br />
         <h2> Share From Fast E-News On </h2>
+        <br />
         <span id="share">
 
           <TwitterShareButton title="Shared From Fast E-News" children="Share on Twitter" url={source}>

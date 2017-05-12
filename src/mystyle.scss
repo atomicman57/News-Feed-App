@@ -60,70 +60,7 @@ code {
 .fl_right {
 	float: right;
 }
-img {
-	margin: 0;
-	padding: 0;
-	border: none;
-	line-height: normal;
-	vertical-align: middle;
-}
-.imgholder {
-	padding: 4px;
-	border: 1px solid #D6D6D6;
-	text-align: center;
-}
-.imgl {
-	padding: 4px;
-	border: 1px solid #D6D6D6;
-	text-align: center;
-	float: left;
-	margin: 0 15px 15px 0;
-	clear: left;
-}
-.imgr {
-	padding: 4px;
-	border: 1px solid #D6D6D6;
-	text-align: center;
-	float: right;
-	margin: 0 0 15px 15px;
-	clear: right;
-}
-address {
-	display: block;
-	margin: 0;
-	padding: 0;
-	font-style: normal;
-}
-article {
-	display: block;
-	margin: 0;
-	padding: 0;
-}
-aside {
-	display: block;
-	margin: 0;
-	padding: 0;
-}
-figcaption {
-	display: block;
-	margin: 0;
-	padding: 0;
-}
-figure {
-	display: block;
-	margin: 0;
-	padding: 0;
-}
-footer {
-	display: block;
-	margin: 0;
-	padding: 0;
-}
-header {
-	display: block;
-	margin: 0;
-	padding: 0;
-}
+
 nav {
 	display: block;
 	margin: 0;
@@ -266,137 +203,9 @@ div.wrapper {
 	#slider {
 		margin-bottom: 50px;
 	}
-	#homepage {
-		display: block;
-		width: 100%;
-		line-height: 1.6em;
-		#services {
-			padding: 0 0 30px 0;
-			border-bottom: 1px solid #DEDEDE;
-			figure {
-				display: inline;
-				float: left;
-			}
-			strong {
-				float: left;
-				margin: 8px 0 0 10px;
-				padding: 0;
-				font-size: 14px;
-				font-weight: bold;
-				text-transform: uppercase;
-			}
-			p {
-				display: block;
-				margin: 0;
-				padding: 5px 0 0 0;
-				clear: both;
-				line-height: 1.6em;
-			}
-		}
-		#latest {
-			padding: 0 0 30px 0;
-			border-bottom: 1px solid #DEDEDE;
-			article {
-				figure {
-					ul {
-						margin: 0;
-						padding: 0;
-						list-style: none;
-						li {
-							img {
-								padding: 4px;
-								border: 1px solid #D6D6D6;
-							}
-						}
-					}
-					figcaption {
-						display: block;
-						width: 100%;
-						margin-top: 20px;
-						text-align: right;
-					}
-				}
-			}
-		}
-	}
-	#content {
-		float: left;
-		width: 630px;
-		line-height: 1.6em;
-		#posts {
-			ul {
-				margin: 0;
-				padding: 0;
-				list-style: none;
-				li {
-					display: block;
-					width: 100%;
-					margin-bottom: 30px;
-					article {
-						figure {
-							img {
-								float: left;
-								width: 180px;
-								height: 150px;
-								margin: 0;
-								padding: 4px;
-								border: 1px solid #D6D6D6;
-							}
-							figcaption {
-								display: block;
-								float: right;
-								width: 410px;
-							}
-							h2 {
-								font-size: 14px;
-							}
-						}
-					}
-				}
-				li.last {
-					margin-bottom: 0;
-				}
-			}
-		}
-	}
-	#right_column {
-		float: right;
-		width: 280px;
-		h2.title {
-			margin-bottom: 15px;
-			padding-bottom: 15px;
-			border-bottom: 1px solid #DEDEDE;
-		}
-		nav {
-			display: block;
-			width: 100%;
-			ul {
-				margin: 0;
-				padding: 0;
-				list-style: none;
-			}
-			li {
-				margin: 0 0 3px 0;
-				padding: 0;
-			}
-			li.last {
-				margin-bottom: 0;
-			}
-			a {
-				display: block;
-				margin: 0;
-				padding: 5px 10px 5px 20px;
-				color: $color_5;
-				background: #FFFFFF;
-				text-decoration: none;
-				border-bottom: 1px dotted #666666;
-				&:hover {
-					color: $color_4;
-					background-color: $background_color_4;
-				}
-			}
-		}
-	}
+
+	
+	
 }
 #footer {
 	display: block;
@@ -569,7 +378,7 @@ $color_2: white;
 $font_family_1: arial;
 $background_color_1: #000;
 
-.card {
+.card,.card2 {
 	position: relative;
 	z-index: 3;
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
@@ -579,11 +388,11 @@ $background_color_1: #000;
 	font-family: $font_family_1;
 	box-sizing: border-box;
 	float: left;
-	min-height: 550px;
+	min-height: 350px;
 	margin-right: 20px;
 	margin-bottom: 50px;
 	background-color: white;
-	a {
+	a,button {
 		border: none;
 		outline: 0;
 		display: inline-block;
@@ -598,6 +407,9 @@ $background_color_1: #000;
 		text-transform: capitalize;
 	}
 }
+.card2{
+	min-height: 650px;
+}
 .container {
 	padding: 0 16px;
 	&::after {
@@ -610,7 +422,7 @@ $background_color_1: #000;
 	color: $color_1;
 	font-size: 18px;
 }
-a {
+a,button {
 	&:hover {
 		opacity: 0.7;
 	}
