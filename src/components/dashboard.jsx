@@ -39,14 +39,16 @@ class Dashboard extends React.Component {
 
 
   render() {
+    // const { username, email }  = this.state;
     const username = this.state.username;
     const email = this.state.email;
     return (
       <div>
         <div id="maincon">
           <div id="mainstart">
+            Logged in as {email}
             <h1> Welcome {username},</h1>
-            {email}
+            
             <br />
 
             <br />
