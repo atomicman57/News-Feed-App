@@ -4,8 +4,8 @@ import Iframe from 'react-iframe';
 import newsstore from '../stores/newsstore';
 import * as actions from '../actions/newsactions';
 import {
-    ShareButtons,
-    generateShareIcon,
+  ShareButtons,
+  generateShareIcon,
 } from 'react-share';
 const {
   FacebookShareButton,
@@ -23,7 +23,7 @@ const LinkedinIcon = generateShareIcon('linkedin');
 const PinterestIcon = generateShareIcon('pinterest');
 
 class Fullnews extends React.Component {
-  
+
   render() {
     const urldata = queryString.parse(this.props.location.search);
     const source = urldata.source;
@@ -49,7 +49,7 @@ class Fullnews extends React.Component {
           <GooglePlusShareButton title="Shared From Fast E-News" children="Share on Google" url={source} >
             <GooglePlusIcon size={52} round /> </GooglePlusShareButton>
         </span>
-        
+
         <span id="share">
           <TelegramShareButton title="Shared From Fast E-News" children=" " url={source} >
             <TelegramIcon size={52} round /> </TelegramShareButton>

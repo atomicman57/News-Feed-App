@@ -1,15 +1,11 @@
 import React from 'react';
-import mylogo from '../../mylogo.jpg';
-
+import mylogo from '../public/images/mylogo.jpg';
 
 class Home extends React.Component {
-
-
   render() {
     return (
       <div>
 
-        <h1 id="fnews"> Home </h1>
         <br /> <br /> <br />
         <div id="hometxt">
           <p>Welcome to Fast E- News where you get the lastest news very fast. Get all types of news at any time.</p>

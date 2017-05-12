@@ -59,11 +59,14 @@ class Login extends React.Component {
     return (
       <div className="container">
         <h2 className="form-signin-heading">
-          Sign-in with Google account
           <br /> <br /><br /><br />
-          {this.renderGoogleLoginButton}
-          <br />
+           <br/><br/><br/>
+          To Get Live News update <br />
+          From News Sources Around The World
+          <br /><br />
         </h2>
+        <h1 id="fnews">Sign-in with Google account</h1>
+        <br /> <br /><br /><br />
         <div id="my-signin2" />
       </div>
     );
