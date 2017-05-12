@@ -8,6 +8,7 @@ import Login from './components/login.jsx';
 import Dashboard from './components/dashboard.jsx';
 import Home from './components/home.js';
 import Fullnews from './components/fullnews.jsx';
+import Favourites from './components/favourites.jsx';
 // import Saved from './components/saved';
 
 const app = document.getElementById('app');
@@ -28,7 +29,7 @@ ReactDOM.render(
             <Route exact path="/" component={Home} />
             <Route name="dashboard" path="/dashboard" component={Dashboard} />
             <Route name="headline" path="/headline" component={Newsheadline} />
-            {/*<Route name="saved" path="/saved" component={Saved} />*/}
+            <Route name="favourites" path="/favourites" component={Favourites} />
             <Route name="login" path="/login" component={Login} />
             <Route name="fullnews" path="/fullnews" component={Fullnews} />
 

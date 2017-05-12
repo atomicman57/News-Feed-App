@@ -56,22 +56,24 @@ class Newssources extends React.Component {
       <div>
 
         <input
-          type="text" value={this.state.searchString}
-          onChange={this.handleChange} placeholder="Search"
+          type="text"
+          value={this.state.searchString}
+          onChange={this.handleChange}
+          placeholder="Search"
         />
 
-        {sources.map((info) => {
+        {sources.map((info, index) => {
           const sortBy = info.sortBysAvailable;
           return (
-            <div>
+            <div key={index}>
 
-              <div className="card">
+              <div className="card" key={index}>
                 <br /><br /><br />
-                <div className="container">
+                <div className="container" >
                   <h1> {info.name}</h1>
-                  <p className="title">{info.description}</p>
-                  {sortBy.map(options => (
-                    <p> <a href={`#/headline?source=${info.id}&name=${info.name}&sortBy=${options}`}> {options} news </a> </p>
+                  <p className="title" key={index}>{info.description}</p>
+                  {sortBy.map((options, index) => (
+                    <p key={index}> <a href={`#/headline?source=${info.id}&name=${info.name}&sortBy=${options}`}> {options} news </a> </p>
 
                   ))
                   }

@@ -1,11 +1,19 @@
+var jsdom = require('mocha-jsdom')
 import React from 'react';
 import { expect } from 'chai';
 import Newsstore from '../src/stores/newsstore';
 import dispatcher from '../src/dispatcher/dispatcher';
+import sinon from 'sinon';
+import { shallow } from 'enzyme';
+import { EventEmitter } from 'events';
+var sinonStubPromise = require('sinon-stub-promise');
+sinonStubPromise(sinon);
+var root = new EventEmitter()
 
 
 
 describe('News Store', () => {
+  jsdom()
   const Articles = {
     "status": "ok",
     "source": "techcrunch",
@@ -63,66 +71,3 @@ describe('News Store', () => {
 
 });
 
-
-describe('News Store', () => {
-
-  const Sources = {
-    "status": "ok",
-    "sources": [
-      {
-        "id": "abc-news-au",
-        "name": "ABC News (AU)",
-        "description": "Australia's most trusted source of local, national and world news. Comprehensive, independent, in-depth analysis, the latest business, sport, weather and more.",
-        "url": "http://www.abc.net.au/news",
-        "category": "general",
-        "language": "en",
-        "country": "au",
-        "urlsToLogos": {
-          "small": "",
-          "medium": "",
-          "large": ""
-        },
-        "sortBysAvailable": [
-          "top"
-        ]
-      },
-      {
-        "id": "al-jazeera-english",
-        "name": "Al Jazeera English",
-        "description": "News, analysis from the Middle East and worldwide, multimedia and interactives, opinions, documentaries, podcasts, long reads and broadcast schedule.",
-        "url": "http://www.aljazeera.com",
-        "category": "general",
-        "language": "en",
-        "country": "us",
-        "urlsToLogos": {
-          "small": "",
-          "medium": "",
-          "large": ""
-        },
-        "sortBysAvailable": [
-          "top",
-          "latest"
-        ]
-      }
-    ]
-  }
-  // it('to return souces that is being dispatched', () => {
-  //   dispatcher.dispatch({
-  //     type: 'GET_SOURCE',
-  //     data: Sources
-  //   });
-  //   expect(Newsstore.getSources()).to.eql(Sources);
-
-  // });
-
-  it('to emit sources', () => {
-    dispatcher.dispatch({
-      type: 'GET_SOURCE',
-      data: Sources
-    });
-    expect(Newsstore.emit('sources')).to.exist;
-
-  });
-})
-
-    
