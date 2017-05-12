@@ -9,10 +9,6 @@ import { EventEmitter } from 'events';
 
 describe('Home ', () => {
  jsdom()
-    it('should have 1 h2 tag', () => {
-        const wrapper = shallow(<Home />);
-        expect(wrapper.find('h1')).to.have.length(1);
-    });
 
 it('should be a div item', () => {
      const wrapper = shallow(<Home />);
