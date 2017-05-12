@@ -8,6 +8,7 @@
 
 ## Introduction
  This web app allow you to views headlines and full news articles from various sources(e.g BBC,CNN,ABC NEWS e.t.c). It makes it easier to check your favourite news station/channel for latest,top and popular news.
+ It makes it very easy for you to keep up with news, anytime, anywhere, anyplace.
 
 ## Key Features of this Application
 * Google Plus Sign in
@@ -17,6 +18,8 @@
 * Link to View full article from source
 * View full news in app
 * Share News via Social Media(Facebook,Twitter,Instagram,LinkedIn e.t.c)
+* Add to Favourites
+* View Favourites
 
 ## Usage
 
@@ -27,11 +30,12 @@ Alternatively, You may clone the repository and run the app locally to use.
 
 ## Local Installation Guide
 
-* Clone the repository
-* Install the dependencies using npm install
-* Run webpack-dev-server to start the application.
+* Clone the repository 
+    * git clone https://github.com/atomicman57/News-Feed-App.git
+* Install the dependencies using **npm install**
+* Run **npm run dev** to start the application.
 * The app will start on your local server.
-* Run tests with: npm test
+* Run tests with: **npm test**
 
 
 ## Technologies
@@ -40,10 +44,22 @@ Alternatively, You may clone the repository and run the app locally to use.
 * Node.js
 * EcmaScript 6 (JavaScript 2015)
 * Webpack
+* Flux architecture
+* Firebase
+* Google plus api
 * Babel
 * Sass/Scss
 * Mocha
 * NewsApi
+
+## Test Dependencies
+* Mocha
+* Chai
+* Enzyme
+* Jsdom
+* Mocha-Jsdom
+* Sinon
+
 
 
 ## Contributing

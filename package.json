@@ -7,7 +7,7 @@
     "test": "nyc --reporter=html --reporter=text mocha -r mock-local-storage --compilers js:babel-register,.:mocha-image-compiler  --recursive ./test/*.spec.js",
     "test:watch": "npm test -- --watch",
     "build": "webpack -p",
-    "dev": "webpack-dev-server --port 8080 --devtool eval --progress --colors --hot --content-base src",
+    "dev": "webpack-dev-server --content-base src",
     "coverage": "nyc report --reporter=text-lcov | coveralls"
   },
   "author": "Philips Blessing",
