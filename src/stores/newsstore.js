@@ -1,8 +1,8 @@
 
 import { EventEmitter } from 'events';
-import dispatcher from '../dispatcher/dispatcher';
+import dispatcher from '../dispatcher/Dispatcher';
 
-class Newsstore extends EventEmitter {
+class NewsStore extends EventEmitter {
   constructor() {
     super();
     this.sources = [];
@@ -23,19 +23,20 @@ class Newsstore extends EventEmitter {
   resolveDispatch(message) {
     switch (message.type) {
       case 'GET_SOURCES': {
-        this.sources = message.data;
-        this.emit('sources');
+        this.sources = message.sources;
+        this.emit('getsources');
         break;
       }
       case 'GET_ARTICLES': {
-        this.articles = message.data;
-        this.emit('articles');
+        this.articles = message.headlines;
+        this.emit('getarticles');
         break;
       }
     }
   }
 
 }
-const newsstore = new Newsstore();
-dispatcher.register(newsstore.resolveDispatch.bind(newsstore));
-export default newsstore;
+
+const newsStore = new NewsStore();
+dispatcher.register(newsStore.resolveDispatch.bind(newsStore));
+export default newsStore;

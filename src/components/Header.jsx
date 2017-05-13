@@ -16,10 +16,7 @@ class Header extends React.Component {
 
   SignOutHandler() {
     const auth2 = gapi.auth2.getAuthInstance();
-    this.navbar = (<div>
-      <li><Link to="/login">Sign In</Link></li>
-    </div>);
-
+    this.navbar;
     location.reload();
     auth2.signOut().then(() => {
       reactLocalStorage.clear();
@@ -35,17 +32,7 @@ class Header extends React.Component {
           const GoogleAuth = gapi.auth2.getAuthInstance();
           if (GoogleAuth.isSignedIn.get()) {
             reactLocalStorage.set('Logged', 'true');
-            this.navbar = (<div>
-              this.navbar = (<div>
-                <li><Link onClick={this.reloadme} to="/dashboard">News</Link></li>
-                <li><Link to="/favourites">Favourites</Link></li>
-                <li><a href="/" onClick={this.SignOutHandler}>Log out</a></li>
-              </div>);
-
-            </div>);
-          } else {
-            <li><a href="#/login" onClick={this.reloadme} >Sign In</a></li>;
-          }
+          } 
         });
     });
   }
@@ -57,16 +44,11 @@ class Header extends React.Component {
     if (Logged === 'true') {
       this.navbar = (<div>
         <li><Link to="/dashboard" onClick={this.reloadme}>News</Link></li>
-        <li><Link to="/favourites">Favourites</Link></li>
+        <li><Link to="/SavedNews">Saved News</Link></li>
         <li><a href="/" onClick={this.SignOutHandler}>Log out</a></li>
 
       </div>);
-    } else {
-      this.navbar = (<div>
-        <li><a href="#/login" onClick={this.reloadme} >Sign In</a></li>
-
-      </div>);
-    }
+    } 
     return (
       <div>
         <HashRouter>

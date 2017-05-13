@@ -1,14 +1,20 @@
+var jsdom = require('mocha-jsdom')
 import React from 'react';
+import chai from 'chai';
 import { expect, assert } from 'chai';
-import Newsstore from '../src/stores/newsstore';
-import dispatcher from '../src/dispatcher/dispatcher';
 import sinon from 'sinon';
-import axios from 'axios';
-import * as NewsAction from '../src/actions/newsactions';
-import * as NewsApi from '../src/utils/newsapi';
+import {mount, render, shallow} from 'enzyme'
+import chaiEnzyme from 'chai-enzyme'
+import { EventEmitter } from 'events'
+import NewsAction from '../../src/actions/NewsActions';
+chai.use(chaiEnzyme())
+const root = new EventEmitter()
+
+
 
 
 describe('News Actions', () => {
+  jsdom()
   
 
 
@@ -34,9 +40,6 @@ describe('News Actions', () => {
    NewsAction.getHeadlines()
     expect(NewsAction.getSources).to.be.a('function');
   });
-
-  
-
 })
 
 

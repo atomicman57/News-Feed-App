@@ -5,7 +5,6 @@ import { reactLocalStorage } from 'reactjs-localstorage';
 class Login extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
     this.onSignIn = this.onSignIn.bind(this);
     this.renderGoogleLoginButton = this.renderGoogleLoginButton.bind(this);
     this.checkLogin = this.checkLogin.bind(this);
@@ -32,18 +31,16 @@ class Login extends React.Component {
     location.reload();
   }
 
-  componentWillMount() {
+  componentDidMount() {
     window.addEventListener('google-loaded', this.checkLogin);
   }
 
-  componentDidMount() {
-    this.renderGoogleLoginButton;
-  }
+
 
   renderGoogleLoginButton() {
     gapi.signin2.render('my-signin2', {
       scope: 'https://www.googleapis.com/auth/plus.login',
-      width: 400,
+      width: 300,
       height: 80,
       longtitle: true,
       theme: 'light',
@@ -56,19 +53,8 @@ class Login extends React.Component {
   }
 
   render() {
-    return (
-      <div className="container">
-        <h2 className="form-signin-heading">
-          <br /> <br /><br /><br />
-           <br/><br/><br/>
-          To Get Live News update <br />
-          From News Sources Around The World
-          <br /><br />
-        </h2>
-        <h1 id="fnews">Sign-in with Google account</h1>
-        <br /> <br /><br /><br />
-        <div id="my-signin2" />
-      </div>
+    return ( 
+        <span id="my-signin2" />   
     );
   }
 }

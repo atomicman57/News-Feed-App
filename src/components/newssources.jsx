@@ -1,50 +1,42 @@
 import React from 'react';
-import newsstore from '../stores/newsstore';
-import * as actions from '../actions/newsactions';
+import NewsStore from '../stores/NewsStore';
+import NewsActions from '../actions/NewsActions';
 
 
-class Newssources extends React.Component {
+class NewsSources extends React.Component {
   constructor() {
     super();
-    /**
-     * Setting the initial state of sources and
-     * search String is empty.
-     */
     this.state = {
       sources: [],
       searchString: '',
     };
-
     this.getSources = this.getSources.bind(this);
     this.updateSources = this.updateSources.bind(this);
     this.handleChange = this.handleChange.bind(this);
   }
 
-  componentWillMount() {
+  componentDidMount() {
     this.updateSources();
-    newsstore.on('sources', this.getSources);
+    NewsStore.on('getsources', this.getSources);
   }
 
   componentWillUnmount() {
-    newsstore.removeListener('sources', this.getSources);
+    NewsStore.removeListener('getsources', this.getSources);
   }
 
   getSources() {
     this.setState({
-      sources: newsstore.getSources(),
+      sources: NewsStore.getSources(),
     });
-    if (this.state.sources.length <= 0) {
-      this.updateSources();
-    }
   }
 
   updateSources() {
-    actions.getSources();
+    NewsActions.getSources();
   }
 
 
-  handleChange(e) {
-    this.setState({ searchString: e.target.value });
+  handleChange(event) {
+    this.setState({ searchString: event.target.value });
   }
 
   render() {
@@ -54,9 +46,9 @@ class Newssources extends React.Component {
       sources = sources.filter(info =>
         info.name.toLowerCase().match(searchString));
     }
+
     return (
       <div>
-
         <input
           type="text"
           value={this.state.searchString}
@@ -77,7 +69,7 @@ class Newssources extends React.Component {
                     <p key={index}>
                       <a
                         href={`#/headline?source=${info.id}&name=${info.name}
-                      &sortBy=${options}`}>
+                        &sortBy=${options}`}>
                         {options} news
                         </a>
                     </p>
@@ -97,5 +89,5 @@ class Newssources extends React.Component {
 }
 
 
-export default Newssources;
+export default NewsSources;
 

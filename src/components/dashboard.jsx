@@ -1,5 +1,5 @@
 import React from 'react';
-import Newssources from './newssources.jsx';
+import NewsSources from './NewsSources.jsx';
 
 class Dashboard extends React.Component {
   constructor() {
@@ -17,9 +17,11 @@ class Dashboard extends React.Component {
 
 
   checkLogin() {
+    const clienturl = 'apps.googleusercontent.com';
+    const clientid = `811047390409-jvv9pei1sjf8f0d5ojfmig2ovgnrsvgt.${clienturl}`
     gapi.load('auth2', () => {
       gapi.auth2.init({
-        client_id: '811047390409-jvv9pei1sjf8f0d5ojfmig2ovgnrsvgt.apps.googleusercontent.com',
+        client_id: clientid,
       }).then((auth2) => {
         const GoogleAuth = gapi.auth2.getAuthInstance();
         if (auth2.isSignedIn.get()) {
@@ -56,7 +58,7 @@ class Dashboard extends React.Component {
 
             <br />
           </div>
-          <Newssources />
+          <NewsSources />
 
         </div>
 

@@ -2,8 +2,8 @@ import React from 'react';
 import { expect, assert } from 'chai';
 import sinon from 'sinon';
 import axios from 'axios';
-import dispatcher from '../src/dispatcher/dispatcher';
-import * as NewsApi from '../src/utils/newsapi';
+import dispatcher from '../../src/dispatcher/dispatcher';
+import NewsApi from '../../src/utils/NewsApi';
 
 
 describe('News Api', () => {
@@ -99,7 +99,7 @@ describe('News Api', () => {
         assert.deepEqual(Articles, data);
       }
     })
-    sinon.stub.reset();
+    NewsApi.getHeadlines.restore();
   })
 
   it('getSources should return data from API', () => {
@@ -109,7 +109,7 @@ describe('News Api', () => {
         assert.deepEqual(Sources, data);
       }
     })
-    sinon.stub.reset();
+    NewsApi.getSources.restore();
   })
 
 })
