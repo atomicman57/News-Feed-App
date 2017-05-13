@@ -6,7 +6,7 @@ import { shallow } from 'enzyme';
 import { EventEmitter } from 'events';
 
 import NewsStore from './../../src/stores/NewsStore';
-import Dispatcher from './../../src/dispatcher/Dispatcher';
+import Dispatcher from './../../src/dispatcher/dispatcher';
 
 const root = new EventEmitter()
 
