@@ -6,7 +6,7 @@ import sinon from 'sinon';
 import {mount, render, shallow} from 'enzyme'
 import chaiEnzyme from 'chai-enzyme'
 import { EventEmitter } from 'events'
-import NewsAction from '../../src/actions/NewsActions';
+import NewsActions from '../../src/actions/NewsActions';
 chai.use(chaiEnzyme())
 const root = new EventEmitter()
 
