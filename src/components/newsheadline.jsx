@@ -4,7 +4,7 @@ import * as firebase from 'firebase';
 import PropTypes from 'prop-types';
 
 import NewsActions from '../actions/newsactions';
-import NewsStore from '../stores/NewsStore';
+import NewsStore from '../stores/newsstore';
 
 const app = firebase.initializeApp({
   apiKey: "AIzaSyDnINIDjs2Av5eABGZj7dM2X_gffkt7xQI",

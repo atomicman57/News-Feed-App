@@ -1,5 +1,5 @@
 import React from 'react';
-import NewsStore from '../stores/NewsStore';
+import NewsStore from '../stores/newsstore';
 import NewsActions from '../actions/newsactions';
 
 
