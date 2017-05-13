@@ -1,7 +1,7 @@
 import React from 'react';
 import { expect } from 'chai';
 import { shallow } from 'enzyme';
-import Footer from './../../src/components/Footer.js';
+import Footer from '../../src/components/Footer.js';
 
 
 describe('Footer', () => {
