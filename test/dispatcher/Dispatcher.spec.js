@@ -1,6 +1,6 @@
 import React from 'react';
 import { expect } from 'chai';
-import Dispatcher from '../../src/dispatcher/dispatcher';
+import Dispatcher from './../../src/dispatcher/dispatcher';
 
 
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import { expect } from 'chai';
 import { shallow } from 'enzyme';
-import Header from '../../src/components/Header.jsx';
+import Header from './../../src/components/Header.jsx';
 import jsdom from 'mocha-jsdom';
 
 

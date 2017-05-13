@@ -9,7 +9,7 @@ import { EventEmitter } from 'events';
 
 chai.use(chaiEnzyme())
 
-import Login from '../../src/components/Login';
+import Login from './../../src/components/Login';
 const root = new EventEmitter()
 
 describe('Login ', () => {
