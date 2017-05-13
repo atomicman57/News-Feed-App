@@ -1,5 +1,5 @@
 import React from 'react';
-import NewsSources from './NewsSources.jsx';
+import NewsSources from './newssources.jsx';
 
 class Dashboard extends React.Component {
   constructor() {

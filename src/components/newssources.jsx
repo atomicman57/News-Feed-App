@@ -1,6 +1,6 @@
 import React from 'react';
 import NewsStore from '../stores/NewsStore';
-import NewsActions from '../actions/NewsActions';
+import NewsActions from '../actions/newsactions';
 
 
 class NewsSources extends React.Component {

@@ -3,7 +3,7 @@ import queryString from 'query-string';
 import * as firebase from 'firebase';
 import PropTypes from 'prop-types';
 
-import NewsActions from '../actions/NewsActions';
+import NewsActions from '../actions/newsactions';
 import NewsStore from '../stores/NewsStore';
 
 const app = firebase.initializeApp({
