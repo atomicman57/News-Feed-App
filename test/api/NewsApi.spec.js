@@ -1,6 +1,6 @@
 import { expect, assert } from 'chai';
 import sinon from 'sinon';
-import NewsApi from './../../src/utils/NewsApi';
+import NewsApi from '../../src/utils/NewsApi';
 
 
 describe('News Api', () => {
