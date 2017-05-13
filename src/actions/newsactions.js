@@ -1,5 +1,5 @@
 import Dispatcher from '../dispatcher/dispatcher';
-import NewsApi from '../utils/NewsApi';
+import NewsApi from '../utils/newsapi';
 
 
 class NewsActions {
