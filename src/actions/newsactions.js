@@ -1,4 +1,4 @@
-import Dispatcher from '../dispatcher/Dispatcher';
+import Dispatcher from '../dispatcher/dispatcher';
 import NewsApi from '../utils/NewsApi';
 
 
