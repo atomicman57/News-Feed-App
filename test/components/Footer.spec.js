@@ -1,7 +1,7 @@
 import React from 'react';
 import { expect } from 'chai';
 import { shallow } from 'enzyme';
-import Footer from '../../src/components/Footer';
+import Footer from '../../src/components/Footer.js';
 
 
 describe('Footer', () => {
@@ -16,5 +16,3 @@ describe('Footer', () => {
     expect(wrapper.find('footer')).to.have.length(1);
   });
 });
-
-<footer id="footer" />
