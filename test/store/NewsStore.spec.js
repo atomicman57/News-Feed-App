@@ -5,22 +5,22 @@ import sinon from 'sinon';
 import { shallow } from 'enzyme';
 import { EventEmitter } from 'events';
 
-import Newsstore from '../src/stores/newsstore';
-import dispatcher from '../src/dispatcher/dispatcher';
+import NewsStore from './../../src/stores/newsstore';
+import Dispatcher from './../../src/dispatcher/dispatcher';
 
 const root = new EventEmitter()
 
 describe('News Store', () => {
   jsdom()
   const Articles = {
-    "status": "ok",
-    "source": "techcrunch",
-    "sortBy": "top",
+    status: "ok",
+    source: "techcrunch",
+    sortBy: "top",
     "articles": [
       {
         "author": "Josh Constine",
         "title": "Instagram launches mobile web sharing to pursue global growth",
-        "description": "Instagram wants to be the photo app for the whole world, even if you can't or won't download it. In pursuit of international growth where networks are slow..",
+        'description': "Instagram wants to be the photo app for the whole world, even if you can't or won't download it. In pursuit of international growth where networks are slow..",
         "url": "https://techcrunch.com/2017/05/08/instagram-mobile-web/",
         "urlToImage": "https://tctechcrunch2011.files.wordpress.com/2017/05/instagram-international.png?w=764&h=400&crop=1",
         "publishedAt": "2017-05-08T19:05:58Z"
@@ -39,30 +39,49 @@ describe('News Store', () => {
 
 
   it('should exist', () => {
-    expect(Newsstore).to.exist;
+    expect(NewsStore).to.exist;
   });
 
   it('should be an object', () => {
-    expect(Newsstore).to.be.an('object');
+    expect(NewsStore).to.be.an('object');
   });
 
 
 
   it('to return articles that is being dispatched', () => {
-    dispatcher.dispatch({
+    Dispatcher.dispatch({
       type: 'GET_ARTICLES',
-      data: Articles
+      headlines: Articles,
     });
-    expect(Newsstore.getArticles()).to.eql(Articles);
+    expect(NewsStore.getArticles()).to.eql(Articles);
 
   });
 
   it('to emit articles', () => {
-    dispatcher.dispatch({
+    Dispatcher.dispatch({
       type: 'GET_ARTICLES',
-      data: Articles
+      data: Articles,
     });
-    expect(Newsstore.emit("articles")).to.exist;
+    expect(NewsStore.emit("getarticles")).to.exist;
+
+  });
+
+
+ it('to return sources that is being dispatched', () => {
+    Dispatcher.dispatch({
+      type: 'GET_SOURCES',
+      sources: Articles,
+    });
+    expect(NewsStore.getSources()).to.eql(Articles);
+
+  });
+
+  it('to emit get sources', () => {
+    Dispatcher.dispatch({
+      type: 'GET_SOURCES',
+      data: Articles,
+    });
+    expect(NewsStore.emit("getsources")).to.exist;
 
   });
 

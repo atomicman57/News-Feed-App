@@ -1,41 +1,39 @@
-import dispatcher from '../dispatcher/dispatcher';
-import * as api from '../utils/newsapi';
+import Dispatcher from '../dispatcher/dispatcher';
+import NewsApi from '../utils/newsapi';
 
 
-/**
- * Get Sources Function
- * it calls api.getSources function
- * It receive the data from the api and put it in a callback...
- * And dispatch the data it get to the store with a message...
- * GET_SOURCES
- */
+class NewsActions {
+  constructor() {
+    this.getSources = this.getSources.bind(this);
+    this.getHeadlines = this.getHeadlines.bind(this);
+  }
 
-export function getSources() {
-  api.getSources((data) => {
-    dispatcher.dispatch({
-      type: 'GET_SOURCES',
-      data,
+  getSources() {
+    const apiCall = NewsApi.getSources();
+    apiCall.then((result) => {
+      const sources = result.data.sources;
+      Dispatcher.dispatch({
+        type: 'GET_SOURCES',
+        sources,
+      });
+    }).catch((err) => {
+      Dispatcher.dispatch({
+        type: 'GET_SOURCES',
+        err,
+      });
     });
-  });
+  };
+
+  getHeadlines(source, sort) {
+    const apiCall = NewsApi.getHeadlines(source, sort);
+    apiCall.then((result) => {
+      const headlines = result.data.articles;
+      Dispatcher.dispatch({
+        type: 'GET_ARTICLES',
+        headlines,
+      });
+    })
+  }
 }
 
-
-/**
- * Get Headlines Function
- * @param {string} The news source id e.g bbc-sport.
- * @param {string} The sort e.g top,latest.
- * it calls api.getHeadlines function
- * It receive the data from the api and put it in a callback...
- * And dispatch the data it get to the store with a message...
- * GET_ARTICLES
- */
-
-
-export function getHeadlines(source, sort) {
-  api.getHeadlines(source, sort, (data) => {
-    dispatcher.dispatch({
-      type: 'GET_ARTICLES',
-      data,
-    });
-  });
-}
+export default new NewsActions();

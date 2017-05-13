@@ -1,6 +1,6 @@
 var jsdom = require('mocha-jsdom')
 import React from 'react';
-import Home from '../src/components/home.js';
+import Home from '../../src/components/home';
 import { expect } from 'chai';
 import { shallow } from 'enzyme';
 import sinon from 'sinon';
@@ -18,12 +18,12 @@ it('should be a div item', () => {
 
     it('should have 2 div tag', () => {
         const wrapper = shallow(<Home />);
-        expect(wrapper.find('div')).to.have.length(2);
+        expect(wrapper.find('div')).to.have.length(3);
     });
 
     it('should have 2 p tag', () => {
         const wrapper = shallow(<Home />);
-        expect(wrapper.find('p')).to.have.length(2);
+        expect(wrapper.find('p')).to.have.length(3);
     });
 
      it('should have 1 img tag', () => {

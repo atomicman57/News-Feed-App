@@ -22,16 +22,24 @@ const GooglePlusIcon = generateShareIcon('google');
 const LinkedinIcon = generateShareIcon('linkedin');
 const PinterestIcon = generateShareIcon('pinterest');
 
-class Fullnews extends React.Component {
+class FullNews extends React.Component {
+  constructor(){
+    super()
+    this.back = this.back.bind(this);
+  }
+  back() {
+    window.history.back()
+  }
 
   render() {
     const urldata = queryString.parse(this.props.location.search);
     const source = urldata.source;
     return (
       <div>
-
+ 
         <h1 id="fnews">Full News </h1>
         <br />
+        <button onClick={this.back} className = "button"> <span> &laquo; Go Back </span></button>
         <h2> Share From Fast E-News On </h2>
         <br />
         <span id="share">
@@ -72,13 +80,7 @@ class Fullnews extends React.Component {
             url={source} >
             <LinkedinIcon size={52} round /> </LinkedinShareButton>
         </span>
-        <span id="share">
-          <PinterestShareButton
-            title="Shared From Fast E-News"
-            children=" " url={source} >
-            <PinterestIcon size={52} round /> </PinterestShareButton>
-        </span>
-
+        
         <br /> <br /> <br />
         <div id="scraped">
           <Iframe
@@ -98,5 +100,5 @@ class Fullnews extends React.Component {
 }
 
 
-export default Fullnews;
+export default FullNews;
 

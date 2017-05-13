@@ -13,7 +13,7 @@ class Favourites extends React.Component {
     this.viewFavourites = this.viewFavourites.bind(this);
   }
 
-  componentWillMount() {
+  componentDidMount() {
     gapi.load('auth2', () => {
       gapi.auth2.init({
         client_id: '811047390409-jvv9pei1sjf8f0d5ojfmig2ovgnrsvgt.apps.googleusercontent.com',
@@ -37,7 +37,7 @@ class Favourites extends React.Component {
     const userId = this.state.UserId;
     const list = this.state.favourites;
     if (userId != "") {
-      const dbref = firebase.database().ref('favourites');
+      const dbref = firebase.database().ref('SavedNews');
       this.markup = []
       if (list == "") {
         dbref.child(userId).once('value', (snapshot) => {
@@ -55,7 +55,7 @@ class Favourites extends React.Component {
   }
 
   componentWillUnmount() {
-    firebase.database().ref('favourites').off();
+    firebase.database().ref('SavedNews').off();
   }
 
   render() {
@@ -64,7 +64,7 @@ class Favourites extends React.Component {
 
     return (
       <div>
-        <h1 id="fnews">Favourites </h1>
+        <h1 id="fnews">Saved News </h1>
         <br />
         {favourites.map(info =>
           (<div>

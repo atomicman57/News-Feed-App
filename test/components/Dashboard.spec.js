@@ -3,7 +3,7 @@ import { expect } from 'chai';
 import { shallow } from 'enzyme';
 import sinon from 'sinon';
 import { EventEmitter } from 'events';
-import Dashboard from '../src/components/dashboard.jsx';
+import Dashboard from '../../src/components/dashboard';
 const root = new EventEmitter();
 import jsdom from 'mocha-jsdom';
 

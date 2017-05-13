@@ -3,8 +3,8 @@ import queryString from 'query-string';
 import * as firebase from 'firebase';
 import PropTypes from 'prop-types';
 
-import * as actions from '../actions/newsactions';
-import newsstore from '../stores/newsstore';
+import NewsActions from '../actions/newsactions';
+import NewsStore from '../stores/newsstore';
 
 const app = firebase.initializeApp({
   apiKey: "AIzaSyDnINIDjs2Av5eABGZj7dM2X_gffkt7xQI",
@@ -16,7 +16,7 @@ const app = firebase.initializeApp({
 });
 
 
-class Newsheadline extends React.Component {
+class NewsHeadline extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -27,15 +27,14 @@ class Newsheadline extends React.Component {
     };
     this.getHeadlines = this.getHeadlines.bind(this);
     this.addToFavourite = this.addToFavourite.bind(this);
+    this.back = this.back.bind(this);
   }
 
-  componentWillMount() {
+  componentDidMount() {
     const urldata = queryString.parse(this.props.location.search);
-    // const { source, sortBy } = urldata;
-    const source = urldata.source;
-    const sort = urldata.sortBy;
-    this.updateHeadlines(source, sort);
-    newsstore.on('articles', this.getHeadlines);
+    const { source, sortBy } = urldata;
+    this.updateHeadlines(source, sortBy);
+    NewsStore.on('getarticles', this.getHeadlines);
     gapi.load('auth2', () => {
       gapi.auth2.init({
         client_id: '811047390409-jvv9pei1sjf8f0d5ojfmig2ovgnrsvgt.apps.googleusercontent.com',
@@ -60,34 +59,33 @@ class Newsheadline extends React.Component {
 
 
   componentWillUnmount() {
-    newsstore.removeListener('articles', this.getHeadlines);
+    NewsStore.removeListener('getarticles', this.getHeadlines);
   }
 
-  getHeadlines(source, sort) {
+  getHeadlines() {
     this.setState({
-      headlines: newsstore.getArticles(),
+      headlines: NewsStore.getArticles(),
     });
-    if (this.state.headlines.length <= 0) {
-      this.updateHeadlines(source, sort);
-    }
   }
 
-
+  back() {
+    window.history.back()
+  }
   updateHeadlines(source, sort) {
-    actions.getHeadlines(source, sort);
+    NewsActions.getHeadlines(source, sort);
   }
   addToFavourite(title, description, author, url, urlToImage) {
-    let userId = this.state.Id;
-    if (userId != "") {
+    const userId = this.state.Id;
+    if (userId != '') {
 
-      firebase.database().ref('favourites').child(userId).push({
+      firebase.database().ref('SavedNews').child(userId).push({
         title,
         description,
         author,
         url,
         urlToImage,
       });
-      alert("Added to Favourites");
+      alert("News Saved");
     }
   }
   render() {
@@ -95,38 +93,43 @@ class Newsheadline extends React.Component {
     const urldata = queryString.parse(this.props.location.search);
     const sourcename = urldata.name;
     const sorted = urldata.sortBy;
-
     return (
       <div>
+        <button onClick={this.back} className="button"> <span> &laquo; Go Back </span></button>
         <h1 id="fnews">{sourcename} {sorted} Headlines </h1>
         <br />
 
         {headlines.map((info, index) =>
           (<div key={index}>
             <div className="card2" key={index}>
-              <img src={info.urlToImage} alt="News Image" style={{ width: `${100}%` }} />
+              <img
+                src={info.urlToImage}
+                alt="News Image"
+                style={{ width: `${100}%` }} />
               <div className="container" key={index}>
                 <br />
                 <h1>{info.title}</h1>
                 <p>{info.description}</p>
                 <p>Author: {info.author} </p>
-                <a href={`#/fullnews?source=${info.url}`} >View More...</a>
+                <a href={`#/fullnews?source=${info.url}`} >View In App</a>
                 <br /><br />
                 <a href={info.url} target="_blank" rel="noopener noreferrer" >
                   View From Source</a>
                 <br /><br />
-                <button onClick={() => 
-                  { this.addToFavourite(info.title, 
-                  info.description, 
-                  info.author, 
-                  info.url, 
-                  info.urlToImage) }}>
-                  Add to Favourite</button>
-
+                <button
+                  onClick={() => {
+                    this.addToFavourite(info.title,
+                      info.description,
+                      info.author,
+                      info.url,
+                      info.urlToImage);
+                  }}>
+                  Save Article</button>
                 <br />
               </div>
             </div>
-          </div>))
+          </div>
+          ))
         }
         <div className="loader" />
       </div>
@@ -134,9 +137,9 @@ class Newsheadline extends React.Component {
   }
 }
 
-Newsheadline.propTypes = {
+NewsHeadline.propTypes = {
   location: PropTypes.object,
 };
 
-export default Newsheadline;
+export default NewsHeadline;
 
