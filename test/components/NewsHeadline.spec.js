@@ -5,7 +5,7 @@ import { expect } from 'chai';
 import { shallow } from 'enzyme';
 import sinon from 'sinon';
 import { EventEmitter } from 'events';
-import NewsHeadline from './../../src/components/NewsHeadline.jsx';
+import NewsHeadline from './../../src/components/newsheadline.jsx';
 var root = new EventEmitter()
 
 describe('NewsHeadlines ', () => {
