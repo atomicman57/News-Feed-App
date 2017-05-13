@@ -5,7 +5,7 @@ import sinon from 'sinon';
 import { shallow } from 'enzyme';
 import { EventEmitter } from 'events';
 
-import NewsStore from './../../src/stores/NewsStore';
+import NewsStore from './../../src/stores/newsstore';
 import Dispatcher from './../../src/dispatcher/dispatcher';
 
 const root = new EventEmitter()
