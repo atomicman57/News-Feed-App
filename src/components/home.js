@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Login from './Login.jsx';
+import Login from './login.jsx';
 import mylogo from '../public/images/mylogo.jpg';
 
 const Home = () => {
