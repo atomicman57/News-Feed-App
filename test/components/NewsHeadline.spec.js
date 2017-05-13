@@ -5,11 +5,11 @@ import { expect } from 'chai';
 import { shallow } from 'enzyme';
 import sinon from 'sinon';
 import { EventEmitter } from 'events';
-import NewsSources from './../../src/components/NewsHeadline.jsx';
+import NewsHeadline from './../../src/components/NewsHeadline.jsx';
 var root = new EventEmitter()
 
 describe('NewsHeadlines ', () => {
-    const wrapper = shallow(<NewsSources location ={{"search": "source?"}} />);
+    const wrapper = shallow(<NewsHeadline location ={{"search": "source?"}} />);
     jsdom()
 
 

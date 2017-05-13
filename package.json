@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "nyc --reporter=html --reporter=text mocha -r mock-local-storage --compilers js:babel-register,.:mocha-image-compiler  --recursive ./test",
+    "test": "nyc --reporter=html --reporter=text mocha -r mock-local-storage --compilers js:babel-register,.:mocha-image-compiler  --recursive ./test/",
     "test:watch": "npm test -- --watch",
     "build": "webpack -p",
     "dev": "webpack-dev-server --content-base src",
