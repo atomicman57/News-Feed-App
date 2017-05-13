@@ -1,8 +1,5 @@
-import React from 'react';
 import { expect, assert } from 'chai';
 import sinon from 'sinon';
-import axios from 'axios';
-import dispatcher from '../../src/dispatcher/dispatcher';
 import NewsApi from './../../src/utils/NewsApi';
 
 
