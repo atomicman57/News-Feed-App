@@ -1,6 +1,6 @@
 var jsdom = require('mocha-jsdom')
 import React from 'react';
-import Home from '../../src/components/Home';
+import Home from '../../src/components/home';
 import { expect } from 'chai';
 import { shallow } from 'enzyme';
 import sinon from 'sinon';
