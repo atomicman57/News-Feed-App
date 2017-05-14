@@ -34,12 +34,10 @@ describe('News Actions', () => {
   });
 
   it('getSources should be a functon', () => {
-    NewsActions.getSources()
     expect(NewsActions.getSources).to.be.a('function');
   });
 
   it('getSources should be a functon', () => {
-    NewsActions.getHeadlines();
     expect(NewsActions.getSources).to.be.a('function');
   });
 })
