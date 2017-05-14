@@ -1,13 +1,15 @@
 import React from 'react'
 import axios from 'axios';
 
+import { API_KEY } from '../config/config';
+
 class NewsApi extends React.Component {
   constructor() {
     super();
     this.getSources = this.getSources.bind(this);
     this.getHeadlines = this.getHeadlines.bind(this);
     this.baseUrl = "https://newsapi.org/v1/";
-    this.apiKey = '213327409d384371851777e7c7f78dfe'
+    this.apiKey = API_KEY;
   }
 
 

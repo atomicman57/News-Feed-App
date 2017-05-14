@@ -19,6 +19,7 @@ class NewsSources extends React.Component {
     this.updateSources();
     NewsStore.on('getsources', this.getSources);
   }
+ 
 
   componentWillUnmount() {
     NewsStore.removeListener('getsources', this.getSources);

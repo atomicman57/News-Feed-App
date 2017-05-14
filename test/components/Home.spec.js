@@ -18,7 +18,7 @@ it('should be a div item', () => {
 
     it('should have 2 div tag', () => {
         const wrapper = shallow(<Home />);
-        expect(wrapper.find('div')).to.have.length(3);
+        expect(wrapper.find('div')).to.have.length(5);
     });
 
     it('should have 2 p tag', () => {

@@ -39,26 +39,46 @@ Alternatively, You may clone the repository and run the app locally to use.
 
 ## Technologies
 
-* React js
-* Node.js
-* EcmaScript 6 (JavaScript 2015)
-* Webpack
-* Flux architecture
-* Firebase
-* Google plus api
-* Babel
-* Sass/Scss
-* Mocha
-* NewsApi
+- [React](https://facebook.github.io/react/) and [ReactDOM](https://facebook.github.io/react/docs/react-dom.html): 
+These were developed by Facebook and are used for building web pages that are structured as a collection of 
+components. These components are kept as independent as possible. See [this link](https://facebook.github.io/react/).
+
+- ECMAScript 6: Also known as ES2015, this is the newest version of Javascript with 
+next-generation features like arrow functions, generators, enhanced object literals, 
+spread operators and more. Click [this link](https://en.wikipedia.org/wiki/ECMAScript) for details.
+
+- [NodeJS](https://nodejs.org): NodeJS is a server-side JavaScript runtime engine built 
+on Chrome's V8 JavaScript engine. It is lightweight, efficient and greatly used in building 
+web apps. Please visit [this link](https://nodejs.org) for more details.
+
+
+- [The Flux architecture](https://facebook.github.io/flux/): This is a design architecture for building stable 
+web apps with, among other things, a unidirectional flow of data. See [this link](https://facebook.github.io/flux/) 
+for details.
+
+- [Firebase](https://firebase.google.com/): This project makes use of various components of 
+[the Firebase suite](https://firebase.google.com/), including Firebase Database.
+
+- [Webpack](https://webpack.js.org/): A bundler for javascript and friends. Packs many modules into a few bundled assets. Code Splitting allows to load parts for the application on demand. Through "loaders," modules can be CommonJs, AMD, ES6 modules, CSS, Images, JSON, Coffeescript, LESS, ... and your custom stuff
+
+- [Babel](https://babeljs.io/): Babel is a community-driven tool that helps you write the latest version of JavaScript.
+When your supported environments don't support certain features natively, it will help you compile it down to a supported version.
+
+- [Sass/Scss](http://sass-lang.com/):Sass makes CSS fun again. Sass is an extension of CSS, adding nested rules, variables, mixins, selector inheritance, and more. It's translated to well-formatted, standard CSS using the command line tool or a web-framework plugin.
+
+- [News Api](https://newsapi.org/):News API is a simple and easy-to-use API that returns JSON metadata for the headlines currently published on a range of news sources and blogs
 
 ## Test Dependencies
-* Mocha
-* Chai
-* Enzyme
-* Jsdom
-* Mocha-Jsdom
-* Sinon
 
+- [Mocha](https://mochajs.org/): Mocha is a feature-rich JavaScript test framework running on Node.js and in the browser, making asynchronous testing simple and fun
+
+- [Chai](chaijs.com/): Chai is a BDD / TDD assertion library for [node](http://nodejs.org) and the browser that can be delightfully paired with any javascript testing framework.
+
+- [Enzyme](airbnb.io/enzyme/docs/api/): Enzyme is a JavaScript Testing utility for React that makes it easier to assert, manipulate, and traverse your React Components' out
+
+## Limitation
+* No Local News Channel
+*
 
 
 ## Contributing
@@ -69,3 +89,10 @@ Alternatively, You may clone the repository and run the app locally to use.
 * Commit your changes: git commit -m "Changes Made"
 * Push to the remote branch: git push origin new-feature
 * Open a pull request.
+
+## License
+
+This project is authored by Philips Blessing and is licensed 
+for your use, modification and distribution under [the MIT license](https://en.wikipedia.org/wiki/MIT_License). 
+
+

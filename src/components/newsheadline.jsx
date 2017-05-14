@@ -5,16 +5,9 @@ import PropTypes from 'prop-types';
 
 import NewsActions from '../actions/newsactions';
 import NewsStore from '../stores/newsstore';
+import { FIREBASE_CONFIG, CLIENT_ID } from '../config/config';
 
-const app = firebase.initializeApp({
-  apiKey: "AIzaSyDnINIDjs2Av5eABGZj7dM2X_gffkt7xQI",
-  authDomain: "newsprojectatom.firebaseapp.com",
-  databaseURL: "https://newsprojectatom.firebaseio.com",
-  projectId: "newsprojectatom",
-  storageBucket: "newsprojectatom.appspot.com",
-  messagingSenderId: "811047390409"
-});
-
+firebase.initializeApp(FIREBASE_CONFIG);
 
 class NewsHeadline extends React.Component {
   constructor(props) {
@@ -37,18 +30,9 @@ class NewsHeadline extends React.Component {
     NewsStore.on('getarticles', this.getHeadlines);
     gapi.load('auth2', () => {
       gapi.auth2.init({
-        client_id: '811047390409-jvv9pei1sjf8f0d5ojfmig2ovgnrsvgt.apps.googleusercontent.com',
+        client_id: CLIENT_ID,
       }).then((auth2) => {
         const GoogleAuth = gapi.auth2.getAuthInstance();
-        if (auth2.isSignedIn.get()) {
-          const profile = auth2.currentUser.get().getBasicProfile();
-          this.setState(
-            {
-              username: profile.getName(),
-              email: profile.getEmail(),
-              Id: profile.getId(),
-            });
-        }
         if (!GoogleAuth.isSignedIn.get()) {
           window.location.href = '/';
         }
@@ -111,6 +95,7 @@ class NewsHeadline extends React.Component {
                 <h1>{info.title}</h1>
                 <p>{info.description}</p>
                 <p>Author: {info.author} </p>
+                <p>Date: {info.publishedAt} </p>
                 <a href={`#/fullnews?source=${info.url}`} >View In App</a>
                 <br /><br />
                 <a href={info.url} target="_blank" rel="noopener noreferrer" >
@@ -125,7 +110,7 @@ class NewsHeadline extends React.Component {
                       info.urlToImage);
                   }}>
                   Save Article</button>
-                <br />
+                <br /><br /><br /><br />
               </div>
             </div>
           </div>

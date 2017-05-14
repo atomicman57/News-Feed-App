@@ -12,7 +12,6 @@ const {
   LinkedinShareButton,
   TwitterShareButton,
   TelegramShareButton,
-  PinterestShareButton,
 } = ShareButtons;
 
 const FacebookIcon = generateShareIcon('facebook');
@@ -20,7 +19,6 @@ const TwitterIcon = generateShareIcon('twitter');
 const TelegramIcon = generateShareIcon('telegram');
 const GooglePlusIcon = generateShareIcon('google');
 const LinkedinIcon = generateShareIcon('linkedin');
-const PinterestIcon = generateShareIcon('pinterest');
 
 class FullNews extends React.Component {
   constructor(){
@@ -39,7 +37,8 @@ class FullNews extends React.Component {
  
         <h1 id="fnews">Full News </h1>
         <br />
-        <button onClick={this.back} className = "button"> <span> &laquo; Go Back </span></button>
+        <button onClick={this.back} className = "button">
+        <span> &laquo; Go Back </span></button>
         <h2> Share From Fast E-News On </h2>
         <br />
         <span id="share">
@@ -79,8 +78,7 @@ class FullNews extends React.Component {
             children=" "
             url={source} >
             <LinkedinIcon size={52} round /> </LinkedinShareButton>
-        </span>
-        
+        </span>  
         <br /> <br /> <br />
         <div id="scraped">
           <Iframe

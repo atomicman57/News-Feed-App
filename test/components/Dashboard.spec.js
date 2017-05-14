@@ -1,9 +1,10 @@
 import React from 'react';
 import { expect } from 'chai';
 import { shallow } from 'enzyme';
-import sinon from 'sinon';
 import { EventEmitter } from 'events';
+
 import Dashboard from '../../src/components/dashboard';
+
 const root = new EventEmitter();
 import jsdom from 'mocha-jsdom';
 
@@ -22,17 +23,17 @@ describe('Dashboard ', () => {
         expect(wrapper.find('div')).to.have.length(3);
     });
 
-     it('should have 1 h1 tag', () => {
+    it('renders an `#maincon`', () => {
         const wrapper = shallow(<Dashboard />);
-        expect(wrapper.find('h1')).to.have.length(1);
+        expect(wrapper.find('#maincon')).to.have.length(1);
     });
 
-     it('should have 1 h3 tag', () => {
+    it('should have 1 h3 tag', () => {
         const wrapper = shallow(<Dashboard />);
         expect(wrapper.find('h3')).to.have.length(1);
     });
 
-    
+
 });
 
 

@@ -4,7 +4,7 @@ import { Route, HashRouter } from 'react-router-dom';
 import NewsHeadline from './components/NewsHeadline.jsx';
 import Header from './components/Header.jsx';
 import Footer from './components/Footer.js';
-import Login from './components/Login.jsx';
+import Login from './components/login.jsx';
 import Dashboard from './components/Dashboard.jsx';
 import Home from './components/Home.js';
 import FullNews from './components/FullNews.jsx';

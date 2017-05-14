@@ -388,10 +388,11 @@ $background_color_1: #000;
 	font-family: $font_family_1;
 	box-sizing: border-box;
 	float: left;
-	min-height: 450px;
+	height: 300px;
 	margin-right: 20px;
 	margin-bottom: 50px;
 	background-color: white;
+	overflow: auto;
 	a,button {
 		border: none;
 		outline: 0;
@@ -408,7 +409,7 @@ $background_color_1: #000;
 	}
 }
 .card2{
-	min-height: 750px;
+	height: 350px;
 }
 .container {
 	padding: 0 16px;
@@ -496,6 +497,7 @@ font-size: 30px;
 }
 #hometxt {
 	font-size: 15px;
+		margin: 0 auto;
 }
 .homeblock {
 	display: inline-block;
@@ -537,4 +539,17 @@ font-size: 30px;
 			}
 		}
 	}
+}
+
+.container {
+    position: relative;
+}
+.tag {
+    float: left;
+    position: absolute;
+    left: 130px;
+    top: 100px;
+    background-color: white;
+	padding: 50px;
+	border-radius: 20px;
 }

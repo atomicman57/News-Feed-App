@@ -1,13 +1,12 @@
 import React from 'react';
 import NewsSources from './newssources.jsx';
 
+import { CLIENT_ID } from '../config/config';
+
+
 class Dashboard extends React.Component {
   constructor() {
     super();
-    this.state = {
-      username: '',
-      email: '',
-    };
     this.checkLogin = this.checkLogin.bind(this);
   }
 
@@ -17,11 +16,9 @@ class Dashboard extends React.Component {
 
 
   checkLogin() {
-    const clienturl = 'apps.googleusercontent.com';
-    const clientid = `811047390409-jvv9pei1sjf8f0d5ojfmig2ovgnrsvgt.${clienturl}`
     gapi.load('auth2', () => {
       gapi.auth2.init({
-        client_id: clientid,
+        client_id: CLIENT_ID,
       }).then((auth2) => {
         const GoogleAuth = gapi.auth2.getAuthInstance();
         if (auth2.isSignedIn.get()) {
@@ -32,8 +29,10 @@ class Dashboard extends React.Component {
               email: profile.getEmail(),
             });
         }
-        if (!GoogleAuth.isSignedIn.get()) {
-          window.location.href = '/';
+        if (GoogleAuth.isSignedIn.get()) {
+         
+        } else {
+             window.location.href = '/';
         }
       });
     });
@@ -41,16 +40,10 @@ class Dashboard extends React.Component {
 
 
   render() {
-    // const { username, email }  = this.state;
-    const username = this.state.username;
-    const email = this.state.email;
     return (
       <div>
         <div id="maincon">
           <div id="mainstart">
-            Logged in as {email}
-            <h1> Welcome {username},</h1>
-
             <br />
 
             <br />
