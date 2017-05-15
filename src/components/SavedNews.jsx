@@ -2,20 +2,37 @@ import React from 'react';
 import * as firebase from 'firebase';
 import { config } from 'dotenv';
 
-
-
-
-class Favourites extends React.Component {
+/**
+ * Class representing Saved News.
+ * @extends React Component
+ */
+class SavedNews extends React.Component {
   constructor(props) {
     super(props);
+    /**
+     * Setting the initial state of favourites,
+     * listfavourites and UserId to empty
+     */
     this.state = {
       favourites: [],
       listfavourites: [],
       UserId: '',
     };
+
+    /**
+     * Binding the functions
+     */
     this.viewFavourites = this.viewFavourites.bind(this);
   }
 
+  /**
+   * Checks if User is Logged in
+   * If user is logged in,
+   * It get the userID and set the state of Id
+   * The Id is use to retrieve saved news from firebase
+   * for the particular user.
+   * else it redirect to home page which is login page
+   */
   componentDidMount() {
     gapi.load('auth2', () => {
       gapi.auth2.init({
@@ -36,6 +53,14 @@ class Favourites extends React.Component {
     })
   }
 
+
+  /**
+   * View Favourite Function
+   * It retrieve saved news from firebase
+   * it uses the userId to get the saved news
+   * of the current user.
+   * and it saves it in a state(favourites)
+   */
   viewFavourites() {
     const userId = this.state.UserId;
     const list = this.state.favourites;
@@ -54,10 +79,13 @@ class Favourites extends React.Component {
             });
         });
       }
-      
+
     }
   }
 
+  /**
+   * On unmounting, it stops the firebase
+   */
   componentWillUnmount() {
     firebase.database().ref('SavedNews').off();
   }
@@ -65,7 +93,6 @@ class Favourites extends React.Component {
   render() {
     this.viewFavourites();
     const favourites = this.state.favourites;
-
     return (
       <div>
         <h1 id="fnews">Saved News </h1>
@@ -81,12 +108,12 @@ class Favourites extends React.Component {
                 <p>Author: {info.author} </p>
                 <a href={`#/fullnews?source=${info.url}`} >View In App</a>
                 <br /><br />
-
                 <br />
               </div>
             </div>
           </div>
-          ))
+          )
+         )
         }
         <div className="loader" />
       </div>
@@ -95,6 +122,6 @@ class Favourites extends React.Component {
 }
 
 
-export default Favourites;
+export default SavedNews;
 
 

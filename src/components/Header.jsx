@@ -6,23 +6,43 @@ import {
 } from 'react-router-dom';
 import { reactLocalStorage } from 'reactjs-localstorage';
 
-
-
+/**
+ * Class representing Header.
+ * @extends React Component
+ */
 class Header extends React.Component {
   constructor(props) {
     super(props);
+    /**
+     * Setting the initial state of username,
+     * email and logged status of the user to empty
+     */
     this.state = {
       username: '',
       email: '',
       logged: '',
     };
+    /**
+     * Binding the functions
+     */
     this.SignOutHandler = this.SignOutHandler.bind(this);
     this.checkLogin = this.checkLogin.bind(this);
   }
 
+  /* If google api is loaded,
+    * and call check login function
+    */
   componentDidMount() {
     window.addEventListener('google-loaded', this.checkLogin);
   }
+
+  /**
+   * Sign Out Handler Function
+   * This function handles the signout when the user
+   * click signout button
+   * It signs the user out of the app,
+   * and clears all the user data on local storage
+   */
 
   SignOutHandler() {
     const auth2 = gapi.auth2.getAuthInstance();
@@ -31,6 +51,14 @@ class Header extends React.Component {
       reactLocalStorage.clear();
     });
   }
+
+  /**
+   * Checks if User is Logged in
+   * If user is logged in,
+   * It set the state of username with welcome message
+   * and set localstorage Logged to true
+   * It also set the email and logged status state
+   */
 
   checkLogin() {
     gapi.load('auth2', () => {
@@ -44,20 +72,26 @@ class Header extends React.Component {
             const profile = auth2.currentUser.get().getBasicProfile();
             this.setState(
               {
-                username:  `Welcome ${profile.getName()}`,
+                username: `Welcome ${profile.getName()}`,
                 email: profile.getEmail(),
                 logged: 'true',
               });
-          } else {
-            reactLocalStorage.clear();
           }
         });
     });
   }
+  /**
+   * It reloads the component incase it fails
+   * to get some data
+   */
   reloadme() {
     location.reload();
   }
   render() {
+    /**
+     * If the user is logged in the Nav Bar should,
+     * contain welcome message,with Navigations
+     */
     const Logged = this.state.logged;
     if (Logged === 'true') {
       this.navbar = (<div>
@@ -65,7 +99,7 @@ class Header extends React.Component {
         <li><Link to="/SavedNews">Saved News</Link></li>
         <li><a href="/" onClick={this.SignOutHandler}>Log out</a></li>
         <br /> <br />
-       {this.state.username},
+        {this.state.username},
           <br />
         {this.state.email}
       </div>);

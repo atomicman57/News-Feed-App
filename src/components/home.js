@@ -3,8 +3,12 @@ import { reactLocalStorage } from 'reactjs-localstorage';
 import Login from './login.jsx';
 import mylogo from '../public/images/mylogo.jpg';
 
+/**
+ * Home of the web app,
+ * It contains the Login button
+ * and some welcome messages
+ */
 const Home = () => {
-  reactLocalStorage.clear();
   return (
     <div>
       <br /> <br />

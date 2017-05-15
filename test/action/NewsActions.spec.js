@@ -12,13 +12,8 @@ import NewsActions from '../../src/actions/newsactions';
 chai.use(chaiEnzyme())
 const root = new EventEmitter()
 
-
-
-
 describe('News Actions', () => {
   jsdom()
-
-
 
   it('should exist', () => {
     expect(NewsActions).to.exist;
@@ -27,7 +22,6 @@ describe('News Actions', () => {
   it('getHeadlines should exist', () => {
     expect(NewsActions.getHeadlines).to.exist;
   });
-
 
   it('getHeadlines should be a functon', () => {
     expect(NewsActions.getHeadlines).to.be.a('function');

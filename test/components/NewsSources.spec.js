@@ -5,6 +5,7 @@ import { expect } from 'chai';
 import { shallow } from 'enzyme';
 import sinon from 'sinon';
 import { EventEmitter } from 'events';
+
 import NewsSources from './../../src/components/newssources.jsx';
 var root = new EventEmitter()
 
@@ -16,7 +17,6 @@ describe('NewsSources ', () => {
         const wrapper = shallow(<NewsSources />);
         expect(wrapper.find('input')).to.have.length(1);
     });
-
 
     it('should be a div item', () => {
         const wrapper = shallow(<NewsSources />);

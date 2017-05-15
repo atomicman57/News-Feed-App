@@ -1,10 +1,9 @@
-
-var jsdom = require('mocha-jsdom')
+import jsdom from 'mocha-jsdom';
 import React from 'react';
 import { expect } from 'chai';
 import { shallow } from 'enzyme';
-import sinon from 'sinon';
 import { EventEmitter } from 'events';
+
 import NewsHeadline from './../../src/components/newsheadline.jsx';
 var root = new EventEmitter()
 
@@ -12,15 +11,11 @@ describe('NewsHeadlines ', () => {
     const wrapper = shallow(<NewsHeadline location ={{"search": "source?"}} />);
     jsdom()
 
-
     it('should be a div item', () => {
-       
         expect(wrapper.type()).to.eql('div');
     });
 
-
     it('should have 2 div tag', () => {
-       
         expect(wrapper.find('div')).to.have.length(2);
     });
 
@@ -33,7 +28,6 @@ describe('NewsHeadlines ', () => {
   })
 
    it('Should have an updated Headlines state', () => {
-   
     expect(wrapper.setState({aa:"bb"}).headlines).to.have.length.not.to.equal(0);
   });
 

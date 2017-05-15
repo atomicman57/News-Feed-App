@@ -78,7 +78,7 @@ When your supported environments don't support certain features natively, it wil
 
 ## Limitation
 * No Local News Channel
-*
+* The user can not comment on the news/articles
 
 
 ## Contributing

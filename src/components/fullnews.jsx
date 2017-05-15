@@ -20,29 +20,46 @@ const TelegramIcon = generateShareIcon('telegram');
 const GooglePlusIcon = generateShareIcon('google');
 const LinkedinIcon = generateShareIcon('linkedin');
 
+/**
+ * Class representing FullNews.
+ * @extends React Component
+ */
+
 class FullNews extends React.Component {
-  constructor(){
-    super()
+  constructor() {
+    super();
     this.back = this.back.bind(this);
   }
+
+  /**
+ * Back button function
+ * Use to go back in history
+ */
+
   back() {
-    window.history.back()
+    window.history.back();
   }
 
   render() {
-    const urldata = queryString.parse(this.props.location.search);
-    const source = urldata.source;
+    /**
+     * Getting the source url and,
+     * parsing it
+     */
+    const urlData = queryString.parse(this.props.location.search);
+    const source = urlData.source;
     return (
+      /**
+       * Social Media Buttons and Iframe,
+       * to display full news in app
+       */
       <div>
- 
         <h1 id="fnews">Full News </h1>
         <br />
-        <button onClick={this.back} className = "button">
-        <span> &laquo; Go Back </span></button>
+        <button onClick={this.back} className="button">
+          <span> &laquo; Go Back </span></button>
         <h2> Share From Fast E-News On </h2>
         <br />
         <span id="share">
-
           <TwitterShareButton
             title="Shared From Fast E-News"
             children="Share on Twitter"
@@ -78,7 +95,7 @@ class FullNews extends React.Component {
             children=" "
             url={source} >
             <LinkedinIcon size={52} round /> </LinkedinShareButton>
-        </span>  
+        </span>
         <br /> <br /> <br />
         <div id="scraped">
           <Iframe
@@ -96,7 +113,6 @@ class FullNews extends React.Component {
     );
   }
 }
-
 
 export default FullNews;
 

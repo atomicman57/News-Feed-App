@@ -1,11 +1,12 @@
-var jsdom = require('mocha-jsdom')
+import jsdom from 'mocha-jsdom';
 import React from 'react';
-import Home from '../../src/components/home';
 import { expect } from 'chai';
 import { shallow } from 'enzyme';
-import sinon from 'sinon';
 import { EventEmitter } from 'events';
-  const root = new EventEmitter()
+
+import Home from '../../src/components/home';
+
+  const root = new EventEmitter();
 
 describe('Home ', () => {
  jsdom()
@@ -14,7 +15,6 @@ it('should be a div item', () => {
      const wrapper = shallow(<Home />);
     expect(wrapper.type()).to.eql('div');
   });
-
 
     it('should have 2 div tag', () => {
         const wrapper = shallow(<Home />);

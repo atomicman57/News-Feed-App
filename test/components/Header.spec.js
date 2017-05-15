@@ -4,7 +4,6 @@ import { shallow } from 'enzyme';
 import Header from '../../src/components/Header';
 import jsdom from 'mocha-jsdom';
 
-
 describe('Header ', () => {
  jsdom()
     it('should have 1 h1 tag', () => {

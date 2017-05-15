@@ -11,7 +11,6 @@ import jsdom from 'mocha-jsdom';
 describe('Dashboard ', () => {
     jsdom()
 
-
     it('should be a div item', () => {
         const wrapper = shallow(<Dashboard />);
         expect(wrapper.type()).to.eql('div');

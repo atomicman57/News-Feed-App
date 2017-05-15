@@ -1,4 +1,4 @@
-var jsdom = require('mocha-jsdom')
+import jsdom from 'mocha-jsdom';
 import React from 'react';
 import { expect } from 'chai';
 import chai from 'chai';
