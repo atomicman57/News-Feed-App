@@ -40,17 +40,21 @@ var config = {
                 test: /\.(woff2?|jpe?g|png|gif|ico)$/,
                 use: 'file-loader?name=./assets/images/[name].[ext]'
             }
-          
-        ]},
-plugins: [
-    new ExtractTextPlugin({
-        filename: "mycss/[name].css",
-        disable: false,
-        allChunks: true
-    })
-]
 
-    
+        ]
+    },
+    node: {
+        fs: 'empty',
+    },
+    plugins: [
+        new ExtractTextPlugin({
+            filename: "mycss/[name].css",
+            disable: false,
+            allChunks: true
+        })
+    ]
+
+
 };
 
 

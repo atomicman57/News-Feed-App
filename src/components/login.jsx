@@ -1,6 +1,6 @@
 import React from 'react';
 import { reactLocalStorage } from 'reactjs-localstorage';
-
+import { config } from 'dotenv';
 
 class Login extends React.Component {
   constructor(props) {
@@ -10,20 +10,36 @@ class Login extends React.Component {
     this.checkLogin = this.checkLogin.bind(this);
   }
 
-
+  /**
+   * Checks if User is Logged in
+   * If user is logged in,
+   * and set localstorage Logged to true
+   * and redirect to dashboard
+   * else it render Google Login Button
+   */
   checkLogin() {
     gapi.load('auth2', () => {
       gapi.auth2.init({
-        client_id: '811047390409-jvv9pei1sjf8f0d5ojfmig2ovgnrsvgt.apps.googleusercontent.com',
+        client_id: process.env.CLIENT_ID,
       }).then((auth2) => {
         const GoogleAuth = gapi.auth2.getAuthInstance();
         if (GoogleAuth.isSignedIn.get()) {
           reactLocalStorage.set('Logged', 'true');
           window.location.href = '#/dashboard';
-        } else { this.renderGoogleLoginButton(); }
+        } else {
+          reactLocalStorage.clear();
+          this.renderGoogleLoginButton();
+        }
       });
     });
   }
+
+  /**
+ * On Sign In
+ * @param {object} googleUser - Google User object
+ * This function handle the user login if sucessful,
+ * it redirect the user to dashboard if logged in,
+ */
 
   onSignIn(googleUser) {
     window.location.href = '#/dashboard';
@@ -31,19 +47,27 @@ class Login extends React.Component {
     location.reload();
   }
 
+  /*
+  * If google api is loaded,
+  * and call check login function
+  */
   componentDidMount() {
     window.addEventListener('google-loaded', this.checkLogin);
   }
 
-
-
+  /**
+   *  Render Google Login Button Function
+   * It renders the Google LOgin Button
+   * It also handles if the login is successful
+   * it calls a function(onSignIn)
+   */
   renderGoogleLoginButton() {
     gapi.signin2.render('my-signin2', {
       scope: 'https://www.googleapis.com/auth/plus.login',
       width: 300,
       height: 80,
       longtitle: true,
-      theme: 'light',
+      theme: 'dark',
       onsuccess: this.onSignIn,
     });
 
@@ -53,8 +77,8 @@ class Login extends React.Component {
   }
 
   render() {
-    return ( 
-        <span id="my-signin2" />   
+    return (
+      <span id="my-signin2" />
     );
   }
 }

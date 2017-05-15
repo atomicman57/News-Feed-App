@@ -5,21 +5,37 @@ import dispatcher from '../dispatcher/dispatcher';
 class NewsStore extends EventEmitter {
   constructor() {
     super();
+    /**
+     * Setting the initial state of sources,
+     * articles to empty
+     */
     this.sources = [];
     this.articles = [];
     this.getSources = this.getSources.bind(this);
     this.getArticles = this.getArticles.bind(this);
   }
 
-
+/**
+ * Get Sources Function
+  * @return {object} news sources.
+ */
   getSources() {
     return this.sources;
   }
 
+/**
+ * Get Articles Function
+  * @return {object} News Headlines.
+ */
   getArticles() {
     return this.articles;
   }
 
+ /**
+     * Resolves the message dispatch to the store from the action,
+     * and emit event based on the message type
+     * @param {object} message - The message dispatch from the action
+     */
   resolveDispatch(message) {
     switch (message.type) {
       case 'GET_SOURCES': {
