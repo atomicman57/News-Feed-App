@@ -1,7 +1,7 @@
 import React from 'react'
 import axios from 'axios';
+import { config } from 'dotenv';
 
-import { API_KEY } from '../config/config';
 
 class NewsApi extends React.Component {
   constructor() {
@@ -9,7 +9,7 @@ class NewsApi extends React.Component {
     this.getSources = this.getSources.bind(this);
     this.getHeadlines = this.getHeadlines.bind(this);
     this.baseUrl = "https://newsapi.org/v1/";
-    this.apiKey = API_KEY;
+    this.apiKey = process.env.API_KEY;
   }
 
 

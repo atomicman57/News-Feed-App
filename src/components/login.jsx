@@ -1,6 +1,6 @@
+import { config } from 'dotenv';
 import React from 'react';
 import { reactLocalStorage } from 'reactjs-localstorage';
-import { CLIENT_ID } from '../config/config';
 
 
 
@@ -16,7 +16,7 @@ class Login extends React.Component {
   checkLogin() {
     gapi.load('auth2', () => {
       gapi.auth2.init({
-        client_id: CLIENT_ID,
+        client_id: process.env.CLIENT_ID,
       }).then((auth2) => {
         const GoogleAuth = gapi.auth2.getAuthInstance();
         if (GoogleAuth.isSignedIn.get()) {

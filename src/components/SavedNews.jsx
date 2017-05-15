@@ -1,7 +1,8 @@
 import React from 'react';
 import * as firebase from 'firebase';
+import { config } from 'dotenv';
 
-import { CLIENT_ID } from '../config/config';
+
 
 
 class Favourites extends React.Component {
@@ -10,7 +11,7 @@ class Favourites extends React.Component {
     this.state = {
       favourites: [],
       listfavourites: [],
-      UserId: [],
+      UserId: '',
     };
     this.viewFavourites = this.viewFavourites.bind(this);
   }
@@ -18,7 +19,7 @@ class Favourites extends React.Component {
   componentDidMount() {
     gapi.load('auth2', () => {
       gapi.auth2.init({
-        client_id: CLIENT_ID,
+        client_id: process.env.CLIENT_ID,
       }).then((auth2) => {
         const GoogleAuth = gapi.auth2.getAuthInstance();
         if (auth2.isSignedIn.get()) {
@@ -38,14 +39,14 @@ class Favourites extends React.Component {
   viewFavourites() {
     const userId = this.state.UserId;
     const list = this.state.favourites;
-    if (userId !== '') {
+    if (userId != []) {
       const dbref = firebase.database().ref('SavedNews');
       this.favourite = [];
-      if (list === '') {
+      if (list == '') {
         dbref.child(userId).once('value', (snapshot) => {
           const favourites = snapshot.val();
           for (let prop in favourites) {
-            this.favourite.push(favourites[prop])
+            this.favourite.push(favourites[prop]);
           }
           this.setState(
             {
@@ -53,6 +54,7 @@ class Favourites extends React.Component {
             });
         });
       }
+      
     }
   }
 

@@ -42,6 +42,9 @@ var config = {
             }
           
         ]},
+         node: {
+    fs: 'empty',
+  },
 plugins: [
     new ExtractTextPlugin({
         filename: "mycss/[name].css",

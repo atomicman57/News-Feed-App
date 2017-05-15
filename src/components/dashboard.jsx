@@ -1,7 +1,9 @@
 import React from 'react';
 import NewsSources from './newssources.jsx';
 
-import { CLIENT_ID } from '../config/config';
+import { config } from 'dotenv';
+
+// import { CLIENT_ID } from '../config/config';
 
 
 class Dashboard extends React.Component {
@@ -18,7 +20,7 @@ class Dashboard extends React.Component {
   checkLogin() {
     gapi.load('auth2', () => {
       gapi.auth2.init({
-        client_id: CLIENT_ID,
+        client_id: process.env.CLIENT_ID,
       }).then((auth2) => {
         const GoogleAuth = gapi.auth2.getAuthInstance();
         if (auth2.isSignedIn.get()) {

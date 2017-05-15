@@ -2,13 +2,22 @@ import React from 'react';
 import queryString from 'query-string';
 import * as firebase from 'firebase';
 import PropTypes from 'prop-types';
-
+import { config } from 'dotenv';
 import NewsActions from '../actions/newsactions';
 import NewsStore from '../stores/newsstore';
-import { FIREBASE_CONFIG, CLIENT_ID } from '../config/config';
+
+
+const FIREBASE_CONFIG = {
+  apiKey: process.env.FIREBASE_API,
+  authDomain: process.env.AUTH_DOMAIN,
+  databaseURL: "https://newsprojectatom.firebaseio.com",
+  projectId: process.env.projectId,
+  storageBucket: process.env.storageBucket,
+  messagingSenderId: process.env.messagingSenderId,
+};
+
 
 firebase.initializeApp(FIREBASE_CONFIG);
-
 class NewsHeadline extends React.Component {
   constructor(props) {
     super(props);
@@ -30,10 +39,15 @@ class NewsHeadline extends React.Component {
     NewsStore.on('getarticles', this.getHeadlines);
     gapi.load('auth2', () => {
       gapi.auth2.init({
-        client_id: CLIENT_ID,
+        client_id: process.env.CLIENT_ID,
       }).then((auth2) => {
         const GoogleAuth = gapi.auth2.getAuthInstance();
-        if (!GoogleAuth.isSignedIn.get()) {
+        if (GoogleAuth.isSignedIn.get()) {
+           const profile = auth2.currentUser.get().getBasicProfile();
+          this.setState({
+            Id: profile.getId(),
+          })
+        } else{
           window.location.href = '/';
         }
       });
@@ -61,7 +75,6 @@ class NewsHeadline extends React.Component {
   addToFavourite(title, description, author, url, urlToImage) {
     const userId = this.state.Id;
     if (userId != '') {
-
       firebase.database().ref('SavedNews').child(userId).push({
         title,
         description,
