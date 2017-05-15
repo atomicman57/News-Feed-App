@@ -1,7 +1,7 @@
 import { expect, assert } from 'chai';
 import sinon from 'sinon';
 
-import { Articles, Sources } from './apitestdata';
+import { Articles, Sources } from './ApiTestData';
 import NewsApi from '../../src/utils/newsapi';
 
 

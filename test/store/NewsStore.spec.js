@@ -5,7 +5,7 @@ import sinon from 'sinon';
 import { shallow } from 'enzyme';
 import { EventEmitter } from 'events';
 
-import Articles from './storetestdata';
+import Articles from './StoreTestData';
 import NewsStore from './../../src/stores/newsstore';
 import Dispatcher from './../../src/dispatcher/dispatcher';
 
