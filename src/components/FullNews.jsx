@@ -60,40 +60,26 @@ class FullNews extends React.Component {
         <h2> Share From Fast E-News On </h2>
         <br />
         <span id="share">
-          <TwitterShareButton
-            title="Shared From Fast E-News"
-            children="Share on Twitter"
-            url={source}>
+          <TwitterShareButton title="Shared From Fast E-News" url={source}>
             <TwitterIcon size={52} round />
           </TwitterShareButton>
         </span>
 
         <span id="share">
-          <FacebookShareButton
-            title="Shared From Fast E-News"
-            children="Share on Facebook"
-            url={source} >
+          <FacebookShareButton title="Shared From Fast E-News" url={source} >
             <FacebookIcon size={52} round /> </FacebookShareButton>
         </span>
         <span id="share">
-          <GooglePlusShareButton
-            title="Shared From Fast E-News"
-            children="Share on Google"
-            url={source} >
+          <GooglePlusShareButton title="Shared From Fast E-News" url={source} >
             <GooglePlusIcon size={52} round /> </GooglePlusShareButton>
         </span>
 
         <span id="share">
-          <TelegramShareButton
-            title="Shared From Fast E-News"
-            children=" " url={source} >
+          <TelegramShareButton title="Shared From Fast E-News" url={source} >
             <TelegramIcon size={52} round /> </TelegramShareButton>
         </span>
         <span id="share">
-          <LinkedinShareButton
-            title="Shared From Fast E-News"
-            children=" "
-            url={source} >
+          <LinkedinShareButton title="Shared From Fast E-News" url={source} >
             <LinkedinIcon size={52} round /> </LinkedinShareButton>
         </span>
         <br /> <br /> <br />

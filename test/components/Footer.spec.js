@@ -1,7 +1,9 @@
 import React from 'react';
 import { expect } from 'chai';
 import { shallow } from 'enzyme';
-import Footer from '../../src/components/footer';
+import { describe, it } from 'mocha';
+
+import Footer from '../../src/components/Footer';
 
 
 describe('Footer', () => {
@@ -12,7 +14,6 @@ describe('Footer', () => {
   });
 
   it('should contain <footer />', () => {
-    
     expect(wrapper.find('footer')).to.have.length(1);
   });
 });

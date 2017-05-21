@@ -4,8 +4,8 @@ import * as firebase from 'firebase';
 import PropTypes from 'prop-types';
 import { config } from 'dotenv';
 
-import NewsActions from '../actions/newsactions';
-import NewsStore from '../stores/newsstore';
+import NewsActions from '../actions/NewsActions';
+import NewsStore from '../stores/NewsStore';
 
 /**
  * Firebase Configuration
@@ -13,7 +13,7 @@ import NewsStore from '../stores/newsstore';
 const FIREBASE_CONFIG = {
   apiKey: process.env.FIREBASE_API,
   authDomain: process.env.AUTH_DOMAIN,
-  databaseURL: "https://newsprojectatom.firebaseio.com",
+  databaseURL: 'https://newsprojectatom.firebaseio.com',
   projectId: process.env.projectId,
   storageBucket: process.env.storageBucket,
   messagingSenderId: process.env.messagingSenderId,
@@ -72,7 +72,7 @@ class NewsHeadline extends React.Component {
           const profile = auth2.currentUser.get().getBasicProfile();
           this.setState({
             Id: profile.getId(),
-          })
+          });
         } else {
           window.location.href = '/';
         }
@@ -104,7 +104,7 @@ class NewsHeadline extends React.Component {
  * Use to go back in history
  */
   back() {
-    window.history.back()
+    window.history.back();
   }
 
 /**
@@ -139,7 +139,7 @@ class NewsHeadline extends React.Component {
         url,
         urlToImage,
       });
-      alert("News Saved");
+      alert('News Saved');
     }
   }
   render() {

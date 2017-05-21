@@ -1,18 +1,15 @@
-
 import { EventEmitter } from 'events';
-import dispatcher from '../dispatcher/dispatcher';
+import dispatcher from '../dispatcher/Dispatcher';
 
-class NewsStore extends EventEmitter {
+class SourcesStore extends EventEmitter {
   constructor() {
     super();
     /**
      * Setting the initial state of sources,
-     * articles to empty
+     * to empty
      */
     this.sources = [];
-    this.articles = [];
     this.getSources = this.getSources.bind(this);
-    this.getArticles = this.getArticles.bind(this);
   }
 
 /**
@@ -21,14 +18,6 @@ class NewsStore extends EventEmitter {
  */
   getSources() {
     return this.sources;
-  }
-
-/**
- * Get Articles Function
-  * @return {object} News Headlines.
- */
-  getArticles() {
-    return this.articles;
   }
 
  /**
@@ -43,16 +32,10 @@ class NewsStore extends EventEmitter {
         this.emit('getsources');
         break;
       }
-      case 'GET_ARTICLES': {
-        this.articles = message.headlines;
-        this.emit('getarticles');
-        break;
-      }
     }
   }
-
 }
 
-const newsStore = new NewsStore();
-dispatcher.register(newsStore.resolveDispatch.bind(newsStore));
-export default newsStore;
+const sourcesStore = new SourcesStore();
+dispatcher.register(sourcesStore.resolveDispatch.bind(sourcesStore));
+export default sourcesStore;

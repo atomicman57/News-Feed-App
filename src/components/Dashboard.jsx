@@ -1,7 +1,7 @@
 import React from 'react';
 import { config } from 'dotenv';
 
-import NewsSources from './newssources.jsx';
+import NewsSources from './NewsSources.jsx';
 
 /**
  * Class representing Dashboard.
@@ -41,8 +41,7 @@ class Dashboard extends React.Component {
               email: profile.getEmail(),
             });
         }
-        if (GoogleAuth.isSignedIn.get()) {
-        } else {
+        if (!GoogleAuth.isSignedIn.get()) {
           window.location.href = '/';
         }
       });

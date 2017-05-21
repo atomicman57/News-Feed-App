@@ -18,4 +18,5 @@
     "localStorage": true
   },
     "parser": "babel-eslint"
+
 }

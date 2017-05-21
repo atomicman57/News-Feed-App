@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import axios from 'axios';
 import { config } from 'dotenv';
 
@@ -15,7 +15,7 @@ class NewsApi extends React.Component {
 /**
  * Base Url of the API
  */
-    this.baseUrl = "https://newsapi.org/v1/";
+    this.baseUrl = 'https://newsapi.org/v1/';
     this.apiKey = process.env.API_KEY;
   }
 
@@ -40,7 +40,7 @@ class NewsApi extends React.Component {
 
   getHeadlines(sources, sort) {
     const url = `${this.baseUrl}/articles/?source=`;
-    return axios.get(`${url}${sources}&sortBy=${sort}&apiKey=${this.apiKey}`)
+    return axios.get(`${url}${sources}&sortBy=${sort}&apiKey=${this.apiKey}`);
   }
 }
 export default new NewsApi();

@@ -23,6 +23,15 @@ class SavedNews extends React.Component {
      * Binding the functions
      */
     this.viewFavourites = this.viewFavourites.bind(this);
+    this.back = this.back.bind(this);
+  }
+
+  /**
+   * Back button function
+   * Use to go back in history
+   */
+  back() {
+    window.history.back();
   }
 
   /**
@@ -44,13 +53,13 @@ class SavedNews extends React.Component {
           this.setState(
             {
               UserId: profile.getId(),
-            })
+            });
         }
         if (!GoogleAuth.isSignedIn.get()) {
           window.location.href = '/';
         }
-      })
-    })
+      });
+    });
   }
 
 
@@ -70,7 +79,7 @@ class SavedNews extends React.Component {
       if (list == '') {
         dbref.child(userId).once('value', (snapshot) => {
           const favourites = snapshot.val();
-          for (let prop in favourites) {
+          for (const prop in favourites) {
             this.favourite.push(favourites[prop]);
           }
           this.setState(
@@ -79,7 +88,6 @@ class SavedNews extends React.Component {
             });
         });
       }
-
     }
   }
 
@@ -95,6 +103,8 @@ class SavedNews extends React.Component {
     const favourites = this.state.favourites;
     return (
       <div>
+        <button onClick={this.back} className="button">
+          <span> &laquo; Go Back </span></button>
         <h1 id="fnews">Saved News </h1>
         <br />
         {favourites.map(info =>
@@ -112,8 +122,8 @@ class SavedNews extends React.Component {
               </div>
             </div>
           </div>
-          )
-         )
+          ),
+        )
         }
         <div className="loader" />
       </div>
@@ -123,5 +133,3 @@ class SavedNews extends React.Component {
 
 
 export default SavedNews;
-
-
