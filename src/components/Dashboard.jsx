@@ -41,8 +41,7 @@ class Dashboard extends React.Component {
               email: profile.getEmail(),
             });
         }
-        if (GoogleAuth.isSignedIn.get()) {
-        } else {
+        if (!GoogleAuth.isSignedIn.get()) {
           window.location.href = '/';
         }
       });

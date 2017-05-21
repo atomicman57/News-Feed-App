@@ -73,10 +73,10 @@ class SavedNews extends React.Component {
   viewFavourites() {
     const userId = this.state.UserId;
     const list = this.state.favourites;
-    if (userId != []) {
+    if (userId !== []) {
       const dbref = firebase.database().ref('SavedNews');
       this.favourite = [];
-      if (list == '') {
+      if (list === '') {
         dbref.child(userId).once('value', (snapshot) => {
           const favourites = snapshot.val();
           for (const prop in favourites) {
@@ -110,7 +110,7 @@ class SavedNews extends React.Component {
         {favourites.map(info =>
           (<div>
             <div className="card2">
-              <img src={info.urlToImage} alt="News Image" style={{ width: `${100}%` }} />
+              <img src={info.urlToImage} alt="News Pics" style={{ width: `${100}%` }} />
               <div className="container">
                 <br />
                 <h1>{info.title}</h1>
