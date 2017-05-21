@@ -1,6 +1,6 @@
 import React from 'react';
-import NewsStore from '../stores/newsstore';
-import NewsActions from '../actions/newsactions';
+import SourcesStore from '../stores/SourcesStore';
+import SourcesActions from '../actions/SourcesAction';
 
 /**
  * Class representing News Store.
@@ -33,7 +33,7 @@ class NewsSources extends React.Component {
  */
   componentDidMount() {
     this.updateSources();
-    NewsStore.on('getsources', this.getSources);
+    SourcesStore.on('getsources', this.getSources);
   }
 
  /**
@@ -41,7 +41,7 @@ class NewsSources extends React.Component {
  * The event should be removed to avoid, memory leak
  */
   componentWillUnmount() {
-    NewsStore.removeListener('getsources', this.getSources);
+    SourcesStore.removeListener('getsources', this.getSources);
   }
 
 /**
@@ -52,7 +52,7 @@ class NewsSources extends React.Component {
 
   getSources() {
     this.setState({
-      sources: NewsStore.getSources(),
+      sources: SourcesStore.getSources(),
     });
   }
 
@@ -62,7 +62,7 @@ class NewsSources extends React.Component {
  * it calls the News Actions get Sources,
  */
   updateSources() {
-    NewsActions.getSources();
+    SourcesActions.getSources();
   }
 
 /**

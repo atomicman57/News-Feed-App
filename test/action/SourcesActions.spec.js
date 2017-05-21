@@ -5,40 +5,41 @@ import chaiEnzyme from 'chai-enzyme';
 import { describe, it } from 'mocha';
 
 import Dispatcher from './../../src/dispatcher/Dispatcher';
-import NewsActions from '../../src/actions/NewsActions';
+import SourcesActions from '../../src/actions/SourcesAction';
 
 chai.use(chaiEnzyme());
 const expect = chai.expect;
 const dispatcher = sinon.spy(Dispatcher, 'dispatch');
 
-describe('getHeadines action method using Promises', () => {
+describe('SoucesAction getSources action method using Promises', () => {
   it('should have the dispatcher called ', () => {
-    NewsActions.getHeadlines;
+    SourcesActions.getSources;
     expect(dispatcher).to.have.been.called;
   });
 
-  it('Should get the news headline event when called', () => {
-    NewsActions.getHeadlines;
+  it('Should get the news source event when called', () => {
+    SourcesActions.getSources;
     expect(dispatcher, {
-      type: 'GET_ARTICLES',
+      type: 'GET_SOURCES',
       data: 'result',
     });
   });
   dispatcher.restore();
 });
 
-describe('News Actions', () => {
+describe('Sources Actions', () => {
   jsdom();
 
   it('should exist', () => {
-    expect(NewsActions).to.exist;
+    expect(SourcesActions).to.exist;
   });
 
-  it('getHeadlines should exist', () => {
-    expect(NewsActions.getHeadlines).to.exist;
+  it('getSources should exist', () => {
+    expect(SourcesActions.getSources).to.exist;
   });
 
-  it('getHeadlines should be a functon', () => {
-    expect(NewsActions.getHeadlines).to.be.a('function');
+  it('getSources should be a functon', () => {
+    expect(SourcesActions.getSources).to.be.a('function');
   });
 });
+

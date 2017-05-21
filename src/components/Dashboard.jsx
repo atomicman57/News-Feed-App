@@ -1,7 +1,7 @@
 import React from 'react';
 import { config } from 'dotenv';
 
-import NewsSources from './newssources.jsx';
+import NewsSources from './NewsSources.jsx';
 
 /**
  * Class representing Dashboard.

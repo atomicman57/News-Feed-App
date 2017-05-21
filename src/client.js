@@ -16251,20 +16251,32 @@ var SavedNews = function (_React$Component) {
      * Binding the functions
      */
     _this.viewFavourites = _this.viewFavourites.bind(_this);
+    _this.back = _this.back.bind(_this);
     return _this;
   }
 
   /**
-   * Checks if User is Logged in
-   * If user is logged in,
-   * It get the userID and set the state of Id
-   * The Id is use to retrieve saved news from firebase
-   * for the particular user.
-   * else it redirect to home page which is login page
+   * Back button function
+   * Use to go back in history
    */
 
 
   _createClass(SavedNews, [{
+    key: 'back',
+    value: function back() {
+      window.history.back();
+    }
+
+    /**
+     * Checks if User is Logged in
+     * If user is logged in,
+     * It get the userID and set the state of Id
+     * The Id is use to retrieve saved news from firebase
+     * for the particular user.
+     * else it redirect to home page which is login page
+     */
+
+  }, {
     key: 'componentDidMount',
     value: function componentDidMount() {
       var _this2 = this;
@@ -16336,6 +16348,15 @@ var SavedNews = function (_React$Component) {
       return _react2.default.createElement(
         'div',
         null,
+        _react2.default.createElement(
+          'button',
+          { onClick: this.back, className: 'button' },
+          _react2.default.createElement(
+            'span',
+            null,
+            ' \xAB Go Back '
+          )
+        ),
         _react2.default.createElement(
           'h1',
           { id: 'fnews' },

@@ -1,26 +1,15 @@
-
 import { EventEmitter } from 'events';
-import dispatcher from '../dispatcher/dispatcher';
+import dispatcher from '../dispatcher/Dispatcher';
 
 class NewsStore extends EventEmitter {
   constructor() {
     super();
     /**
-     * Setting the initial state of sources,
+     * Setting the initial state of
      * articles to empty
      */
-    this.sources = [];
     this.articles = [];
-    this.getSources = this.getSources.bind(this);
     this.getArticles = this.getArticles.bind(this);
-  }
-
-/**
- * Get Sources Function
-  * @return {object} news sources.
- */
-  getSources() {
-    return this.sources;
   }
 
 /**
@@ -38,11 +27,6 @@ class NewsStore extends EventEmitter {
      */
   resolveDispatch(message) {
     switch (message.type) {
-      case 'GET_SOURCES': {
-        this.sources = message.sources;
-        this.emit('getsources');
-        break;
-      }
       case 'GET_ARTICLES': {
         this.articles = message.headlines;
         this.emit('getarticles');

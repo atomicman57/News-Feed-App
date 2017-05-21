@@ -2,35 +2,35 @@ import { expect } from 'chai';
 import jsdom from 'mocha-jsdom';
 import { describe, it } from 'mocha';
 
-import Articles from './StoreTestData';
-import NewsStore from './../../src/stores/NewsStore';
+import Sources from './StoreTestData';
+import SourcesStore from './../../src/stores/SourcesStore';
 import Dispatcher from './../../src/dispatcher/Dispatcher';
 
-describe('News Store', () => {
+describe('Sources Store', () => {
   jsdom();
 
   it('should exist', () => {
-    expect(NewsStore).to.exist;
+    expect(SourcesStore).to.exist;
   });
 
   it('should be an object', () => {
-    expect(NewsStore).to.be.an('object');
+    expect(SourcesStore).to.be.an('object');
   });
 
   it('to return articles that is being dispatched', () => {
     Dispatcher.dispatch({
-      type: 'GET_ARTICLES',
-      headlines: Articles,
+      type: 'GET_SOURCES',
+      sources: Sources,
     });
-    expect(NewsStore.getArticles()).to.eql(Articles);
+    expect(SourcesStore.getSources()).to.eql(Sources);
   });
 
   it('to emit articles', () => {
     Dispatcher.dispatch({
-      type: 'GET_ARTICLES',
-      data: Articles,
+      type: 'GET_SOURCES',
+      sources: Sources,
     });
-    expect(NewsStore.emit('getarticles')).to.exist;
+    expect(SourcesStore.emit('getsources')).to.exist;
   });
 });
 

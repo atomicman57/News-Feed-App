@@ -1,11 +1,9 @@
-import React from 'react';
 import { expect } from 'chai';
-import Dispatcher from './../../src/dispatcher/dispatcher';
+import { describe, it } from 'mocha';
 
-
+import Dispatcher from './../../src/dispatcher/Dispatcher';
 
 describe('Dispatcher', () => {
-
   it('should exist', () => {
     expect(Dispatcher).to.exist;
   });
@@ -13,10 +11,5 @@ describe('Dispatcher', () => {
   it('should be an object', () => {
     expect(Dispatcher).to.be.an('object');
   });
-
-
-})
-
-
-
+});
 

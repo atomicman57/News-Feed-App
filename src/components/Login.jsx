@@ -10,6 +10,26 @@ class Login extends React.Component {
     this.checkLogin = this.checkLogin.bind(this);
   }
 
+/*
+  * If google api is loaded,
+  * and call check login function
+  */
+  componentDidMount() {
+    window.addEventListener('google-loaded', this.checkLogin);
+  }
+
+  /**
+ * On Sign In
+ * @param {object} googleUser - Google User object
+ * This function handle the user login if sucessful,
+ * it redirect the user to dashboard if logged in,
+ */
+  onSignIn(googleUser) {
+    window.location.href = '#/dashboard';
+    reactLocalStorage.set('Logged', 'true');
+    location.reload();
+  }
+
   /**
    * Checks if User is Logged in
    * If user is logged in,
@@ -32,27 +52,6 @@ class Login extends React.Component {
         }
       });
     });
-  }
-
-  /**
- * On Sign In
- * @param {object} googleUser - Google User object
- * This function handle the user login if sucessful,
- * it redirect the user to dashboard if logged in,
- */
-
-  onSignIn(googleUser) {
-    window.location.href = '#/dashboard';
-    reactLocalStorage.set('Logged', 'true');
-    location.reload();
-  }
-
-  /*
-  * If google api is loaded,
-  * and call check login function
-  */
-  componentDidMount() {
-    window.addEventListener('google-loaded', this.checkLogin);
   }
 
   /**
