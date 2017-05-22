@@ -13,16 +13,18 @@ const dispatcher = sinon.spy(Dispatcher, 'dispatch');
 
 describe('SoucesAction getSources action method using Promises', () => {
   it('should have the dispatcher called ', () => {
-    SourcesActions.getSources;
+    const action = sinon.spy(SourcesActions, 'getSources');
     expect(dispatcher).to.have.been.called;
+    action.restore();
   });
 
   it('Should get the news source event when called', () => {
-    SourcesActions.getSources;
+    const action = sinon.spy(SourcesActions, 'getSources');
     expect(dispatcher, {
       type: 'GET_SOURCES',
       data: 'result',
     });
+    action.restore();
   });
   dispatcher.restore();
 });
@@ -42,4 +44,3 @@ describe('Sources Actions', () => {
     expect(SourcesActions.getSources).to.be.a('function');
   });
 });
-
