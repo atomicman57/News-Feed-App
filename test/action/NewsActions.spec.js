@@ -11,14 +11,16 @@ chai.use(chaiEnzyme());
 const expect = chai.expect;
 const dispatcher = sinon.spy(Dispatcher, 'dispatch');
 
-describe('getHeadines action method using Promises', () => {
+describe('getHeadlines action method using Promises', () => {
   it('should have the dispatcher called ', () => {
-    NewsActions.getHeadlines;
-    expect(dispatcher).to.have.been.called;
+    const action = sinon.spy(NewsActions, 'getHeadlines');
+    expect(Dispatcher).to.have.been.called;
+    action.restore();
+    dispatcher.restore();
   });
 
   it('Should get the news headline event when called', () => {
-    NewsActions.getHeadlines;
+    sinon.spy(NewsActions, 'getHeadlines');
     expect(dispatcher, {
       type: 'GET_ARTICLES',
       data: 'result',
