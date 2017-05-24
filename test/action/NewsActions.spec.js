@@ -16,6 +16,7 @@ describe('getHeadlines action method using Promises', () => {
     const action = sinon.spy(NewsActions, 'getHeadlines');
     expect(Dispatcher).to.have.been.called;
     action.restore();
+    dispatcher.restore();
   });
 
   it('Should get the news headline event when called', () => {

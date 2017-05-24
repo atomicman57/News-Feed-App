@@ -6,7 +6,7 @@ const BUILD_DIR = path.resolve(__dirname, './src');
 const APP_DIR = path.resolve(__dirname, './src');
 
 const config = {
-  entry: [APP_DIR + '/index.jsx', APP_DIR + '/public/stylesheet/mystyle.scss'],
+  entry: [`${APP_DIR}/index.jsx`, `${APP_DIR}/public/stylesheet/mystyle.scss`],
   output: {
     path: BUILD_DIR,
     filename: 'client.js',
@@ -20,19 +20,22 @@ const config = {
       },
       {
         test: /\.scss$/,
-        use: [{
-          loader: 'style-loader',  // creates style nodes from JS strings
-        }, {
-          loader: 'css-loader', // translates CSS into CommonJS
-        }, {
-          loader: 'sass-loader', // compiles Sass to CSS
-        },
-        {
-          loader: 'resolve-url-loader',
-        },
-        {
-          loader: 'sass-loader?sourceMap',
-        },
+        use: [
+          {
+            loader: 'style-loader', // creates style nodes from JS strings
+          },
+          {
+            loader: 'css-loader', // translates CSS into CommonJS
+          },
+          {
+            loader: 'sass-loader', // compiles Sass to CSS
+          },
+          {
+            loader: 'resolve-url-loader',
+          },
+          {
+            loader: 'sass-loader?sourceMap',
+          },
         ],
       },
       {
@@ -43,6 +46,9 @@ const config = {
   },
   node: {
     fs: 'empty',
+  },
+  resolve: {
+    extensions: ['.js', '.jsx'],
   },
   plugins: [
     new ExtractTextPlugin({

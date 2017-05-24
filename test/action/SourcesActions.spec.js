@@ -14,8 +14,9 @@ const dispatcher = sinon.spy(Dispatcher, 'dispatch');
 describe('SoucesAction getSources action method using Promises', () => {
   it('should have the dispatcher called ', () => {
     const action = sinon.spy(SourcesActions, 'getSources');
-    expect(dispatcher).to.have.been.called;
+    expect(Dispatcher).to.have.been.called;
     action.restore();
+    dispatcher.restore();
   });
 
   it('Should get the news source event when called', () => {
