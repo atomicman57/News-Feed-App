@@ -17,20 +17,21 @@ describe('News Store', () => {
     expect(NewsStore).to.be.an('object');
   });
 
-  it('to return articles that is being dispatched', () => {
-    Dispatcher.dispatch({
-      type: 'GET_ARTICLES',
-      headlines: Articles,
+  describe('#getArticles', () => {
+    it('to return articles that is being dispatched', () => {
+      Dispatcher.dispatch({
+        type: 'GET_ARTICLES',
+        headlines: Articles
+      });
+      expect(NewsStore.getArticles()).to.eql(Articles);
     });
-    expect(NewsStore.getArticles()).to.eql(Articles);
-  });
 
-  it('to emit articles', () => {
-    Dispatcher.dispatch({
-      type: 'GET_ARTICLES',
-      data: Articles,
+    it('to emit articles', () => {
+      Dispatcher.dispatch({
+        type: 'GET_ARTICLES',
+        data: Articles
+      });
+      expect(NewsStore.emit('getarticles')).to.exist;
     });
-    expect(NewsStore.emit('getarticles')).to.exist;
   });
 });
-

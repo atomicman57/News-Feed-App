@@ -1,22 +1,24 @@
 import React from 'react';
 import * as firebase from 'firebase';
-import { config } from 'dotenv';
 
 /**
  * Class representing Saved News.
  * @extends React Component
  */
+
 class SavedNews extends React.Component {
   constructor(props) {
     super(props);
+
     /**
      * Setting the initial state of favourites,
      * listfavourites and UserId to empty
      */
+
     this.state = {
       favourites: [],
       listfavourites: [],
-      UserId: '',
+      UserId: ''
     };
 
     /**
@@ -30,6 +32,7 @@ class SavedNews extends React.Component {
    * Back button function
    * Use to go back in history
    */
+
   back() {
     window.history.back();
   }
@@ -42,26 +45,27 @@ class SavedNews extends React.Component {
    * for the particular user.
    * else it redirect to home page which is login page
    */
+
   componentDidMount() {
     gapi.load('auth2', () => {
-      gapi.auth2.init({
-        client_id: process.env.CLIENT_ID,
-      }).then((auth2) => {
-        const GoogleAuth = gapi.auth2.getAuthInstance();
-        if (auth2.isSignedIn.get()) {
-          const profile = auth2.currentUser.get().getBasicProfile();
-          this.setState(
-            {
-              UserId: profile.getId(),
+      gapi.auth2
+        .init({
+          client_id: process.env.CLIENT_ID
+        })
+        .then((auth2) => {
+          const GoogleAuth = gapi.auth2.getAuthInstance();
+          if (auth2.isSignedIn.get()) {
+            const profile = auth2.currentUser.get().getBasicProfile();
+            this.setState({
+              UserId: profile.getId()
             });
-        }
-        if (!GoogleAuth.isSignedIn.get()) {
-          window.location.href = '/';
-        }
-      });
+          }
+          if (!GoogleAuth.isSignedIn.get()) {
+            window.location.href = '/';
+          }
+        });
     });
   }
-
 
   /**
    * View Favourite Function
@@ -70,6 +74,7 @@ class SavedNews extends React.Component {
    * of the current user.
    * and it saves it in a state(favourites)
    */
+
   viewFavourites() {
     const userId = this.state.UserId;
     const list = this.state.favourites;
@@ -82,10 +87,9 @@ class SavedNews extends React.Component {
           for (const prop in favourites) {
             this.favourite.push(favourites[prop]);
           }
-          this.setState(
-            {
-              favourites: this.favourite,
-            });
+          this.setState({
+            favourites: this.favourite
+          });
         });
       }
     }
@@ -94,6 +98,7 @@ class SavedNews extends React.Component {
   /**
    * On unmounting, it stops the firebase
    */
+
   componentWillUnmount() {
     firebase.database().ref('SavedNews').off();
   }
@@ -104,32 +109,34 @@ class SavedNews extends React.Component {
     return (
       <div>
         <button onClick={this.back} className="button">
-          <span> &laquo; Go Back </span></button>
+          <span> « Go Back </span>
+        </button>
         <h1 id="fnews">Saved News </h1>
         <br />
-        {favourites.map(info =>
-          (<div>
+        {favourites.map((info, index) => (
+          <div key={index}>
             <div className="card2">
-              <img src={info.urlToImage} alt="News Image" style={{ width: `${100}%` }} />
+              <img
+                src={info.urlToImage}
+                alt="News Image"
+                style={{ width: `${100}%` }}
+              />
               <div className="container">
                 <br />
                 <h1>{info.title}</h1>
                 <p>{info.description}</p>
                 <p>Author: {info.author} </p>
-                <a href={`#/fullnews?source=${info.url}`} >View In App</a>
+                <a href={`#/fullnews?source=${info.url}`}>View In App</a>
                 <br /><br />
                 <br />
               </div>
             </div>
           </div>
-          ),
-        )
-        }
+        ))}
         <div className="loader" />
       </div>
     );
   }
 }
-
 
 export default SavedNews;

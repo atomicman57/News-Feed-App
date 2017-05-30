@@ -1,6 +1,5 @@
 import React from 'react';
 import { reactLocalStorage } from 'reactjs-localstorage';
-import { config } from 'dotenv';
 
 class Login extends React.Component {
   constructor(props) {
@@ -24,7 +23,8 @@ class Login extends React.Component {
  * This function handle the user login if sucessful,
  * it redirect the user to dashboard if logged in,
  */
-  onSignIn(googleUser) {
+
+  onSignIn() {
     window.location.href = '#/dashboard';
     reactLocalStorage.set('Logged', 'true');
     location.reload();
@@ -37,6 +37,7 @@ class Login extends React.Component {
    * and redirect to dashboard
    * else it render Google Login Button
    */
+
   checkLogin() {
     gapi.load('auth2', () => {
       gapi.auth2.init({
@@ -56,10 +57,11 @@ class Login extends React.Component {
 
   /**
    *  Render Google Login Button Function
-   * It renders the Google LOgin Button
+   * It renders the Google Login Button
    * It also handles if the login is successful
    * it calls a function(onSignIn)
    */
+
   renderGoogleLoginButton() {
     gapi.signin2.render('my-signin2', {
       scope: 'https://www.googleapis.com/auth/plus.login',

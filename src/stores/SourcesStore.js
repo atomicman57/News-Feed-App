@@ -12,26 +12,25 @@ class SourcesStore extends EventEmitter {
     this.getSources = this.getSources.bind(this);
   }
 
-/**
- * Get Sources Function
-  * @return {object} news sources.
- */
+  /**
+   * Get Sources Function
+   * @return {object} news sources.
+   */
+
   getSources() {
     return this.sources;
   }
 
- /**
-     * Resolves the message dispatch to the store from the action,
-     * and emit event based on the message type
-     * @param {object} message - The message dispatch from the action
-     */
+  /**
+   * Resolves the message dispatch to the store from the action,
+   * and emit event based on the message type
+   * @param {object} message - The message dispatch from the action
+   */
+
   resolveDispatch(message) {
-    switch (message.type) {
-      case 'GET_SOURCES': {
-        this.sources = message.sources;
-        this.emit('getsources');
-        break;
-      }
+    if (message.type === 'GET_SOURCES') {
+      this.sources = message.sources;
+      this.emit('getsources');
     }
   }
 }

@@ -1,37 +1,39 @@
-import { config } from 'dotenv';
 import React from 'react';
-import {
-  Link,
-  HashRouter,
-} from 'react-router-dom';
+import { Link, HashRouter } from 'react-router-dom';
 import { reactLocalStorage } from 'reactjs-localstorage';
 
 /**
  * Class representing Header.
  * @extends React Component
  */
+
 class Header extends React.Component {
   constructor(props) {
     super(props);
+
     /**
      * Setting the initial state of username,
      * email and logged status of the user to empty
      */
+
     this.state = {
       username: '',
       email: '',
-      logged: '',
+      logged: ''
     };
+
     /**
      * Binding the functions
      */
-    this.SignOutHandler = this.SignOutHandler.bind(this);
+
+    this.SignOut = this.SignOut.bind(this);
     this.checkLogin = this.checkLogin.bind(this);
   }
 
   /* If google api is loaded,
     * and call check login function
     */
+
   componentDidMount() {
     window.addEventListener('google-loaded', this.checkLogin);
   }
@@ -44,7 +46,7 @@ class Header extends React.Component {
    * and clears all the user data on local storage
    */
 
-  SignOutHandler() {
+  SignOut() {
     const auth2 = gapi.auth2.getAuthInstance();
     location.reload();
     auth2.signOut().then(() => {
@@ -62,47 +64,46 @@ class Header extends React.Component {
 
   checkLogin() {
     gapi.load('auth2', () => {
-      gapi.auth2.init(
-        {
-          client_id: process.env.CLIENT_ID,
-        }).then((auth2) => {
+      gapi.auth2
+        .init({
+          client_id: process.env.CLIENT_ID
+        })
+        .then((auth2) => {
           const GoogleAuth = gapi.auth2.getAuthInstance();
           if (GoogleAuth.isSignedIn.get()) {
             reactLocalStorage.set('Logged', 'true');
             const profile = auth2.currentUser.get().getBasicProfile();
-            this.setState(
-              {
-                username: `Welcome ${profile.getName()}`,
-                email: profile.getEmail(),
-                logged: 'true',
-              });
+            this.setState({
+              username: `Welcome ${profile.getName()}`,
+              email: profile.getEmail(),
+              logged: 'true'
+            });
           }
         });
     });
   }
-  /**
-   * It reloads the component incase it fails
-   * to get some data
-   */
-  reloadme() {
-    location.reload();
-  }
+
   render() {
     /**
      * If the user is logged in the Nav Bar should,
      * contain welcome message,with Navigations
      */
+
     const Logged = this.state.logged;
     if (Logged === 'true') {
-      this.navbar = (<div>
-        <li><Link to="/dashboard" onClick={this.reloadme}>News</Link></li>
-        <li><Link to="/SavedNews">Saved News</Link></li>
-        <li><a href="/" onClick={this.SignOutHandler}>Log out</a></li>
-        <br /> <br />
-        {this.state.username},
+      this.navbar = (
+        <div>
+          <li>
+            <Link to="/dashboard">News</Link>
+          </li>
+          <li><Link to="/SavedNews">Saved News</Link></li>
+          <li><a href="/" onClick={this.SignOut}>Log out</a></li>
+          <br /> <br />
+          {this.state.username},
           <br />
-        {this.state.email}
-      </div>);
+          {this.state.email}
+        </div>
+      );
     }
     return (
       <div>
@@ -128,6 +129,4 @@ class Header extends React.Component {
   }
 }
 
-
 export default Header;
-

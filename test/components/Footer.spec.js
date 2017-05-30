@@ -3,7 +3,7 @@ import { expect } from 'chai';
 import { shallow } from 'enzyme';
 import { describe, it } from 'mocha';
 
-import Footer from '../../src/components/Footer';
+import Footer from '../../src/components/Footer.jsx';
 
 
 describe('Footer', () => {

@@ -7,6 +7,7 @@ import mylogo from '../public/images/mylogo.jpg';
  * It contains the Login button
  * and some welcome messages
  */
+
 const Home = () => (
   <div>
     <br /> <br />
