@@ -4,10 +4,10 @@ import { Route, HashRouter } from 'react-router-dom';
 
 import NewsHeadline from './components/NewsHeadline.jsx';
 import Header from './components/Header.jsx';
-import Footer from './components/Footer';
+import Footer from './components/Footer.jsx';
 import Login from './components/Login.jsx';
 import Dashboard from './components/Dashboard.jsx';
-import Home from './components/Home';
+import Home from './components/Home.jsx';
 import FullNews from './components/FullNews.jsx';
 import SavedNews from './components/SavedNews.jsx';
 
@@ -33,5 +33,5 @@ ReactDOM.render(
     </div>
     <Footer />
   </div>,
-  app,
-  );
+  app
+);

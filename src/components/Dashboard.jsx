@@ -1,5 +1,4 @@
 import React from 'react';
-import { config } from 'dotenv';
 
 import NewsSources from './NewsSources.jsx';
 
@@ -7,11 +6,13 @@ import NewsSources from './NewsSources.jsx';
  * Class representing Dashboard.
  * @extends React Component
  */
+
 class Dashboard extends React.Component {
   constructor() {
     super();
     this.checkLogin = this.checkLogin.bind(this);
   }
+
   /* If google api is loaded,
   * and call check login function
   */
@@ -29,22 +30,23 @@ class Dashboard extends React.Component {
 
   checkLogin() {
     gapi.load('auth2', () => {
-      gapi.auth2.init({
-        client_id: process.env.CLIENT_ID,
-      }).then((auth2) => {
-        const GoogleAuth = gapi.auth2.getAuthInstance();
-        if (auth2.isSignedIn.get()) {
-          const profile = auth2.currentUser.get().getBasicProfile();
-          this.setState(
-            {
+      gapi.auth2
+        .init({
+          client_id: process.env.CLIENT_ID
+        })
+        .then((auth2) => {
+          const GoogleAuth = gapi.auth2.getAuthInstance();
+          if (auth2.isSignedIn.get()) {
+            const profile = auth2.currentUser.get().getBasicProfile();
+            this.setState({
               username: profile.getName(),
-              email: profile.getEmail(),
+              email: profile.getEmail()
             });
-        }
-        if (!GoogleAuth.isSignedIn.get()) {
-          window.location.href = '/';
-        }
-      });
+          }
+          if (!GoogleAuth.isSignedIn.get()) {
+            window.location.href = '/';
+          }
+        });
     });
   }
 
@@ -66,4 +68,3 @@ class Dashboard extends React.Component {
 }
 
 export default Dashboard;
-

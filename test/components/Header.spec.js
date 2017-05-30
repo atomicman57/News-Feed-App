@@ -4,7 +4,7 @@ import { expect } from 'chai';
 import { shallow } from 'enzyme';
 import { describe, it } from 'mocha';
 
-import Header from '../../src/components/Header';
+import Header from '../../src/components/Header.jsx';
 
 describe('Header ', () => {
   jsdom();

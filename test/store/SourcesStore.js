@@ -17,20 +17,21 @@ describe('Sources Store', () => {
     expect(SourcesStore).to.be.an('object');
   });
 
-  it('to return articles that is being dispatched', () => {
-    Dispatcher.dispatch({
-      type: 'GET_SOURCES',
-      sources: Sources,
+  describe('#getSources', () => {
+    it('to return sources that is being dispatched', () => {
+      Dispatcher.dispatch({
+        type: 'GET_SOURCES',
+        sources: Sources
+      });
+      expect(SourcesStore.getSources()).to.eql(Sources);
     });
-    expect(SourcesStore.getSources()).to.eql(Sources);
-  });
 
-  it('to emit articles', () => {
-    Dispatcher.dispatch({
-      type: 'GET_SOURCES',
-      sources: Sources,
+    it('to emit sources', () => {
+      Dispatcher.dispatch({
+        type: 'GET_SOURCES',
+        sources: Sources
+      });
+      expect(SourcesStore.emit('getsources')).to.exist;
     });
-    expect(SourcesStore.emit('getsources')).to.exist;
   });
 });
-

@@ -27,15 +27,22 @@ describe('NewsSources ', () => {
   });
 
   it('Should have an updated source state', () => {
-    expect(wrapper.setState({ aa: 'bb' }).sources).to.have.length.not.to.equal(0);
+    expect(
+      wrapper.setState({
+        aa: 'bb'
+      }).sources
+    ).to.have.length.not.to.equal(0);
   });
 
   it('Should have an updated searchString state', () => {
-    expect(wrapper.setState({ aa: 'bb' }).searchString).to.have.length.not.to.equal(0);
+    expect(
+      wrapper.setState({
+        aa: 'bb'
+      }).searchString
+    ).to.have.length.not.to.equal(0);
   });
 
   it('Should have a button that handles go Back event', () => {
     expect(wrapper.find('button')).to.be.defined;
   });
 });
-

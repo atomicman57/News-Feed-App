@@ -23,15 +23,22 @@ describe('NewsHeadlines ', () => {
   });
 
   it('Should have an updated email state', () => {
-    expect(wrapper.setState({ aa: 'bb' }).email).to.have.length.not.to.equal(0);
+    expect(
+      wrapper.setState({
+        aa: 'bb'
+      }).email
+    ).to.have.length.not.to.equal(0);
   });
 
   it('Should have an updated Headlines state', () => {
-    expect(wrapper.setState({ aa: 'bb' }).headlines).to.have.length.not.to.equal(0);
+    expect(
+      wrapper.setState({
+        aa: 'bb'
+      }).headlines
+    ).to.have.length.not.to.equal(0);
   });
 
   it('Should have a button that handles go Back event', () => {
     expect(wrapper.find('button')).to.be.defined;
   });
 });
-

@@ -22,7 +22,7 @@ class NewsActions {
 
   getHeadlines(source, sort) {
     const apiCall = NewsApi.getHeadlines(source, sort);
-    apiCall.then((result) => {
+    return apiCall.then((result) => {
       const headlines = result.data.articles;
       Dispatcher.dispatch({
         type: 'GET_ARTICLES',

@@ -5,7 +5,7 @@ import { shallow } from 'enzyme';
 import chaiEnzyme from 'chai-enzyme';
 import { describe, it } from 'mocha';
 
-import Login from './../../src/components/Login';
+import Login from './../../src/components/Login.jsx';
 
 chai.use(chaiEnzyme());
 const expect = chai.expect;
